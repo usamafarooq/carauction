@@ -331,3 +331,18 @@ class MY_Controller extends CI_Controller {
     }
 
 }
+
+class Front_Controller extends CI_Controller {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('main_model');
+		$this->data['language'] = $this->get_language();
+	}
+
+	public function get_language()
+	{
+		$language = $this->main_model->all_rows('language');
+		return $language;
+	}
+}

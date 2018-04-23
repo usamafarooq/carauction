@@ -17,7 +17,7 @@
 			}
 			$this->data['title'] = 'Language';
 			if ( $this->permission['view_all'] == '1'){$this->data['language'] = $this->Language_model->all_rows('language');}
-			elseif ($this->permission['view'] == '1') {$this->data['language'] = $this->Language_modelget_rows('language',array('user_id'=>$this->id));}
+			elseif ($this->permission['view'] == '1') {$this->data['language'] = $this->Language_model->get_rows('language',array('user_id'=>$this->id));}
 			$this->data['permission'] = $this->permission;
 			$this->load->template('admin/language/index',$this->data);
 		}public function create()

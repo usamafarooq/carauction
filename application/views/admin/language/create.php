@@ -44,7 +44,7 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Icon<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Icon" type="file" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Icon" type="file" value="" id="example-text-input" placeholder=""></div>
 
                                     </div><div class="form-group row">
 
