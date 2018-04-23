@@ -50,10 +50,15 @@
                       <ul class="topbar-info">
                           <li>
                             <select class="language-tab">
-                                  <option value="eng">English</option>
+                              <?php 
+                                foreach ($language as $l) {
+                                  echo '<option value="'.$l['Short_Name'].'">'.$l['Name'].'</option>';
+                                }
+                              ?>
+                                  <!-- <option value="eng">English</option>
                                   <option value="saab">Franch</option>
                                   <option value="opel">Japanies</option>
-                                  <option value="audi">Arabic</option>
+                                  <option value="audi">Arabic</option> -->
                             </select>
                           </li>
                           <li><p><i class="fa fa-phone" aria-hidden="true"></i> +99 123 123 123</p></li>

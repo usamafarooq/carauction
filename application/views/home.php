@@ -106,17 +106,21 @@
           </div>
         </div>
         <div class="row">
+          <?php 
+            foreach ($vehicle_type as $v) {
+          ?>
           <div class="col-md-4 col-sm-6">
             <div class="post-item animated fadeInLeftShort slow delay-250 go">
               <div class="post-img">
-                  <a href="#"><img src="<?php echo base_url('front_assets/images/blog/automobiles.jpg') ?>" alt=""></a>
+                  <a href="#"><img src="<?php echo base_url($v['Image']) ?>" alt=""></a>
               </div>
               <div class="post-content">
-                  <h3 class="post-title"><a href="#">Automobile</a></h3>
+                  <h3 class="post-title"><a href="#"><?php echo $v['Name'] ?></a></h3>
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
+          <?php } ?>
+          <!-- <div class="col-md-4 col-sm-6">
             <div class="post-item animated fadeInLeftShort slow delay-500 go">
               <div class="post-img">
                   <a href="#"><img src="<?php echo base_url('front_assets/images/blog/Motorbikes.jpg') ?>" alt=""></a>
@@ -135,9 +139,9 @@
                   <h3 class="post-title"><a href="#">Truck</a></h3>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-4 col-sm-6">
             <div class="post-item animated fadeInLeftShort slow delay-250 go">
               <div class="post-img">
@@ -223,7 +227,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <!-- End Categories -->
@@ -698,4 +702,4 @@
         </div>
       </div>
     </section>
-    <!-- Discount End -->
+    <!-- Discount End
