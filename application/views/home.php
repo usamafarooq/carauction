@@ -112,10 +112,10 @@
           <div class="col-md-4 col-sm-6">
             <div class="post-item animated fadeInLeftShort slow delay-250 go">
               <div class="post-img">
-                  <a href="#"><img src="<?php echo base_url($v['Image']) ?>" alt=""></a>
+                  <a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><img src="<?php echo base_url($v['Image']) ?>" alt=""></a>
               </div>
               <div class="post-content">
-                  <h3 class="post-title"><a href="#"><?php echo $v['Name'] ?></a></h3>
+                  <h3 class="post-title"><a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><?php echo $v['Name'] ?></a></h3>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2018 at 05:43 PM
+-- Generation Time: Apr 24, 2018 at 10:08 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -43,7 +43,6 @@ CREATE TABLE `currency` (
 CREATE TABLE `inventory` (
   `id` int(11) UNSIGNED NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `Images` varchar(500) NOT NULL,
   `Make` int(100) NOT NULL,
   `Year` varchar(100) NOT NULL,
   `Model` int(11) NOT NULL,
@@ -81,6 +80,35 @@ CREATE TABLE `inventory` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`id`, `Name`, `Make`, `Year`, `Model`, `Sale_Location`, `Vehicle_Location`, `Sale_Status`, `Sale_Date`, `Item`, `Destination`, `Shipping_Price`, `Stock_ID`, `Type`, `Series`, `Odometer`, `Sale_Document`, `Sale_Document_Notes`, `Loss`, `Damage_Type`, `ACV`, `Estimated_Repair_Coast`, `VIN`, `Exterior_Color`, `Interior_Color`, `Body_Style`, `Vehicle_Class`, `Engine`, `Cylinder`, `Fuel_Type`, `Transmission`, `Driver_Type_`, `Manufactured_In`, `Key_item`, `Start_Code`, `user_id`, `created_at`) VALUES
+(1, 'HYUNDAI ELITE I20 SERIE', 1, '2012', 1, 'FL - ORLANDO', '151 WEST TAFT VINELAND ROAD', 'READY FOR SALE', '2018-04-28', 'LANE B - ITEM #3160', '', '', '16895693', '1', 'SE', '999999 NOT ACTUAL', 'CANADIAN REGISTRATION (FLORIDA)', 'CANADIAN EXPORTERS ONLY', 'COLLISION', 'LEFT SIDE; FRONT END', '15,769', '13,387', '2C4RDGBG3CR256397', 'BLACK', 'BLACK', 'VAN PASSENGER 4 DOOR', '2WD MINIVANS', '3.6L', '6 CYL', 'FLEXIBLE FUEL', 'AUTOMATIC', 'FWD', 'US', 'PRESENT', 'WON''T START', 2, '2018-04-24 12:45:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory_images`
+--
+
+CREATE TABLE `inventory_images` (
+  `id` int(11) NOT NULL,
+  `inventory_id` int(11) NOT NULL,
+  `images` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inventory_images`
+--
+
+INSERT INTO `inventory_images` (`id`, `inventory_id`, `images`) VALUES
+(4, 1, '/uploads/big-1.jpg'),
+(5, 1, '/uploads/big-2.jpg'),
+(6, 1, '/uploads/big-3.jpg'),
+(7, 1, '/uploads/big-4.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +124,14 @@ CREATE TABLE `language` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `language`
+--
+
+INSERT INTO `language` (`id`, `Name`, `Short_Name`, `Icon`, `user_id`, `created_at`) VALUES
+(1, 'English', 'end', '', 2, '2018-04-23 21:14:03'),
+(2, 'Franch', 'fra', '', 2, '2018-04-23 21:14:19');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +144,13 @@ CREATE TABLE `makes` (
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `makes`
+--
+
+INSERT INTO `makes` (`id`, `Name`, `user_id`, `created_at`) VALUES
+(1, 'DODGE', 2, '2018-04-24 12:40:00');
 
 -- --------------------------------------------------------
 
@@ -122,6 +165,13 @@ CREATE TABLE `models` (
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `models`
+--
+
+INSERT INTO `models` (`id`, `Name`, `Make`, `user_id`, `created_at`) VALUES
+(1, 'CARAVAN', 1, 2, '2018-04-24 12:40:18');
 
 -- --------------------------------------------------------
 
@@ -446,6 +496,12 @@ ALTER TABLE `inventory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `inventory_images`
+--
+ALTER TABLE `inventory_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `language`
 --
 ALTER TABLE `language`
@@ -526,22 +582,27 @@ ALTER TABLE `currency`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `inventory_images`
+--
+ALTER TABLE `inventory_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `language`
 --
 ALTER TABLE `language`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `makes`
 --
 ALTER TABLE `makes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `models`
 --
 ALTER TABLE `models`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `modules`
 --
