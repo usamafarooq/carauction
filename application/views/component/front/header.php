@@ -1,3 +1,57 @@
+<?php 
+function get_difrreance($date)
+{
+  $then = $date;
+
+  $then = new DateTime($then);
+  $now = new DateTime();
+  $sinceThen = $then->diff($now);
+  $minutes = '';
+  if ($sinceThen->y) {
+    $minutes .=  $sinceThen->y. ' Years ';
+  }
+  if ($sinceThen->m) {
+    $minutes .=  $sinceThen->m. ' months ';
+  }
+  if ($sinceThen->d) {
+    $minutes .=  $sinceThen->d. ' days ';
+  }
+  if ($sinceThen->h) {
+    $minutes .=  $sinceThen->h. ' hours ';
+  }
+  if ($sinceThen->i) {
+    $minutes .=  $sinceThen->i. ' minutes ';
+  }
+  return $minutes;
+}
+
+function get_single_difrreance($date)
+{
+  $then = $date;
+
+  $then = new DateTime($then);
+  $now = new DateTime();
+  $sinceThen = $then->diff($now);
+  $minutes = '';
+  if ($sinceThen->y) {
+    $minutes .=  $sinceThen->y. 'Y : ';
+  }
+  if ($sinceThen->m) {
+    $minutes .=  $sinceThen->m. 'M : ';
+  }
+  if ($sinceThen->d) {
+    $minutes .=  $sinceThen->d. 'D : ';
+  }
+  if ($sinceThen->h) {
+    $minutes .=  $sinceThen->h. 'H : ';
+  }
+  if ($sinceThen->i) {
+    $minutes .=  $sinceThen->i. 'M';
+  }
+  return $minutes;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +158,16 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu mega-menu">
                                             <div class="row">
-                                              <div class="col-md-3 col-sm-3">
+                                              <div class="col-md-9">
+                                                <?php 
+                                                  foreach ($vehicle_type as $v) {
+                                                ?>
+                                                <div class="col-md-3">
+                                                  <li><a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><?php echo $v['Name'] ?></a></li>
+                                                </div>
+                                                <?php } ?>
+                                              </div>
+                                              <!-- <div class="col-md-3 col-sm-3">
                                                 <li><a href="cars.html">All Vehicles</a></li>
                                                 <li><a href="#">Automobile</a></li>
                                                 <li><a href="#">Motor Cycle</a></li>
@@ -121,7 +184,7 @@
                                                 <li><a href="#">Bus</a></li>
                                                 <li><a href="#">Jet Ski</a></li>
                                                 <li><a href="#">Other Vehicles</a></li>
-                                              </div>
+                                              </div> -->
                                               <div class="col-md-3 col-sm-3">
                                                 <img src="<?php echo base_url('front_assets/images/car.png') ?>" alt="">
                                               </div>

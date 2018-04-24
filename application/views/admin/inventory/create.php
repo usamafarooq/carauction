@@ -34,18 +34,18 @@
                         <div class="panel-body"><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Name<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Name" type="text" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Name" type="text" value="" id="example-text-input" placeholder="" ></div>
 
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Images<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Images" type="file" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Images[]" type="file" value="" id="example-text-input" placeholder=""  multiple=""></div>
 
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Make<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Make" required="">
+                                            <select class="form-control" name="Make" >
                                                 <option>Select Make</option><?php foreach ($table_makes as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>"><?php echo $t["Name"] ?></option>
                                                <?php } ?></select>
@@ -54,13 +54,13 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Year<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Year" type="text" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Year" type="text" value="" id="example-text-input" placeholder="" ></div>
 
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Model<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Model" required="">
+                                            <select class="form-control" name="Model" >
                                                 <option>Select Model</option><?php foreach ($table_models as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>"><?php echo $t["Name"] ?></option>
                                                <?php } ?></select>
@@ -84,7 +84,7 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Sale Date<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Sale_Date" type="date" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Sale_Date" type="date" value="" id="example-text-input" placeholder="" ></div>
 
                                     </div><div class="form-group row">
 
@@ -109,7 +109,10 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Type</label>
-                                        <div class="col-sm-9"><input class="form-control" name="Type" type="text" value="" id="example-text-input" placeholder="" ></div>
+                                        <div class="col-sm-9"><select class="form-control" name="Type" >
+                                                <option>Select Type</option><?php foreach ($table_type as $t) {?>
+                                                    <option value="<?php echo $t["id"] ?>"><?php echo $t["Name"] ?></option>
+                                               <?php } ?></select><!-- <input class="form-control" name="Type" type="text" value="" id="example-text-input" placeholder="" > --></div>
 
                                     </div><div class="form-group row">
 

@@ -132,8 +132,12 @@
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Type</label>
                                         <div class="col-sm-9">
+                                            <select class="form-control" name="Type" required="">
+                                                <option>Select Type</option><?php foreach ($table_type as $t) {?>
+                                                    <option value="<?php echo $t["id"] ?>" <?php if($t["id"] == $inventory["Type"]) echo "selected" ?>><?php echo $t["Name"] ?></option>
+                                               <?php } ?></select>
 <?php $Type = explode(",", $inventory["Type"]) ?>
-                                        <input class="form-control" name="Type" type="text" value="<?php echo $inventory["Type"] ?>" id="example-text-input" placeholder="" ></div>
+                                        <!-- <input class="form-control" name="Type" type="text" value="<?php echo $inventory["Type"] ?>" id="example-text-input" placeholder="" > --></div>
 
                                     </div><div class="form-group row">
 
