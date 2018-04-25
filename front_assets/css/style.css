@@ -2317,11 +2317,11 @@ textarea {
 #accordion .panel-title a{
     display: block;
     padding: 17px 20px 17px 20px;
-    background: #f1f1e6;
+    background: #f9f9f9;
     font-size: 18px;
     color: #1E69B8;
     border: none;
-    border-radius: 30px;
+    border-radius: 0px;
     position: relative;
     transition: all 0.3s ease 0s;
 }
@@ -2333,7 +2333,7 @@ textarea {
     width: 55px;
     height: 55px;
     line-height: 55px;
-    border-radius: 50%;
+    border-radius: 0%;
     background: #1E69B8;
     font-size: 25px;
     color: #fff;
@@ -2434,11 +2434,12 @@ textarea {
     23. Contact CSS Start
 ----------------------------------*/
 .contact-info-area {
-    padding: 100px 0 70px;
+    padding: 0px 0 70px;
 }
 .contact-info-area .service-item {
     margin-bottom: 30px;
     background: #f5f5f5;
+    height: 158px;
 }
 .contact-area {
     padding: 0 0 50px;
@@ -2459,10 +2460,13 @@ textarea {
     width: auto;
     height: 420px;
 }
-
-
-
-
+    
+.mt-4 {
+    margin-top:  20px;
+    padding: 15px 20px;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+}
 
 
 
@@ -2961,6 +2965,7 @@ textarea {
 .forgot-link {
     float: right;
     padding-top: 8px;
+    padding-right: 12px;
 }
 
 .bg-opt-result {
@@ -3237,3 +3242,303 @@ tr:nth-child(even) {
     font-size: 30px;
     cursor: pointer;
 }
+
+.cal-tabs {
+    background: #f9f9f9;
+    height: 270px;
+}
+
+.cal-tabs h4 {
+    font-size: 16px;
+    text-align: center;
+    color: #1f69b8;
+    margin-bottom: 10%;
+    padding-bottom: 4%;
+    border-bottom: 3px solid #1f69b8;
+    box-shadow: 0px 5px 7px 0px #0000000d;
+    padding-top:  5%;
+}
+
+.cal-tabs h4 i {
+    margin-right:  6px;
+    font-size: 16px;
+}
+
+.veh-type {
+    padding: 0px 15px;
+    padding-bottom:  2%;
+}
+
+.veh-type select {border-radius: 0px;font-family: Montserrat;font-size: 14px;width: 100%;margin-bottom: 14px;}
+
+.veh-type p {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    float: left;
+    margin-left: 12px;
+    font-weight: 600;
+    font-family: montserrat;
+    color: #a10106;
+}
+
+.or-set {
+    float: left;
+    width: 40%;
+    border-top: 2px solid #a10106;
+}
+
+.or-right {
+    float: right;
+    width: 40%;
+    border-top: 2px solid #a10106;
+}
+
+.btn-num, .btn-quote {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 0px;
+    margin-bottom:  10px;
+    color: white;
+    background: #1f69b8;
+    border: 1px solid #1f69b8;
+    font-family: Montserrat;
+}
+
+.btn-num:hover, .btn-quote:hover {
+    box-shadow: 0px 5px 7px 0px #0000001c;
+    background: #1f69b8;
+    border: 1px solid #1f69b8;
+}
+
+.veh-type h5 span {
+    float: right;
+    margin-top:  -8px;
+}
+
+.veh-type h3 span {
+    float: right;
+}
+
+.veh-type h5 {
+    text-transform: capitalize;
+}
+
+.or-gran {
+    border-top: 1px solid #00000038;
+}
+
+.accordion-style-one {
+    padding-top: 0px;
+}
+
+.center-767 h3, .center-767 p {
+    color: #fff !important;
+}
+
+.faq-searchbox {
+    margin-bottom:  50px;
+    text-align: center;
+}
+
+.inner-searchbox ul li {
+    display: inline-block;
+    font-size: 18px;
+    color: #1f69b8;
+    font-weight: 300;
+    font-family: Montserrat;
+    margin-right:  12px;
+}
+
+.color-bg {
+    background: #f9f9f9;
+    padding: 15px 15px;
+}
+
+.content-faq h1 {
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: underline;
+    color: #1f69b8;
+    margin-bottom:  38px;
+    margin-top:  10px;
+}
+
+.content-faq h3 {
+    font-size: 16px;
+    text-transform: inherit;
+}
+
+.content-faq p {
+    font-size: 14px;
+    text-align: justify;
+    text-align-last: left;
+}
+
+.content-faq p a {
+    text-decoration: underline;
+    color: #1f69b8;
+}
+
+.sidebar-faq h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1f69b8;
+    margin-bottom: 38px;
+    margin-top: 10px;
+}
+
+.sidebar-faq p {
+    font-size: 14px;
+    margin-bottom: 6px;
+    text-align: justify;
+    line-height: 20px;
+}
+
+.sidebar-faq p:hover {
+    text-decoration: underline;
+}   
+
+.faq-sidebar {
+    margin-top:  10px;
+    margin-bottom:  10px;
+}
+
+.google-con {
+    background: #d34836;
+    border: none;
+    /* width: 100%; */
+    text-align: center;
+    color: #fff;
+    padding: 14px 90px;
+    border-radius: 0px;
+    margin-top: 5px;
+}
+
+.faebook-con {
+    background: #4267b2;
+    border: none;
+    /* width: 100%; */
+    text-align: center;
+    color: #fff;
+    padding: 14px 82px;
+    border-radius: 0px;
+}
+
+.name-in {
+    margin-bottom:  10px;
+}
+
+.act-tabone h3{
+    font-size: 16px;
+    text-align: center;
+    color: #1f69b8;
+    margin-bottom: 10%;
+    padding-top: 2%;
+} 
+
+.form-check span {
+    margin-left:  10px;
+    font-size: 12px;
+}
+
+.contact-cus {
+    background: #1f69b8;
+    border: none;
+    /* width: 100%; */
+    text-align: center;
+    color: #fff;
+    padding: 14px 58px;
+    border-radius: 0px;
+    margin-top: 5px;
+}
+
+.live-cus{
+    background: #1f69b8;
+    border: none;
+    /* width: 100%; */
+    text-align: center;
+    color: #fff;
+    padding: 14px 90px;
+    border-radius: 0px;
+    margin-top: 5px;
+}
+
+.login-set {
+    margin-bottom:  50px;
+    margin-left:  12px;
+}
+
+.form-group {
+    padding: 0px 10px;
+}
+
+.form-check-label {
+    margin-left:  12px;
+}
+
+.content-faq ol li {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.content-faq ol li p {
+    margin-top:  10px;
+    margin-bottom: 20px;
+        text-align: justify;
+}
+
+.act-select {
+    padding: 0px 9px;
+}
+
+.act-select select {border: 1px solid #cccccc;border-radius: 0px; height: 45px;font-family: Montserrat;font-size: 14px;width: 100%;margin-bottom: 10px;
+    background: #fff;}
+
+.act-select p {
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    float: left;
+    margin-left: 12px;
+    font-weight: 600;
+    font-family: montserrat;
+    color: #a10106;
+}
+
+.act-tabone h4 {
+    font-size: 14px;
+    text-transform: inherit;
+    text-align: center;
+    color: #607D8B;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+.upload-btn {
+    border-radius: 0px;
+    padding: 12px 30px;
+    border: 1px solid #1f69b8;
+    text-align: center;
+    background: #1f69b8;
+    color: #fff;
+}
+
+.upload-btn:hover {
+    border: 1px solid #1f69b8;
+    color: #1f69b8;
+    background: transparent;
+}
+
+.act-tabone h6 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 11px;
+    color: #cacaca;
+    line-height: 1.5;
+}
+
+.progress{border-radius: 0px; background-color: #f9f9f9;}
+
+.progress-bar{background-color: #1f69b8;}
