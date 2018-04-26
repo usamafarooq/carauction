@@ -45,7 +45,7 @@
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Make<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Make" >
+                                            <select class="form-control make_id" name="Make" >
                                                 <option>Select Make</option><?php foreach ($table_makes as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>"><?php echo $t["Name"] ?></option>
                                                <?php } ?></select>
@@ -241,3 +241,33 @@
 </div>
 <!-- /#wrapper -->
 <!-- START CORE PLUGINS -->
+<script>
+    jQuery(document).ready(function($) {
+        $('.make_id').on('change', function() {
+            var make_id = $(this).val();
+
+            get_model(make_id);
+        });
+
+        function get_model(maek_id) 
+        {
+            var base_url = $('#base_url').val();
+            $.ajax({
+                url: base_url+'models/get_by_make_id',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {make_id: make_id},
+            })
+            .done(function(response) {
+                
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+            
+        }
+    });
+</script>
