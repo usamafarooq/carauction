@@ -60,9 +60,20 @@
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Model<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Model" >
+                                            <select class="form-control" id="model_dropdown" name="Model" >
                                                 <option>Select Model</option><?php foreach ($table_models as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>"><?php echo $t["Name"] ?></option>
+                                               <?php } ?></select>
+                                        </div>
+
+
+                                    </div><div class="form-group row">
+
+                                <label for="example-text-input" class="col-sm-3 col-form-label">Auction<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="model_dropdown" name="Model" >
+                                                <option>Select Auction</option><?php foreach ($table_auction as $t) {?>
+                                                    <option value="<?php echo $t["id"] ?>"><?php echo $t["Auction"] ?></option>
                                                <?php } ?></select>
                                         </div>
 
@@ -249,17 +260,23 @@
             get_model(make_id);
         });
 
-        function get_model(maek_id) 
+        function get_model(make_id) 
         {
             var base_url = $('#base_url').val();
             $.ajax({
-                url: base_url+'models/get_by_make_id',
+                url: base_url+'admin/models/get_by_make_id',
                 type: 'POST',
                 dataType: 'JSON',
                 data: {make_id: make_id},
             })
             .done(function(response) {
-                
+                var res = response.data;
+                var row = '<option value="">Select Model</option>';
+                $.each(res, function(index, el) {
+                    row += createRow(el);
+                });
+
+                $('#model_dropdown').html(row);
             })
             .fail(function() {
                 console.log("error");
@@ -268,6 +285,12 @@
                 console.log("complete");
             });
             
+        }
+
+
+        var createRow = function ( obj ) {
+            var row =  '<option value="'+obj.id+'">'+obj.Name+'</option>';
+            return row;
         }
     });
 </script>

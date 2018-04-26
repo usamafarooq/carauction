@@ -13,7 +13,8 @@
 					{
 						$this->db->select()
 						->from('models')
-						->
+						->where('Make', $make_id);
+						return $this->db->get()->result();
 					}
 
 				}

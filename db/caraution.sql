@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100128
 File Encoding         : 65001
 
-Date: 2018-04-27 01:56:45
+Date: 2018-04-27 03:14:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -102,7 +102,7 @@ CREATE TABLE `inventory` (
 -- ----------------------------
 -- Records of inventory
 -- ----------------------------
-INSERT INTO `inventory` VALUES ('1', 'HYUNDAI ELITE I20 SERIE', '1', '2012', '1', null, 'FL - ORLANDO', '151 WEST TAFT VINELAND ROAD', 'READY FOR SALE', '2018-04-28', 'LANE B - ITEM #3160', '', '', '16895693', '1', 'SE', '999999 NOT ACTUAL', 'CANADIAN REGISTRATION (FLORIDA)', 'CANADIAN EXPORTERS ONLY', 'COLLISION', 'LEFT SIDE; FRONT END', '15,769', '13,387', '2C4RDGBG3CR256397', 'BLACK', 'BLACK', 'VAN PASSENGER 4 DOOR', '2WD MINIVANS', '3.6L', '6 CYL', 'FLEXIBLE FUEL', 'AUTOMATIC', 'FWD', 'US', 'PRESENT', 'WON\'T START', '2', '2018-04-24 17:45:37');
+INSERT INTO `inventory` VALUES ('1', 'HYUNDAI ELITE I20 SERIE', '1', '2012', '1', '1', 'FL - ORLANDO', '151 WEST TAFT VINELAND ROAD', 'READY FOR SALE', '2018-04-28', 'LANE B - ITEM #3160', '', '', '16895693', '1', 'SE', '999999 NOT ACTUAL', 'CANADIAN REGISTRATION (FLORIDA)', 'CANADIAN EXPORTERS ONLY', 'COLLISION', 'LEFT SIDE; FRONT END', '15,769', '13,387', '2C4RDGBG3CR256397', 'BLACK', 'BLACK', 'VAN PASSENGER 4 DOOR', '2WD MINIVANS', '3.6L', '6 CYL', 'FLEXIBLE FUEL', 'AUTOMATIC', 'FWD', 'US', 'PRESENT', 'WON\'T START', '2', '2018-04-27 02:22:22');
 
 -- ----------------------------
 -- Table structure for inventory_images
@@ -113,7 +113,7 @@ CREATE TABLE `inventory_images` (
   `inventory_id` int(11) NOT NULL,
   `images` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of inventory_images
@@ -121,7 +121,6 @@ CREATE TABLE `inventory_images` (
 INSERT INTO `inventory_images` VALUES ('4', '1', '/uploads/big-1.jpg');
 INSERT INTO `inventory_images` VALUES ('5', '1', '/uploads/big-2.jpg');
 INSERT INTO `inventory_images` VALUES ('6', '1', '/uploads/big-3.jpg');
-INSERT INTO `inventory_images` VALUES ('7', '1', '/uploads/big-4.jpg');
 
 -- ----------------------------
 -- Table structure for language

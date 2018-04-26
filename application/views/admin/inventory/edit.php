@@ -39,17 +39,18 @@
                                         <input class="form-control" name="Name" type="text" value="<?php echo $inventory["Name"] ?>" id="example-text-input" placeholder="" required=""></div>
 
                                     </div><div class="form-group row">
-
+                                
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Images<span class="required">*</span></label>
                                         <div class="col-sm-9">
-<?php $Images = explode(",", $inventory["Images"]) ?>
-                                        <input class="form-control" name="Images" type="file" value="" id="example-text-input" placeholder=""></div>
+<!-- <?php //$Images = explode(",", $inventory["Images"]) ?> -->
+                                        
+                                        <div class="col-sm-9"><input class="form-control" name="Images[]" type="file" value="" id="example-text-input" placeholder=""  multiple=""></div>
 
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Make<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Make" required="">
+                                            <select class="form-control make_id" name="Make" required="">
                                                 <option>Select Make</option><?php foreach ($table_makes as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>" <?php if($t["id"] == $inventory["Make"]) echo "selected" ?>><?php echo $t["Name"] ?></option>
                                                <?php } ?></select>
@@ -66,9 +67,19 @@
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Model<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="Model" required="">
+                                            <select class="form-control" id="model_dropdown" name="Model" required="">
                                                 <option>Select Model</option><?php foreach ($table_models as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>" <?php if($t["id"] == $inventory["Model"]) echo "selected" ?>><?php echo $t["Name"] ?></option>
+                                               <?php } ?></select>
+                                        </div>
+
+                                    </div><div class="form-group row">
+
+                                <label for="example-text-input" class="col-sm-3 col-form-label">Auction<span class="required">*</span></label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="model_dropdown" name="Model" >
+                                                <option>Select Auction</option><?php foreach ($table_auction as $t) {?>
+                                                    <option value="<?php echo $t["id"] ?>" <?php if($t["id"] == $inventory["Auction"]) echo "selected" ?>><?php echo $t["Auction"] ?></option>
                                                <?php } ?></select>
                                         </div>
 
@@ -293,6 +304,29 @@
                                 </div>
                             </div>
 
+                            <?php if ($images != NULL): ?>
+                            <table class="table table-condensed">
+                               <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <?php $index = 1 ;foreach ($images as $image): ?>
+                                        <tr>
+                                            <td><?php echo $index++ ?></td>
+                                            <td><img src="<?php echo base_url().$image['images'] ?>" alt="Image"  width="100px"></td>
+                                            <td><a class="btn btn-danger btn-sm img_delete" data-id="<?php echo $image['id'] ?>">Delete</a></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        <?php endif ?>
+
+
                         </div>
                     </div>
                 </div>
@@ -308,3 +342,64 @@
 </div>
 <!-- /#wrapper -->
 <!-- START CORE PLUGINS -->
+<script>
+    jQuery(document).ready(function($) {
+        var base_url = $('#base_url').val();
+        $('.make_id').on('change', function() {
+            var make_id = $(this).val();
+
+            get_model(make_id);
+        });
+
+        function get_model(make_id) 
+        {
+            
+            $.ajax({
+                url: base_url+'admin/models/get_by_make_id',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {make_id: make_id},
+            })
+            .done(function(response) {
+                var res = response.data;
+                var row = '<option value="">Select Model</option>';
+                $.each(res, function(index, el) {
+                    row += createRow(el);
+                });
+
+                $('#model_dropdown').html(row);
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+            
+        }
+
+
+        var createRow = function ( obj ) {
+            var row =  '<option value="'+obj.id+'">'+obj.Name+'</option>';
+            return row;
+        }
+
+        $('.img_delete').on('click', function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            var id = $(this).data('id');
+            $(this).closest('tr').fadeOut('slow');
+            delete_image(id);
+        });
+
+       function delete_image(image_id) {
+           $.ajax({
+               url: base_url+'admin/inventory/delete_image',
+               type: 'POST',
+               dataType: 'JSON',
+               data: {image_id: image_id},
+           });
+           
+       }
+    });
+</script>
