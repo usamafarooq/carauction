@@ -1,17 +1,18 @@
 <!-- Client Start -->
+    <?php if (!$this->session->userdata('user_id')) { ?>
     <section class="client-area">
       <div class="container">
           <div class="row">
               <div class="col-md-12">
                   <div class="call-action">
                     <h1>Registration is free and takes only seconds </br> Sign up today and start bidding</h1>
-                    <button class="btn btn-default btn-register-footer">Register</button>
+                    <a href="<?php echo base_url('register') ?>"><button class="btn btn-default btn-register-footer">Register</button></a>
                   </div>
               </div>
           </div>
       </div>
     </section>
-
+    <?php } ?>
     <!-- Footer Style Background ten Start -->
     <footer class="main-footer over-layer-black bg-footer-1">
       <div class="container">

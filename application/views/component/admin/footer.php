@@ -26,12 +26,22 @@
         <script src="<?php echo base_url() ?>admin_assets/assets/plugins/amcharts/pie.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/plugins/amcharts/amstock.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
-
+<script src="https://cdn.ckeditor.com/4.5.1/standard/ckeditor.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/dist/js/app.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script>
 
 
+<script type="text/javascript">
+    
+    CKEDITOR.editorConfig = function (config) {
+    config.language = 'es';
+    config.uiColor = '#F7B42C';
+    config.height = 300;
+    config.toolbarCanCollapse = true;
 
+};
+CKEDITOR.replace('editor1');
+</script>
     </body>
 
 

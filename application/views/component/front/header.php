@@ -123,8 +123,12 @@ function get_single_difrreance($date)
                     <div class="topbar-right-content clearfix">
                         <div class="topbar-login">
                           <ul>
-                            <li><button class="btn btn-default btn-login">Login</button></li>
-                            <li><button class="btn btn-default btn-register">Register</button></li>
+                            <?php if (!$this->session->userdata('user_id')) { ?>
+                            <li><a href="<?php echo base_url('login') ?>"><button class="btn btn-default btn-login">Login</button></a></li>
+                            <li><a href="<?php echo base_url('register') ?>"><button class="btn btn-default btn-register">Register</button></a></li>
+                            <?php } else{ ?>
+                            <li><a href="<?php echo base_url('home/logout') ?>"><button class="btn btn-default btn-login">Logout</button></a></li>
+                            <?php } ?>
                           </ul>
                         </div>
                     </div> 
@@ -194,15 +198,15 @@ function get_single_difrreance($date)
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auctions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Live Aucitons</a></li>
-                                            <li><a href="#">Locations</a></li>
-                                            <li><a href="#">Sales Calendar</a></li>
+                                            <li><a href="<?php echo base_url('live_auctions') ?>">Live Aucitons</a></li>
+                                            <li><a href="<?php echo base_url('locations') ?>">Locations</a></li>
+                                            <li><a href="<?php echo base_url('sales_calender') ?>">Sales Calendar</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Car Shipping</a></li>
+                                            <li><a href="<?php echo base_url('car_shipping') ?>">Car Shipping</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -215,7 +219,9 @@ function get_single_difrreance($date)
                                             <li><a href="#">Have Us To Call You</a></li>
                                             <li><a href="#">About Us</a></li>
                                             <li><a href="#">Member Reviews</a></li>
-                                            <li><a href="#">Registration</a></li>
+                                            <?php if (!$this->session->userdata('user_id')) { ?>
+                                            <li><a href="<?php echo base_url('register') ?>">Registration</a></li>
+                                            <?php } ?>
                                         </ul>
                                     </li> 
                                     <!--<li><a href="contact.html">Contact</a>
@@ -237,3 +243,121 @@ function get_single_difrreance($date)
             </div>
         </div>
     </header>
+
+    <?php if(isset($home)){ ?>
+    <!-- Banner start -->
+    <section class="banner-area parallax overlay-black">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="banner-box">
+              <h2>Search, Bid, Win! </br> The#1 Online Insurance </br> Auto Auction Site in North America </h2>
+              <h3 class="typewrite" data-period="2000" data-type='[ "165 Locations nationwide with more than 300,000+ Salvage and Clean Title Vehicles in stock featuring over 150 Weekly Open to the Public Live Auctions that have something for everyone.", "We have latest models", "Get your new car today" ]'> 
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <?php } else{ ?>
+
+    <!-- Page Title bar -->
+    <section class="defult-page-title overlay-black">
+      <div class="angle-overlay"></div>
+      <div class="container clearfix">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="page-title-box center991">
+                      <h2>Salvage, Repairable and Clean Title Vehicles for Sale</h2>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <div class="page-title-box center991 clearfix">
+                  <img src="<?php echo base_url('front_assets/images/car.png') ?>" alt="">
+                </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <?php } ?>
+
+    <!-- welcome start -->
+    <section class="car-search-bar mt0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <div class="search-col">
+              <select>
+                <option value="0" selected>Any Brand</option>
+                <option value="1">Audi</option>
+                <option value="2">BMW</option>
+                <option value="3">Mercedes-Benz</option>
+                <option value="4">Opel</option>
+                <option value="5">Porsche</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="search-col">
+              <select>
+                <option value="0" selected>Any Type</option>
+                <option value="1">F01 ActiveHybrid 7</option>
+                <option value="2">Mercedes-Benz SLC-Class</option>
+                <option value="3">BMW badge on a 1931 Dixi</option>
+                <option value="4">Porsche 911</option>
+                <option value="5">Volkswagen Golf</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="search-col">
+              <select>
+                <option value="0" selected>Select Year</option>
+                <option value="1">2014</option>
+                <option value="2">2015</option>
+                <option value="3">2016</option>
+                <option value="4">2017</option>
+                <option value="5">2018</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="search-col">
+              <select>
+                <option value="0" selected>Choose Color</option>
+                <option value="1">Black</option>
+                <option value="2">Blue</option>
+                <option value="3">Green</option>
+                <option value="4">Red </option>
+                <option value="5">Matt Black</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="search-col">
+              <select>
+                <option value="0" selected>Mileage Per Litter</option>
+                <option value="1">12 Km</option>
+                <option value="2">10 Km</option>
+                <option value="3">8 Km</option>
+                <option value="4">16 Km</option>
+                <option value="5">5 Km</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="search-col">
+              <p class="car-price">
+                Price Range: <span id="amount"></span>
+              </p>
+              <div id="slider-range"></div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <div class="search-col">
+              <button class="btn btn-default my-btn" type="submit">Search Car</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

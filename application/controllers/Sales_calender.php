@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends Front_Controller {
+class Sales_calender extends Front_Controller {
 
 	public function __construct()
     {
@@ -11,13 +11,7 @@ class Home extends Front_Controller {
 
 	public function index()
 	{
-		$this->data['home'] = 1;
-		$this->load->front_template('home',$this->data);
+		$this->load->front_template('auction/calender',$this->data);
 	}
 
-	public function logout()
-	{
-		$this->session->sess_destroy();
-		redirect("login");
-	}
 }

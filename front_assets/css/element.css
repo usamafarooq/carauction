@@ -324,7 +324,7 @@ img {
     padding: 0 0 100px;
 }
 .custom-btn-four{
-    background: #000000;
+    background: #1f69b8;
     color: #ffffff;
     padding: 15px 30px;
     border-radius: 0;
@@ -1057,14 +1057,15 @@ img {
 /* Services Style four start*/
 .services-style-four{
     position: relative;
-    padding: 0 0 100px;
+    padding: 0 0 0px;
 }
+
 .services-style-four .column-margin{
     margin-top: 10px;
 }
 .services-features-four i{
     background: #fff; 
-    color: #000;
+    color: #1f69b8;
     border: 1px solid #cccccc;
     height: 80px;
     width: 80px;
@@ -1099,11 +1100,11 @@ img {
     margin-bottom: 10px;
 }   
 .services-features-four .back-color a:hover{
-    background: #000;
+    background: #1f69b8;
     color: #fff;
 }
 .services-features-four:hover i{
-    background: #000;
+    background: #1f69b8;
     color: #fff;
 }
 
@@ -1907,12 +1908,13 @@ img {
 /*==================================*/
 /* Promo Box Style One start*/
 .promo-box-style-one{
-    margin: 100px 0;
+    margin: 96px 0;
+    margin-top: 0px;
 }
 .promo-box-one {
-    background: #f1f1f1;
+    background: #1f69b8;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .promo-area-one h5, .promo-area-one p{
     margin-top: 10px;

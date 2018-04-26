@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2018 at 10:08 PM
+-- Generation Time: Apr 25, 2018 at 11:29 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -205,7 +205,8 @@ INSERT INTO `modules` (`id`, `name`, `main_name`, `sort`, `icon`, `url`, `user_i
 (24, 'Language', 'language', 7, 'language', 'language', 2),
 (25, 'Currency', 'currency', 6, 'euro_symbol', 'currency', 2),
 (26, 'Subscriptions', 'subscriptions', 7, 'subscriptions', 'subscriptions', 2),
-(27, 'Tickets', 'tickets', 7, 'assignment_turned_in', 'tickets', 2);
+(27, 'Tickets', 'tickets', 7, 'assignment_turned_in', 'tickets', 2),
+(28, 'Pages', 'pages', 6, 'pages', 'pages', 2);
 
 -- --------------------------------------------------------
 
@@ -332,7 +333,25 @@ INSERT INTO `modules_fileds` (`id`, `name`, `type`, `filed_type`, `options`, `le
 (203, 'Driver_Type_', 'VARCHAR', 'input', '', 255, 0, 22, 0, NULL, NULL, NULL),
 (204, 'Manufactured_In', 'VARCHAR', 'input', '', 255, 0, 22, 0, NULL, NULL, NULL),
 (205, 'Key', 'VARCHAR', 'input', '', 255, 0, 22, 0, NULL, NULL, NULL),
-(206, 'Start_Code', 'VARCHAR', 'input', '', 255, 0, 22, 0, NULL, NULL, NULL);
+(206, 'Start_Code', 'VARCHAR', 'input', '', 255, 0, 22, 0, NULL, NULL, NULL),
+(207, 'Name', 'VARCHAR', 'input', '', 100, 1, 28, 0, NULL, NULL, NULL),
+(208, 'Url', 'INT', 'input', '', 255, 1, 28, 0, NULL, NULL, NULL),
+(209, 'Content', 'TEXT', 'textarea', '', 5000, 1, 28, 0, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Url` int(255) NOT NULL,
+  `Content` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -358,18 +377,19 @@ CREATE TABLE `permission` (
 --
 
 INSERT INTO `permission` (`id`, `module_id`, `user_id`, `user_type_id`, `view`, `view_all`, `created`, `edit`, `deleted`, `disable`) VALUES
-(253, 2, 2, 1, 1, 1, 1, 1, 1, 1),
-(254, 3, 2, 1, 1, 1, 1, 1, 1, 1),
-(255, 5, 2, 1, 1, 1, 1, 1, 1, 1),
-(256, 7, 2, 1, 1, 1, 1, 1, 1, 1),
-(257, 19, 2, 1, 1, 1, 1, 1, 1, 1),
-(258, 20, 2, 1, 1, 1, 1, 1, 1, 1),
-(259, 21, 2, 1, 1, 1, 1, 1, 1, 1),
-(260, 22, 2, 1, 1, 1, 1, 1, 1, 1),
-(261, 24, 2, 1, 1, 1, 1, 1, 1, 1),
-(262, 25, 2, 1, 1, 1, 1, 1, 1, 1),
-(263, 26, 2, 1, 1, 1, 1, 1, 1, 1),
-(264, 27, 2, 1, 1, 1, 1, 1, 1, 1);
+(265, 2, 2, 1, 1, 1, 1, 1, 1, 1),
+(266, 3, 2, 1, 1, 1, 1, 1, 1, 1),
+(267, 5, 2, 1, 1, 1, 1, 1, 1, 1),
+(268, 7, 2, 1, 1, 1, 1, 1, 1, 1),
+(269, 19, 2, 1, 1, 1, 1, 1, 1, 1),
+(270, 20, 2, 1, 1, 1, 1, 1, 1, 1),
+(271, 21, 2, 1, 1, 1, 1, 1, 1, 1),
+(272, 22, 2, 1, 1, 1, 1, 1, 1, 1),
+(273, 24, 2, 1, 1, 1, 1, 1, 1, 1),
+(274, 25, 2, 1, 1, 1, 1, 1, 1, 1),
+(275, 26, 2, 1, 1, 1, 1, 1, 1, 1),
+(276, 27, 2, 1, 1, 1, 1, 1, 1, 1),
+(277, 28, 2, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -408,6 +428,8 @@ CREATE TABLE `tickets` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -418,26 +440,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`) VALUES
-(2, 'admin', 'admin@gmail.com', 'e6e061838856bf47e1de730719fb2609', 1),
-(4, 'admin1', 'admin1@gmail.com', 'e6e061838856bf47e1de730719fb2609', 1),
-(5, 'Udata', 'Udata@gmail.com', '5327b0d1bfa868acb9baac5a9d901815', 14),
-(6, 'mob', 'admindd@gmail.com', '6cf0a3d27fdc438e4ee601448e452e48', 14),
-(9, 'rtrt', 'adminsdee@milya.com', '532b7cbe070a3579f424988a040752f2', 14),
-(10, 'musa', 'musa@gmail.com', 'c45d99e5638d1f9f801b545096003a8d', 14),
-(12, 'rtrteree', 'adminsdeee11@milya.com', '0acf3d81f151df5994a88f039e636228', 14),
-(13, 'musaeeee', 'mus22a@gmail.com', 'dbc4d84bfcfe2284ba11beffb853a8c4', 14),
-(14, 'hero11', 'hero11@milya.com', '0acf3d81f151df5994a88f039e636228', 14),
-(15, 'hero22', 'hero22@gmail.com', 'dbc4d84bfcfe2284ba11beffb853a8c4', 14),
-(16, 'rest11', 'rest11@milya.com', '0acf3d81f151df5994a88f039e636228', 14),
-(17, 'west22', 'hwest22@gmail.com', 'dbc4d84bfcfe2284ba11beffb853a8c4', 14),
-(18, 'opp', 'opp@milya.com', 'e201220da86c13f4d9badaab658fa973', 14),
-(19, 'urrr', 'urrr@gmail.com', '549ce24fb62238d013a6e222cb4d41d8', 14),
-(20, 'DADU', 'DADU@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 14),
-(21, 'AHSAN', 'AHSAN@gmail.com', 'd6a9a933c8aafc51e55ac0662b6e4d4a', 14),
-(22, '21321', 'dasdas', 'd41d8cd98f00b204e9800998ecf8427e', 14),
-(26, 'xyzmg', 'xyzmg@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 14),
-(27, 'mojjojo1', 'mojjojo1@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 14);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `name`, `email`, `password`, `role`) VALUES
+(2, 'Super', 'Admin', 'admin', 'admin@gmail.com', 'e6e061838856bf47e1de730719fb2609', 1),
+(28, 'Brien', 'Dabson', 'brien.dabson@gmail.com', 'brien.dabson@gmail.com', '6a9c2d841da5779e46cebc20fcc599ff', 2);
 
 -- --------------------------------------------------------
 
@@ -456,7 +461,8 @@ CREATE TABLE `user_type` (
 --
 
 INSERT INTO `user_type` (`id`, `name`, `user_id`) VALUES
-(1, 'Admin', 2);
+(1, 'Admin', 2),
+(2, 'User', 2);
 
 -- --------------------------------------------------------
 
@@ -529,6 +535,12 @@ ALTER TABLE `modules`
 -- Indexes for table `modules_fileds`
 --
 ALTER TABLE `modules_fileds`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -607,17 +619,22 @@ ALTER TABLE `models`
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `modules_fileds`
 --
 ALTER TABLE `modules_fileds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 --
 -- AUTO_INCREMENT for table `subscriptions`
 --
@@ -632,12 +649,12 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
 ALTER TABLE `user_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `vehicle_type`
 --
