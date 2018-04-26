@@ -134,5 +134,7 @@
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/wow.min.js') ?>"></script>
     <!-- Main Custom JS -->
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
+
+    
 </body>
 </html>
