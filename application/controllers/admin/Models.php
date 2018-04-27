@@ -69,4 +69,13 @@
 			}
 			$this->Models_model->delete('models',array('id'=>$id));
 			redirect('admin/models');
-		}}
+		}
+
+		public function get_by_make_id()
+		{
+			$id = $this->input->post('make_id');
+			$data = $this->Models_model->get_by_make_id( $id );
+			echo json_encode(['status' => 'success', 'data' => $data]);
+
+		}
+	}
