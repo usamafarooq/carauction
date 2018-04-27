@@ -39,11 +39,8 @@
                                         <input class="form-control" name="Name" type="text" value="<?php echo $inventory["Name"] ?>" id="example-text-input" placeholder="" required=""></div>
 
                                     </div><div class="form-group row">
-                                
+
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Images<span class="required">*</span></label>
-                                        <div class="col-sm-9">
-<!-- <?php //$Images = explode(",", $inventory["Images"]) ?> -->
-                                        
                                         <div class="col-sm-9"><input class="form-control" name="Images[]" type="file" value="" id="example-text-input" placeholder=""  multiple=""></div>
 
                                     </div><div class="form-group row">

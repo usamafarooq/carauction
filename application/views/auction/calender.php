@@ -17,7 +17,8 @@
       <div class="container">
         <div class="row">
             <div class="calander-mon"><i class="fa fa-angle-left"></i><span>APRIL, 2018</span><i class="fa fa-angle-right"></i></div>
-            <table class="calander-auc">
+            <div id="calendar"></div>
+            <table class="calander-auc" style="display: none;">
               <tr>
                 <th style="border-left: 1px solid #1f69b8;">SUNDAY</th>
                 <th>MONDAY</th>
@@ -77,3 +78,5 @@
         </div>
       </div>
     </section>
+
+    

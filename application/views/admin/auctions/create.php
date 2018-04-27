@@ -43,7 +43,7 @@
             <input type="radio"  name="Live" id="inlineCheckbox1" value="Yes">
             <label for="inlineCheckbox1"> Yes </label>
         </div><div class="radio radio-info radio-inline">
-            <input type="radio"  name="Live" id="inlineCheckbox2" value=" No">
+            <input type="radio"  name="Live" id="inlineCheckbox2" value="No">
             <label for="inlineCheckbox2">  No </label>
         </div></div>
 
