@@ -132,9 +132,39 @@
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/jquery-ui.min.js') ?>"></script>
     <!-- wow.min JS -->
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/wow.min.js') ?>"></script>
+
+    <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/lib/moment.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
 
-    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        <?php if(isset($auctions)){ ?>
+        $('#calendar').fullCalendar({
+          header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay,listMonth'
+          },
+          defaultDate: '<?php echo date("Y-m-d") ?>',
+          navLinks: true, // can click day/week names to navigate views
+          businessHours: true, // display business hours
+          editable: true,
+          droppable: true,
+          events: [
+            <?php foreach ($auctions as $a) {?>
+              {
+                id: 'event-<?php echo $a['id'] ?>',
+                title: '<?php echo $a['Location'] ?>',
+                start: '<?php echo date('Y-m-d',strtotime($a['Date'])) ?>',
+                url: "#"
+              },
+            <?php } ?>
+          ]
+        })
+        <?php } ?>
+      })
+    </script>   
 </body>
 </html>

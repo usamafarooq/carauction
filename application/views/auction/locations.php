@@ -89,6 +89,7 @@
       center: new google.maps.LatLng(36.778259, -119.417931),
       mapTypeId: 'roadmap'
   });
+  var INFOwindow;
   <?php foreach ($locations as $l) {?>
   var latitude;
   var longitude;
@@ -109,6 +110,19 @@
           //     anchor: new google.maps.Point(25, 50)
           // },
           map: map
+      });
+      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $l['Location'] ?></a></div><div class="address"> <?php echo $l['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $l['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $l['Office_Hours'] ?></div><div><br>For more information <a href="#">click here</a></div></div>';
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+      marker.addListener('click', function () {
+        if (INFOwindow)
+        {
+            INFOwindow.close();
+        }
+        INFOwindow = infowindow;
+        infowindow.open(map, marker);
+        //$('.gm-style-iw').parent().css('margin-left', '-60px')
       });
     }
   });

@@ -47,7 +47,7 @@
             <input type="radio"  name="Live" id="inlineCheckbox1" value="Yes" <?php if("Yes" == $auctions["Live"]) echo "checked" ?>>
             <label for="inlineCheckbox1"> Yes </label>
         </div><div class="radio radio-info radio-inline">
-            <input type="radio"  name="Live" id="inlineCheckbox2" value=" No" <?php if(" No" == $auctions["Live"]) echo "checked" ?>>
+            <input type="radio"  name="Live" id="inlineCheckbox2" value=" No" <?php if("No" == $auctions["Live"]) echo "checked" ?>>
             <label for="inlineCheckbox2">  No </label>
         </div></div>
 

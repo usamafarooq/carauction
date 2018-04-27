@@ -73,6 +73,8 @@ function get_single_difrreance($date)
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<?php echo base_url('front_assets/css/default.css') ?>">
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.css') ?>">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/style.css') ?>">
 
