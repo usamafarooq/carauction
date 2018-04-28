@@ -148,7 +148,7 @@
           </div>
           <div class="col-md-4 center991">
             <div class="separator-col text-right center991">
-              <a class="btn btn-default red my-btn" href="car-grid-3.html" role="button">see all collections</a>
+              <a class="btn btn-default red my-btn" href="<?php echo base_url('listing') ?>" role="button">see all collections</a>
             </div>
           </div>
         </div>
@@ -269,25 +269,26 @@
         </div>
         <div class="row">
           <div class="featured-carousel">
+            <?php foreach ($popular_listing as $l) {?>
             <div class="item">
               <div class="featured-col animated fadeInLeftShort slow delay-250 go">
                 <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/1.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
+                  <img src="<?php echo base_url($l['images']) ?>" alt="">
+                  <h3 class="price">$49,999 | Timeleft: <?php echo get_single_difrreance($l['Sale_Date']); ?></h3>
                   <div class="box-content">
                     <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/1.jpg') ?>') ?>" data-lightbox="lightbox-1" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
+                      <li><a href="<?php echo base_url($l['images']) ?>" data-lightbox="lightbox-1" data-title="<?php echo $l['Name'] ?>"><i class="fa fa-search"></i></a></li>
+                      <li><a href="<?php echo base_url('listing/detail/'.$l['id']) ?>"><i class="fa fa-link"></i></a></li>
                     </ul>
                   </div>
                 </div>
                 <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
+                  <p>launched: <a href="#"><?php echo date('d M Y', strtotime($l['created_at'])) ?></a></p>
                   <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
+                  <p>Brand: <a href="#"><?php echo $l['make'] ?></a></p>
                 </div>
                 <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
+                  <h4><a href="<?php echo base_url('listing/detail/'.$l['id']) ?>"><?php echo $l['Name'] ?></a></h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
                   <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6">
@@ -308,201 +309,7 @@
                 </div>
               </div>
             </div>
-            <div class="item">
-              <div class="featured-col animated fadeInLeftShort slow delay-500 go">
-                <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/2.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
-                  <div class="box-content">
-                    <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/2.jpg') ?>') ?>" data-lightbox="lightbox-2" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
-                  <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
-                </div>
-                <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">240 Horsepower</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">auto start</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">petrol engine</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">6262 CC</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Mileage 4.0 kmpl</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="featured-col animated fadeInLeftShort slow delay-750 go">
-                <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/3.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
-                  <div class="box-content">
-                    <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/3.jpg') ?>') ?>" data-lightbox="lightbox-3" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
-                  <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
-                </div>
-                <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">240 Horsepower</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">auto start</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">petrol engine</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">6262 CC</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Mileage 4.0 kmpl</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="featured-col animated fadeInLeftShort slow delay-1000 go">
-                <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/4.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
-                  <div class="box-content">
-                    <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/4.jpg') ?>') ?>" data-lightbox="lightbox-4" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
-                  <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
-                </div>
-                <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">240 Horsepower</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">auto start</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">petrol engine</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">6262 CC</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Mileage 4.0 kmpl</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="featured-col animated fadeInLeftShort slow delay-1250 go">
-                <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/5.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
-                  <div class="box-content">
-                    <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/5.jpg') ?>') ?>" data-lightbox="lightbox-5" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
-                  <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
-                </div>
-                <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">240 Horsepower</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">auto start</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">petrol engine</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">6262 CC</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Mileage 4.0 kmpl</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="featured-col animated fadeInLeftShort slow delay-1500 go">
-                <div class="box">
-                  <img src="<?php echo base_url('front_assets/images/featured/6.jpg') ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: 1d : 31M</h3>
-                  <div class="box-content">
-                    <ul class="icon">
-                      <li><a href="<?php echo base_url('front_assets/images/featured/6.jpg') ?>" data-lightbox="lightbox-6" data-title="My caption"><i class="fa fa-search"></i></a></li>
-                      <li><a href="car-details.html"><i class="fa fa-link"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="featured-info clearfix">
-                  <p>launched: <a href="#">20th Dec 2017</a></p>
-                  <p>/</p>
-                  <p>Brand: <a href="#">Hyundai</a></p>
-                </div>
-                <div class="featured-content">
-                  <h4><a href="car-details.html">Hyundai Elite i20 serie</a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">240 Horsepower</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">auto start</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">petrol engine</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                      <ul>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">6262 CC</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">Mileage 4.0 kmpl</a></li>
-                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php } ?>
           </div>
         </div>
       </div>

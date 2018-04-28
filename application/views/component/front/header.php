@@ -151,10 +151,10 @@ function get_single_difrreance($date)
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="index-one.html">
-                                  <img class="logo-white" src="#" alt="">
+                                <a class="navbar-brand" href="<?php echo base_url() ?>">
+                                  <img class="logo-white" src="<?php echo base_url('front_assets/images/logo/logo.png') ?>" alt="">
                                 </a>
-                                <a class="navbar-brand" href="index-one.html">
+                                <a class="navbar-brand" href="<?php echo base_url() ?>">
                                   <img class="logo-black" src="<?php echo base_url('front_assets/images/logo/logo.png') ?>" alt="">
                                 </a>
                             </div>
