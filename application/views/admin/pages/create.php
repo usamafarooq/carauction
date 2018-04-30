@@ -39,7 +39,7 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Url<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Url" type="number" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Url" type="text" value="" id="example-text-input" placeholder="" required=""></div>
 
                                     </div><div class="form-group row">
 

@@ -214,7 +214,7 @@ function get_single_difrreance($date)
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">How It Work</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/how-it-work') ?>">How It Work</a></li>
                                             <li><a href="#">FAQs</a></li>
                                             <li><a href="#">Contact Us</a></li>
                                             <li><a href="#">E-Contact Form</a></li>
