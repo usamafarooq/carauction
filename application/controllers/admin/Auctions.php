@@ -35,6 +35,7 @@
 				redirect('admin/home');
 			}
 			$data = $this->input->post();
+			$data['Date'] = date('Y-m-d H:i:s', strtotime($data['Date']));
 			$data['user_id'] = $this->session->userdata('user_id');$id = $this->Auctions_model->insert('auctions',$data);
 			if ($id) {
 				redirect('admin/auctions');
@@ -57,6 +58,9 @@
 			}
 			$data = $this->input->post();
 			$id = $data['id'];
+			//echo $data['Date'];echo '<br>';
+			$data['Date'] = date('Y-m-d H:i:s', strtotime($data['Date']));
+			//echo $data['Date'];die;
 			unset($data['id']);$id = $this->Auctions_model->update('auctions',$data,array('id'=>$id));
 			if ($id) {
 				redirect('admin/auctions');

@@ -41,9 +41,9 @@
                 <div class="border-style-2"></div>
               </div>
               <ul class="footer-list border-deshed color-icon">
-                <li><i class="pe-7s-angle-right"></i><a href="#">Privacy Policy</a></li>
-                <li><i class="pe-7s-angle-right"></i><a href="#">Website Terms of Use</a></li>
-                <li><i class="pe-7s-angle-right"></i><a href="#">Member Terms & Conditions</a></li>
+                <li><i class="pe-7s-angle-right"></i><a href="<?php echo base_url('pages/page/privacy-policy') ?>">Privacy Policy</a></li>
+                <li><i class="pe-7s-angle-right"></i><a href="<?php echo base_url('pages/page/website-terms') ?>">Website Terms of Use</a></li>
+                <li><i class="pe-7s-angle-right"></i><a href="<?php echo base_url('pages/page/member-terms') ?>">Member Terms & Conditions</a></li>
               </ul>
 
             </div>
@@ -137,6 +137,8 @@
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script>
+    <script type="text/javascript" src="<?php echo base_url('front_assets/js/map.js') ?>"></script>
 
     <script type="text/javascript">
       $(document).ready(function() {

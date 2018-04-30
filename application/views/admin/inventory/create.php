@@ -71,18 +71,18 @@
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Auction<span class="required">*</span></label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="model_dropdown" name="Model" >
+                                            <select class="form-control" id="model_dropdown" name="Auction" >
                                                 <option>Select Auction</option><?php foreach ($table_auction as $t) {?>
                                                     <option value="<?php echo $t["id"] ?>"><?php echo $t["Auction"] ?></option>
                                                <?php } ?></select>
                                         </div>
 
-                                    </div><div class="form-group row">
+                                    </div><!-- <div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Sale Location</label>
                                         <div class="col-sm-9"><input class="form-control" name="Sale_Location" type="text" value="" id="example-text-input" placeholder="" ></div>
 
-                                    </div><div class="form-group row">
+                                    </div> --><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Vehicle Location</label>
                                         <div class="col-sm-9"><input class="form-control" name="Vehicle_Location" type="text" value="" id="example-text-input" placeholder="" ></div>
@@ -92,12 +92,12 @@
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Sale Status</label>
                                         <div class="col-sm-9"><input class="form-control" name="Sale_Status" type="text" value="" id="example-text-input" placeholder="" ></div>
 
-                                    </div><div class="form-group row">
+                                    </div><!-- <div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Sale Date<span class="required">*</span></label>
                                         <div class="col-sm-9"><input class="form-control" name="Sale_Date" type="date" value="" id="example-text-input" placeholder="" ></div>
 
-                                    </div><div class="form-group row">
+                                    </div> --><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Item</label>
                                         <div class="col-sm-9"><input class="form-control" name="Item" type="text" value="" id="example-text-input" placeholder="" ></div>
