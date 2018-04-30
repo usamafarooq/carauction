@@ -136,10 +136,12 @@
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/lib/moment.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
+    
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
+    <?php if(!isset($locations)){ ?>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/map.js') ?>"></script>
-
+    <?php } ?>
     <script type="text/javascript">
       $(document).ready(function() {
         <?php if(isset($auctions)){ ?>
