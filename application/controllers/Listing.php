@@ -31,11 +31,14 @@ class Listing extends Front_Controller {
 	{
 		$query = array();
 		$data = $this->input->post();
-		if ($data['make']) {
+		if (isset($data['make'])) {
 			$query['inventory.Make'] = $data['make'];
 		}
-		if ($data['location']) {
+		if (isset($data['location'])) {
 			$query['locations.id'] = $data['location'];
+		}
+		if (isset($data['search'])) {
+			$query['title'] = $data['search'];
 		}
 		$this->data['listing'] = $this->listing_model->get_inventory('search',$query);
 		//print_r($this->db->last_query());die;
