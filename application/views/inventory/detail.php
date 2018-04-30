@@ -48,7 +48,7 @@
                           <li><strong>Vehicle Location:</strong><span> <?php echo $detail['Vehicle_Location'] ?></span></li>
                           <li><strong>Sale Status:</strong><span> <?php echo $detail['Sale_Status'] ?></span></li>
                           <li><strong>Sale Date:</strong><span>  <?php echo date('l, F d, Y', strtotime($detail['Sale_Date'])) ?></span></li>
-                          <li><strong>Data Last Updated: </strong><span>  <?php echo date('d/m/Y H:i', strtotime($detail['created_at'])) ?></span></li>
+                          <li><strong>Data Last Updated: </strong><span>  <?php echo date('d/m/Y H:i', strtotime($detail['updated_at'])) ?></span></li>
                           <li><strong>Item#:</strong><span>  <?php echo $detail['Item'] ?></span></li>
                           <h5><strong>SOLD AS IS, WHERE IS - ALL SALES ARE FINAL</strong></h5>
                         </ul>

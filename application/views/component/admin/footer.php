@@ -74,7 +74,8 @@ CKEDITOR.replace('editor1', {
                 $('#dataTableExample1').DataTable({
                     "dom": "<'row'<'col-sm-6'l><'col-sm-6'f>>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
                     "lengthMenu": [[6, 25, 50, -1], [6, 25, 50, "All"]],
-                    "iDisplayLength": 6
+                    "iDisplayLength": 6,
+                    "order": [[ 0, "desc" ]]
                 });
 
                 $("#dataTableExample2").DataTable({
@@ -86,7 +87,8 @@ CKEDITOR.replace('editor1', {
                         {extend: 'excel', title: 'ExampleFile', className: 'btn-sm'},
                         {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
                         {extend: 'print', className: 'btn-sm'}
-                    ]
+                    ],
+                    "order": [[ 0, "desc" ]]
                 });
 
             });

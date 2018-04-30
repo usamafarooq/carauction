@@ -59,7 +59,7 @@
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <ul>
-                      <li>Location: <span><?php echo $l['Sale_Location'] ?></span></li>
+                      <li>Location: <span><?php echo $l['Location'] ?></span></li>
                       <li>Date: <span><?php echo date('d / m / Y', strtotime($l['Sale_Date'])) ?></span></li>
                       <li>Time Left: <span><?php echo get_difrreance($l['Sale_Date']); ?></span></li>
                     </ul>

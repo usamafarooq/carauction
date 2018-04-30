@@ -22,6 +22,8 @@ class Inventory extends MY_Controller
         } elseif ($this->permission['view'] == '1') {
             $this->data['inventory'] = $this->Inventory_model->get_inventory($this->id);
         }
+        //print_r($this->db->last_query());
+        //echo '<pre>';print_r($this->data['inventory']);die;
         $this->data['permission'] = $this->permission;
         $this->load->template('admin/inventory/index', $this->data);
     }
@@ -32,8 +34,8 @@ class Inventory extends MY_Controller
         }
         $this->data['title']        = 'Create Inventory';
         $this->data['table_makes']  = $this->Inventory_model->all_rows('makes');
-        $this->data['table_auction']  = $this->Inventory_model->all_rows('auctions');
-        $this->data['table_models'] = $this->Inventory_model->all_rows('models');
+        $this->data['table_auction']  = $this->Inventory_model->get_rows('auctions',array('Date >='=> date('Y-m-d')));
+        //$this->data['table_models'] = $this->Inventory_model->all_rows('models');
         $this->data['table_type'] = $this->Inventory_model->all_rows('vehicle_type');
         $this->load->template('admin/inventory/create', $this->data);
     }
@@ -50,23 +52,15 @@ class Inventory extends MY_Controller
         $config['max_width']     = 1024;
         $config['max_height']    = 768;
         $this->load->library('upload', $config);
-        
-        // if ($this->upload->do_upload('Images')) {
-        //     $data['Images'] = '/uploads/' . $this->upload->data('file_name');
-        // }
         $id = $this->Inventory_model->insert('inventory', $data);
         if ($id) {
             $files = $_FILES['Images'];
-            //print_r($files);die;
             foreach ($files['name'] as $key => $image) {
                 $_FILES['images']['name']= $files['name'][$key];
                 $_FILES['images']['type']= $files['type'][$key];
                 $_FILES['images']['tmp_name']= $files['tmp_name'][$key];
                 $_FILES['images']['error']= $files['error'][$key];
                 $_FILES['images']['size']= $files['size'][$key];
-                //$fileName = $title .'_'. $image;
-                
-                //$config['file_name'] = $fileName;
                 $this->upload->initialize($config);
                 if ($this->upload->do_upload('images')) {
                     $data = array(
@@ -74,7 +68,6 @@ class Inventory extends MY_Controller
                         'images' => '/uploads/' . $this->upload->data('file_name')
                     );
                     $file_id = $this->Inventory_model->insert('inventory_images', $data);
-                    //print_r($file_id);die;
                 } else {
                     echo 1;die;
                     return false;
@@ -92,8 +85,8 @@ class Inventory extends MY_Controller
         $this->data['inventory']    = $this->Inventory_model->get_row_single('inventory', array(
             'id' => $id
         ));
-        $this->data['images'] = $this->Inventory_model->get_rows('inventory_images', ['inventory_id' => $id]);
-        $this->data['table_auction']  = $this->Inventory_model->all_rows('auctions');
+        $this->data['images'] = $this->Inventory_model->get_rows('inventory_images', array('inventory_id' => $id));
+        $this->data['table_auction']  = $this->Inventory_model->get_rows('auctions',array('Date >='=> date('Y-m-d')));
         $this->data['table_makes']  = $this->Inventory_model->all_rows('makes');
         $this->data['table_models'] = $this->Inventory_model->all_rows('models');
         $this->data['table_type'] = $this->Inventory_model->all_rows('vehicle_type');
@@ -106,6 +99,7 @@ class Inventory extends MY_Controller
             redirect('admin/home');
         }
         $data = $this->input->post();
+        //echo '<pre>';print_r($data);die;
         $id   = $data['id'];
         unset($data['id']);
         $config['upload_path']   = './uploads/';
@@ -113,31 +107,18 @@ class Inventory extends MY_Controller
         $config['max_size']      = 1000;
         $config['max_width']     = 1024;
         $config['max_height']    = 768;
-        
         $this->load->library('upload', $config);
-        
-        // if ($this->upload->do_upload('Images')) {
-        //     $data['Images'] = '/uploads/' . $this->upload->data('file_name');
-        // }
         $this->Inventory_model->update('inventory', $data, array(
             'id' => $id
         ));
-        // if ($id) {
-        //     redirect('admin/inventory');
-        // }
-
-            $files = $_FILES['Images'];
-            
-         if ($files['name'][0]) {
+        $files = $_FILES['Images'];
+        if ($files['name'][0]) {
             foreach ($files['name'] as $key => $image) {
                 $_FILES['images']['name']= $files['name'][$key];
                 $_FILES['images']['type']= $files['type'][$key];
                 $_FILES['images']['tmp_name']= $files['tmp_name'][$key];
                 $_FILES['images']['error']= $files['error'][$key];
                 $_FILES['images']['size']= $files['size'][$key];
-                //$fileName = $title .'_'. $image;
-                
-                //$config['file_name'] = $fileName;
                 $this->upload->initialize($config);
                 if ($this->upload->do_upload('images')) {
                     $data = array(
@@ -145,7 +126,6 @@ class Inventory extends MY_Controller
                         'images' => '/uploads/' . $this->upload->data('file_name')
                     );
                     $file_id = $this->Inventory_model->insert('inventory_images', $data);
-                    //print_r($file_id);die;
                 } else {
                     echo 1;die;
                     return false;
@@ -169,20 +149,14 @@ class Inventory extends MY_Controller
     public function delete_image()
     {
         $image_id = $this->input->post('image_id');
-
         $image = $this->Inventory_model->get_row_single('inventory_images', array(
             'id' => $image_id
         ));
-
         $root_path = str_replace('\application', '', APPPATH);
-        
         if ( file_exists($root_path.$image['images'] )  ) {
             unlink( $root_path.$image['images'] ) ;
         }
-        
-
-
-         $this->Inventory_model->delete('inventory_images', array(
+        $this->Inventory_model->delete('inventory_images', array(
             'id' => $image_id
         ));
     }

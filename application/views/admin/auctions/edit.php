@@ -47,7 +47,7 @@
             <input type="radio"  name="Live" id="inlineCheckbox1" value="Yes" <?php if("Yes" == $auctions["Live"]) echo "checked" ?>>
             <label for="inlineCheckbox1"> Yes </label>
         </div><div class="radio radio-info radio-inline">
-            <input type="radio"  name="Live" id="inlineCheckbox2" value=" No" <?php if("No" == $auctions["Live"]) echo "checked" ?>>
+            <input type="radio"  name="Live" id="inlineCheckbox2" value="No" <?php if("No" == $auctions["Live"]) echo "checked" ?>>
             <label for="inlineCheckbox2">  No </label>
         </div></div>
 
@@ -66,7 +66,7 @@
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Date<span class="required">*</span></label>
                                         <div class="col-sm-9">
 <?php $Date = explode(",", $auctions["Date"]) ?>
-                                        <input class="form-control" name="Date" type="date" value="<?php echo $auctions["Date"] ?>" id="example-text-input" placeholder="" required=""></div>
+                                        <input class="form-control" name="Date" type="datetime-local" value="<?php echo date('Y-m-d\TH:i', strtotime($auctions["Date"])) ?>" id="example-text-input" placeholder="" required=""></div>
 
                                     </div><div class="form-group row">
 

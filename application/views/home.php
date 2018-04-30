@@ -329,86 +329,24 @@
         <div class="row">
           <div class="col-md-12">
             <div class="discount-carousel">
+              <?php foreach ($live_listing as $l) {?>
               <div class="discount-carousel-item">
                 <div class="discount-box">
                     <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url('front_assets/images/discount/1.jpg') ?>" alt="">
+                    <img src="<?php echo base_url($l['images']) ?>" alt="">
                     <div class="box-content">
                         <div class="content">
-                            <h3 class="title">Farari MZ50</h3>
-                            <a href="car-details.html" class="read-more">Join Now for Free</a>
+                            <h3 class="title"><?php echo $l['Name'] ?></h3>
+                            <a href="#" class="read-more">Join Now for Free</a>
                         </div>
                     </div>
                 </div>
                 <div class="discount-price">
                   <h4>Auction Price: $32</h4>
-                  <span>For Sale In NY - Long Island</span>
+                  <span>For Sale In <?php echo $l['Location'] ?></span>
                 </div>
               </div>
-              <div class="discount-carousel-item">
-                <div class="discount-box">
-                  <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url('front_assets/images/discount/2.jpg') ?>" alt="">
-                    <div class="box-content">
-                        <div class="content">
-                            <h3 class="title">Farari MZ50</h3>
-                            <a href="car-details.html" class="read-more">Join Now for Free</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="discount-price">
-                  <h4>Auction Price: $32</h4>
-                  <span>For Sale In NY - Long Island</span>
-                </div>
-              </div>
-              <div class="discount-carousel-item">
-                <div class="discount-box">
-                  <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url('front_assets/images/discount/3.jpg') ?>" alt="">
-                    <div class="box-content">
-                        <div class="content">
-                            <h3 class="title">Farari MZ50</h3>
-                            <a href="car-details.html" class="read-more">Join Now for Free</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="discount-price">
-                  <h4>Auction Price: $32</h4>
-                  <span>For Sale In NY - Long Island</span>
-                </div>
-              </div>
-              <div class="discount-carousel-item">
-                <div class="discount-box">
-                  <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url('front_assets/images/discount/4.jpg') ?>" alt="">
-                    <div class="box-content">
-                        <div class="content">
-                            <h3 class="title">Farari MZ50</h3>
-                            <a href="car-details.html" class="read-more">Join Now for Free</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="discount-price">
-                  <h4>Auction Price: $32</h4>
-                  <span>For Sale In NY - Long Island</span>
-                </div>
-              </div>
-              <div class="discount-carousel-item">
-                <div class="discount-box">
-                  <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url('front_assets/images/discount/5.jpg') ?>" alt="">
-                    <div class="box-content">
-                        <div class="content">
-                            <h3 class="title">Farari MZ50</h3>
-                            <a href="car-details.html" class="read-more">Join Now for Free</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="discount-price">
-                  <h4>Auction Price: $32</h4>
-                  <span>For Sale In NY - Long Island</span>
-                </div>
-              </div>
+              <?php } ?>
             </div>
           </div>
         </div>

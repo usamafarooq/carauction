@@ -60,7 +60,7 @@
                                     </div><div class="form-group row">
 
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Date<span class="required">*</span></label>
-                                        <div class="col-sm-9"><input class="form-control" name="Date" type="date" value="" id="example-text-input" placeholder="" required=""></div>
+                                        <div class="col-sm-9"><input class="form-control" name="Date" type="datetime-local" value="" id="example-text-input" placeholder="" required="" min="<?php echo date('Y-m-d\TH:i') ?>"></div>
 
                                     </div><div class="form-group row">
 
