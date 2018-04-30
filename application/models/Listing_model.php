@@ -14,8 +14,18 @@ class Listing_model extends MY_Model
 				 ->join('inventory_images', 'inventory.id = inventory_images.inventory_id', 'left')
 				 ->group_by('inventory.id')
 				 ->where('auctions.Live !=', 'Yes')
-				 ->where('auctions.Date >=', date('Y-m-d'))
-				 ->limit(6);
+				 ->where('auctions.Date >=', date('Y-m-d'));
+				 //->limit(6);
+		if ($type != null) {
+			if ($type == 'type') {
+				$this->db->where('vehicle_type.id', $id);
+			}
+			elseif ($type == 'search') {
+				foreach ($id as $key => $value) {
+					$this->db->where($key, $value);
+				}
+			}
+		}
 		return $this->db->get()->result_array();
 	}
 

@@ -217,41 +217,40 @@
     <!-- Separator start -->
     <section class="separator-area parallax overlay-black">
       <div class="container">
-        <div class="row">
-          <div class="col-md-10 center991">
-            <div class="separator-col">
-              <div class="col-md-6 col-sm-6">
-                <div class="search-action">
-                  <select>
-                    <option value="0" selected>CARS FOR SALE BY MAKE</option>
-                    <option value="1">Audi</option>
-                    <option value="2">BMW</option>
-                    <option value="3">Mercedes-Benz</option>
-                    <option value="4">Opel</option>
-                    <option value="5">Porsche</option>
-                  </select>
+        <form method="post" action="<?php echo base_url('listing/search') ?>">
+          <div class="row">
+            <div class="col-md-10 center991">
+              <div class="separator-col">
+                <div class="col-md-6 col-sm-6">
+                  <div class="search-action">
+                    <select name="make">
+                      <option selected>CARS FOR SALE BY MAKE</option>
+                      <?php foreach ($makes as $m) {?>
+                      <option value="<?php echo $m['id'] ?>"><?php echo $m['Name'] ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="search-action">
-                  <select>
-                    <option value="0" selected>CARS FOR SALE BY LOCATION</option>
-                    <option value="1">F01 ActiveHybrid 7</option>
-                    <option value="2">Mercedes-Benz SLC-Class</option>
-                    <option value="3">BMW badge on a 1931 Dixi</option>
-                    <option value="4">Porsche 911</option>
-                    <option value="5">Volkswagen Golf</option>
-                  </select>
+                <div class="col-md-6 col-sm-6">
+                  <div class="search-action">
+                    <select name="location">
+                      <option selected>CARS FOR SALE BY LOCATION</option>
+                      <?php foreach ($locations as $l) {?>
+                      <option value="<?php echo $l['id'] ?>"><?php echo $l['Location'] ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-2 center991">
-            <div class="separator-col text-right center991">
-              <a class="btn btn-default red my-btn" href="car-grid-3.html" role="button">Search</a>
+            <div class="col-md-2 center991">
+              <div class="separator-col text-right center991">
+                <!-- <a class="btn btn-default red my-btn" href="car-grid-3.html" role="button">Search</a> -->
+                <button type="submit" class="btn btn-default red my-btn">Search</button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </section>
 
