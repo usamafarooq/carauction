@@ -15,7 +15,8 @@ class Home_model extends MY_Model
 				 ->group_by('inventory.id')
 				 ->where('auctions.Live !=', 'Yes')
 				 ->where('auctions.Date >=', date('Y-m-d'))
-				 ->limit(6);
+				 ->limit(6)
+				 ->order_by('inventory.id', 'DESC');
 		return $this->db->get()->result_array();
 	}
 
@@ -33,7 +34,8 @@ class Home_model extends MY_Model
 				 ->where('auctions.Live', 'Yes')
 				 ->where('auctions.Date >=', date('Y-m-d'))
 				 ->where('auctions.Date <', date('Y-m-d', strtotime('1 day')))
-				 ->limit(15);
+				 ->limit(15)
+				 ->order_by('inventory.id', 'DESC');
 		return $this->db->get()->result_array();
 	}
 }

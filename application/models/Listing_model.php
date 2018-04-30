@@ -14,7 +14,8 @@ class Listing_model extends MY_Model
 				 ->join('inventory_images', 'inventory.id = inventory_images.inventory_id', 'left')
 				 ->group_by('inventory.id')
 				 ->where('auctions.Live !=', 'Yes')
-				 ->where('auctions.Date >=', date('Y-m-d'));
+				 ->where('auctions.Date >=', date('Y-m-d'))
+				 ->order_by('inventory.id', 'DESC');
 				 //->limit(6);
 		if ($type != null) {
 			if ($type == 'type') {
@@ -57,7 +58,8 @@ class Listing_model extends MY_Model
 				 ->group_by('inventory.id')
 				 ->where('auctions.Live', 'Yes')
 				 ->where('auctions.Date >=', date('Y-m-d'))
-				 ->where('auctions.Date <', date('Y-m-d', strtotime('1 day')));
+				 ->where('auctions.Date <', date('Y-m-d', strtotime('1 day')))
+				 ->order_by('inventory.id', 'DESC');
 				 //->limit(15);
 		return $this->db->get()->result_array();
 	}
