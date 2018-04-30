@@ -43,7 +43,7 @@
                                 <label for="example-text-input" class="col-sm-3 col-form-label">Url<span class="required">*</span></label>
                                         <div class="col-sm-9">
 <?php $Url = explode(",", $pages["Url"]) ?>
-                                        <input class="form-control" name="Url" type="number" value="<?php echo $pages["Url"] ?>" id="example-text-input" placeholder="" required=""></div>
+                                        <input class="form-control" name="Url" type="text" value="<?php echo $pages["Url"] ?>" id="example-text-input" placeholder="" required=""></div>
 
                                     </div><div class="form-group row">
 

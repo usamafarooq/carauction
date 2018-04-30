@@ -28,6 +28,11 @@
         <script src="<?php echo base_url() ?>admin_assets/assets/plugins/amcharts/amstock.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
 <script src="https://cdn.ckeditor.com/4.5.1/standard/ckeditor.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
+
         <script src="<?php echo base_url() ?>admin_assets/assets/dist/js/app.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url() ?>admin_assets/assets/dist/js/jQuery.style.switcher.min.js" type="text/javascript"></script>
 
@@ -41,7 +46,15 @@
     config.toolbarCanCollapse = true;
 
 };
-CKEDITOR.replace('editor1');
+CKEDITOR.replace('editor1', {
+            fullPage: true,
+            //extraPlugins: 'docprops',
+            // Disable content filtering because if you use full page mode, you probably
+            // want to  freely enter any HTML content in source mode without any limitations.
+            allowedContent: true,
+            height: 320
+        } );
+//$('#editor1').froalaEditor();
 }
 </script>
     </body>

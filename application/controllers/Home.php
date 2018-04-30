@@ -12,6 +12,7 @@ class Home extends Front_Controller {
 	public function index()
 	{
 		$this->data['home'] = 1;
+		$this->data['popular_listing'] = $this->home_model->get_popular_listing();
 		$this->load->front_template('home',$this->data);
 	}
 

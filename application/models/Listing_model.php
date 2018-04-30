@@ -2,7 +2,7 @@
 
 class Listing_model extends MY_Model
 {
-	public function get_inventory($type,$id)
+	public function get_inventory($type = null,$id = null)
 	{
 		$this->db->select('inventory.*,makes.Name as make,models.Name as model,inventory_images.images,vehicle_type.Name as type')
 				 ->from('inventory')
