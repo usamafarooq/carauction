@@ -468,3 +468,8 @@
 
 
 })(window.jQuery);
+function buttonUp(event) {
+  if (event.keyCode == 13) {
+    $('.searchbox').submit()
+  }
+}

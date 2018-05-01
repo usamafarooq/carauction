@@ -229,8 +229,8 @@ function get_single_difrreance($date)
                                     <!--<li><a href="contact.html">Contact</a>
                                     </li>-->
                                     <li><div class="tobar-searchbox">
-                                      <form class="searchbox">
-                                          <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                                      <form class="searchbox" method="post" action="<?php echo base_url('listing/search') ?>">
+                                          <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp(event)" required>
                                           <input class="searchbox-submit">
                                           <span class="searchbox-icon">
                                             <i class="fa fa-search" aria-hidden="true"></i>

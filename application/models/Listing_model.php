@@ -23,7 +23,12 @@ class Listing_model extends MY_Model
 			}
 			elseif ($type == 'search') {
 				foreach ($id as $key => $value) {
-					$this->db->where($key, $value);
+					if ($key == 'title') {
+						$this->db->like('inventory.Name', $value);
+					}
+					else{
+						$this->db->where($key, $value);
+					}
 				}
 			}
 		}
