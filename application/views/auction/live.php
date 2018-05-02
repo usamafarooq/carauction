@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="row">
-          <?php foreach ($listing as $l) {?>
+          <?php if ($listing) { foreach ($listing as $l) {?>
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="featured-col">
               <div class="box">
@@ -76,6 +76,16 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <?php } } else{ ?>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="bid-shedule">
+              <p>There are no virtual sales scheduled for <?php echo date('l, F d, Y') ?>.</p>
+              <?php if ($next) {?>
+              <p>The next virtual sale is scheduled for <?php echo date('l, F d, Y h:i A', strtotime($next['Date'])) ?> UTC-04:00</p>
+              <p>The virtual sale will begin in <?php echo get_single_difrreance($next['Date']); ?>.</p>
+              <?php } ?>
             </div>
           </div>
           <?php } ?>
