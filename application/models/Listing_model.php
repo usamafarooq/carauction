@@ -31,6 +31,12 @@ class Listing_model extends MY_Model
 					}
 				}
 			}
+			elseif ($type == 'location') {
+				$this->db->where('locations.id', $id);
+			}
+			elseif ($type == 'auction') {
+				$this->db->where('auctions.id', $id);
+			}
 		}
 		return $this->db->get()->result_array();
 	}

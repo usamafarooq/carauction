@@ -21,6 +21,18 @@ class Listing extends Front_Controller {
 		$this->load->front_template('inventory/listing',$this->data);
 	}
 
+	public function location($id)
+	{
+		$this->data['listing'] = $this->listing_model->get_inventory('location',$id);
+		$this->load->front_template('inventory/listing',$this->data);
+	}
+
+	public function auction($id)
+	{
+		$this->data['listing'] = $this->listing_model->get_inventory('auction',$id);
+		$this->load->front_template('inventory/listing',$this->data);
+	}
+
 	public function detail($id)
 	{
 		$this->data['detail'] = $this->listing_model->get_detail($id);

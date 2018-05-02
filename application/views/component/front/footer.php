@@ -170,7 +170,7 @@
                 id: 'event-<?php echo $a['id'] ?>',
                 title: '<?php echo $a['Location'] ?>',
                 start: '<?php echo date('Y-m-d',strtotime($a['Date'])) ?>',
-                url: "#"
+                url: "<?php echo base_url('listing/auction/'.$a['id']) ?>"
               },
             <?php } ?>
           ]
