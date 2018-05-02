@@ -3543,10 +3543,10 @@ tr:nth-child(even) {
 
 .progress-bar{background-color: #1f69b8;}
 
-.dropdown-result.location-slc {
+.sales-calender {
     width:  100%;
 }
 
-select#auc-date {
+.sales-calender select#auc-date {
     width:  100%;
 }

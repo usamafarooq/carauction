@@ -56,7 +56,7 @@ class Listing_model extends MY_Model
 		return $this->db->get()->row_array();
 	}
 
-	public function get_live_listing()
+	public function get_live_listing($type = null,$id = null)
 	{
 		$this->db->select('inventory.*,makes.Name as make,models.Name as model,inventory_images.images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location')
 				 ->from('inventory')
@@ -72,6 +72,27 @@ class Listing_model extends MY_Model
 				 ->where('auctions.Date <', date('Y-m-d', strtotime('1 day')))
 				 ->order_by('inventory.id', 'DESC');
 				 //->limit(15);
+		if ($type != null) {
+			if ($type == 'type') {
+				$this->db->where('vehicle_type.id', $id);
+			}
+			elseif ($type == 'search') {
+				foreach ($id as $key => $value) {
+					if ($key == 'title') {
+						$this->db->like('inventory.Name', $value);
+					}
+					else{
+						$this->db->where($key, $value);
+					}
+				}
+			}
+			elseif ($type == 'location') {
+				$this->db->where('locations.id', $id);
+			}
+			elseif ($type == 'auction') {
+				$this->db->where('auctions.id', $id);
+			}
+		}
 		return $this->db->get()->result_array();
 	}
 }

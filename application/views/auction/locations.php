@@ -27,7 +27,7 @@
                   <div class="row bg-opt-result" style="padding: 12px 12px; background: #eeeeee;">
                     <div class="bg-opt">
                       <input id="date" type="date" name="date" value="<?php if(isset($form['date'])) echo $form['date'] ?>"></input>
-                      <div class="dropdown-result location-slc" style="float: left; margin-top: 20px;">
+                      <div class="dropdown-result location-slc sales-calender" style="float: left; margin-top: 20px;">
                         <select id="auc-date" name="state">
                           <option value="">All States</option>
                           <?php 

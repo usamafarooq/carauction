@@ -165,12 +165,20 @@
           editable: true,
           droppable: true,
           events: [
-            <?php foreach ($auctions as $a) {?>
+            <?php 
+              foreach ($auctions as $a) {
+                if ($a['Live'] == 'No') {
+                  $url = base_url('listing/auction/'.$a['id']);
+                }
+                else{
+                  $url = base_url('live_auctions/auction/'.$a['id']);
+                }
+            ?>
               {
                 id: 'event-<?php echo $a['id'] ?>',
                 title: '<?php echo $a['Location'] ?>',
                 start: '<?php echo date('Y-m-d',strtotime($a['Date'])) ?>',
-                url: "<?php echo base_url('listing/auction/'.$a['id']) ?>"
+                url: "<?php echo $url ?>"
               },
             <?php } ?>
           ]
