@@ -339,6 +339,7 @@ class Front_Controller extends CI_Controller {
 		$this->load->model('main_model');
 		$this->data['language'] = $this->get_language();
 		$this->data['vehicle_type'] = $this->get_vichel_type();
+		$this->data['make'] = $this->get_make();
 	}
 
 	public function get_language()
@@ -350,6 +351,12 @@ class Front_Controller extends CI_Controller {
 	public function get_vichel_type()
 	{
 		$vehicle_type = $this->main_model->all_rows('vehicle_type');
+		return $vehicle_type;
+	}
+
+	public function get_make()
+	{
+		$vehicle_type = $this->main_model->all_rows('makes');
 		return $vehicle_type;
 	}
 }

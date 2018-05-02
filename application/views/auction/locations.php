@@ -22,28 +22,32 @@
               <div id="map"></div>
             </div>
             <div class="col-lg-4 col-md-4">
-              <div class="car-sidebar" style="margin-top:  15px;" >
-                <div class="row bg-opt-result" style="padding: 12px 12px; background: #eeeeee;">
+              <form method="post" action="">
+                <div class="car-sidebar" style="margin-top:  15px;" >
+                  <div class="row bg-opt-result" style="padding: 12px 12px; background: #eeeeee;">
                     <div class="bg-opt">
-                      <input id="date" type="date"></input>
-                        <div class="dropdown-result location-slc" style="float: left; margin-top: 20px;">
-                          <select id="auc-date">
-                            <option value="volvo">All States</option>
-                            <option value="saab">Year</option>
-                            <option value="mercedes">Make</option>
-                            <option value="audi">Model</option>
-                            <option value="saab">Mielage</option>
-                            <option value="mercedes">Damage</option>
-                            <option value="audi">Action Location</option>
-                            <option value="mercedes">Current Bid (USD)</option>
-                            <option value="audi">Item#</option>
-                          </select>                          
-                        </div>
-
-
+                      <input id="date" type="date" name="date" value="<?php if(isset($form['date'])) echo $form['date'] ?>"></input>
+                      <div class="dropdown-result location-slc sales-calender" style="float: left; margin-top: 20px;">
+                        <select id="auc-date" name="state">
+                          <option value="">All States</option>
+                          <?php 
+                            $id = '';
+                            if(isset($form['state'])) 
+                              $id = $form['state'];
+                            foreach ($states as $s) {
+                              $selected = '';
+                              if ($s['State'] == $id) {
+                                $selected = 'selected';
+                              }
+                              echo '<option value="'.$s['State'].'" '.$selected.'>'.$s['State_Full'].'</option>';
+                            }
+                          ?>
+                        </select>                          
+                      </div>
                     </div>  
-              </div>
-              <button class="btn btn-default search-loc">Find Facilities</button> 
+                </div>
+                <button class="btn btn-default search-loc" type="submit">Find Facilities</button>
+              </form> 
             </div>  
         </div>
       </div>
@@ -68,7 +72,7 @@
                       </tr>
                       <?php foreach ($locations as $l) {?>
                       <tr>
-                        <td><?php echo $l['Location'] ?></td>
+                        <td><a href="<?php echo base_url('listing/location/'.$l['id']) ?>"><?php echo $l['Location'] ?></a></td>
                         <td><?php echo $l['Address'] ?></td>
                         <td><?php echo $l['City'] ?></td>
                         <td><?php echo $l['State'] ?></td>
@@ -111,7 +115,7 @@
           // },
           map: map
       });
-      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $l['Location'] ?></a></div><div class="address"> <?php echo $l['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $l['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $l['Office_Hours'] ?></div><div><br>For more information <a href="#">click here</a></div></div>';
+      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $l['Location'] ?></a></div><div class="address"> <?php echo $l['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $l['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $l['Office_Hours'] ?></div><div><br>For more information <a href="<?php echo base_url('listing/location/'.$l['id']) ?>">click here</a></div></div>';
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });

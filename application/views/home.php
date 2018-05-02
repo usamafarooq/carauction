@@ -226,7 +226,7 @@
                     <select name="make">
                       <option selected>CARS FOR SALE BY MAKE</option>
                       <?php foreach ($makes as $m) {?>
-                      <option value="<?php echo $m['id'] ?>"><?php echo $m['Name'] ?></option>
+                      <option value="<?php echo $m['Name'] ?>"><?php echo $m['Name'] ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -236,7 +236,7 @@
                     <select name="location">
                       <option selected>CARS FOR SALE BY LOCATION</option>
                       <?php foreach ($locations as $l) {?>
-                      <option value="<?php echo $l['id'] ?>"><?php echo $l['Location'] ?></option>
+                      <option value="<?php echo $l['Location'] ?>"><?php echo $l['Location'] ?></option>
                       <?php } ?>
                     </select>
                   </div>

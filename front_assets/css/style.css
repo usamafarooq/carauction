@@ -3542,3 +3542,11 @@ tr:nth-child(even) {
 .progress{border-radius: 0px; background-color: #f9f9f9;}
 
 .progress-bar{background-color: #1f69b8;}
+
+.sales-calender {
+    width:  100%;
+}
+
+.sales-calender select#auc-date {
+    width:  100%;
+}

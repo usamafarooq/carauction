@@ -165,12 +165,20 @@
           editable: true,
           droppable: true,
           events: [
-            <?php foreach ($auctions as $a) {?>
+            <?php 
+              foreach ($auctions as $a) {
+                if ($a['Live'] == 'No') {
+                  $url = base_url('listing/auction/'.$a['id']);
+                }
+                else{
+                  $url = base_url('live_auctions/auction/'.$a['id']);
+                }
+            ?>
               {
                 id: 'event-<?php echo $a['id'] ?>',
                 title: '<?php echo $a['Location'] ?>',
                 start: '<?php echo date('Y-m-d',strtotime($a['Date'])) ?>',
-                url: "#"
+                url: "<?php echo $url ?>"
               },
             <?php } ?>
           ]
@@ -178,6 +186,43 @@
         <?php } ?>
         
       })
+      $('.make_id').on('change', function() {
+          var make_id = $(this).val();
+          make_id = $('.make_id option[value="'+make_id+'"]').attr('data-id')
+          get_model(make_id);
+      });
+
+      function get_model(make_id) 
+      {
+          $.ajax({
+              url: '<?php echo base_url('home/get_by_make_id') ?>',
+              type: 'POST',
+              dataType: 'JSON',
+              data: {make_id: make_id},
+          })
+          .done(function(response) {
+              var res = response.data;
+              var row = '<option value="">Select Model</option>';
+              $.each(res, function(index, el) {
+                  row += createRow(el);
+              });
+
+              $('#model_dropdown').html(row);
+          })
+          .fail(function() {
+              console.log("error");
+          })
+          .always(function() {
+              console.log("complete");
+          });
+          
+      }
+
+
+      var createRow = function ( obj ) {
+          var row =  '<option value="'+obj.Name+'">'+obj.Name+'</option>';
+          return row;
+      }
     </script>   
 </body>
 </html>
