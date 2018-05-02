@@ -25,12 +25,20 @@
                     <hr>
                     
                   <h5>Newsletter</h5>
-                  <div class="input-group subscribe-style-two">
-                    <input type="email" class="form-control" placeholder="Subscribe Now">
-                    <span class="input-group-btn">
-                      <button class="btn btn-subscribe" type="button"><i class="fa fa-paper-plane"></i></button>
-                    </span>
-                  </div>
+                  <form id="newslatter-form" method="post" action="<?php echo base_url('home/subscribe') ?>">
+                    <div class="input-group subscribe-style-two">
+                      <input type="email" name="email" required="" class="form-control" placeholder="Subscribe Now">
+                      <span class="input-group-btn">
+                        <button class="btn btn-subscribe" type="submit"><i class="fa fa-paper-plane"></i></button>
+                      </span>
+                    </div>
+                    <div class="alert alert-success newslatter-alert success-true" style="display: none;">
+                      <strong>Success!</strong> <span class="newslatter-message"></span>
+                    </div>
+                    <div class="alert alert-danger newslatter-alert success-false" style="display: none;">
+                      <strong>Danger!</strong> <span class="newslatter-message"></span>
+                    </div>
+                  </form>
                 </div>
               </div>
           </div>

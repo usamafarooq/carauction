@@ -16,8 +16,25 @@ class Home extends Front_Controller {
 		$this->data['live_listing'] = $this->home_model->get_live_listing();
 		$this->data['makes']  = $this->home_model->all_rows('makes');
 		$this->data['locations']  = $this->home_model->all_rows('locations');
-		//print_r($this->db->last_query());die;
 		$this->load->front_template('home',$this->data);
+	}
+
+	public function subscribe()
+	{
+		$email = $this->input->post('email');
+		$newslatter = $this->home_model->get_row_single('subscriptions',array('Email'=>$email));
+		if (empty($newslatter)) {
+			$id = $this->home_model->insert('subscriptions',array('email'=>$email));
+			if ($id) {
+				echo json_encode(array('status'=>true, 'message' => 'Successfully Subscribe'));
+			}
+			else{
+				echo json_encode(array('status'=>false, 'message' => 'Error in Subscribtion'));
+			}
+		}
+		else{
+			echo json_encode(array('status'=>false, 'message' => 'Your Email Already Subscribe'));
+		}
 	}
 
 	public function logout()
