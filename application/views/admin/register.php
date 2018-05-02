@@ -27,7 +27,7 @@
 					<img src="<?php echo base_url() ?>admin_assets/images/logo.png" alt="logo" /></h1>
 
 			</div>
-			<h3>Welcome to PharmEvo</h3>
+			<h3>Welcome to Car Aunction</h3>
 			<form class="m-t" role="form" method="post" action="<?php echo base_url()?>admin/register/insert_user">
 				<div class="form-group">
 					<input type="text" class="form-control" name="name" placeholder="Username" required="">

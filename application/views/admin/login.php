@@ -27,7 +27,7 @@
                 	<img src="<?php echo base_url() ?>admin_assets/images/logo.png" alt="logo" /></h1>
 
             </div>
-            <h3>Welcome to PharmEvo</h3>
+            <h3>Welcome to Car Aunction</h3>
             <form class="m-t" role="form" method="post" action="<?php echo base_url() ?>admin/login/check_login">
                 <div class="form-group">
                     <input type="text" class="form-control" name="email" placeholder="Email" required="">
@@ -36,7 +36,7 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
-                <a href="<?php echo base_url()?>admin/register">Signup Account</a>
+                <!-- <a href="<?php echo base_url()?>admin/register">Signup Account</a> -->
 
 <?php if ($this->session->flashdata('error')): ?>
                 <a class="btn btn-danger block full-width m-b"><?php echo $this->session->flashdata('error'); ?></a>
