@@ -287,79 +287,88 @@ function get_single_difrreance($date)
     <section class="car-search-bar mt0">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <div class="search-col">
-              <select>
-                <option value="0" selected>Any Brand</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-                <option value="3">Mercedes-Benz</option>
-                <option value="4">Opel</option>
-                <option value="5">Porsche</option>
-              </select>
+          <form method="post" action="<?php echo base_url('listing/search') ?>">
+            <div class="col-md-3 col-sm-6">
+              <div class="search-col">
+                <select name="type">
+                  <option value="0" selected>All Vehicle Types</option>
+                  <?php 
+                    foreach ($vehicle_type as $v) {
+                  ?>
+                  <option value="<?php echo $v['Name'] ?>"><?php echo $v['Name'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="search-col">
-              <select>
-                <option value="0" selected>Any Type</option>
-                <option value="1">F01 ActiveHybrid 7</option>
-                <option value="2">Mercedes-Benz SLC-Class</option>
-                <option value="3">BMW badge on a 1931 Dixi</option>
-                <option value="4">Porsche 911</option>
-                <option value="5">Volkswagen Golf</option>
-              </select>
+            <div class="col-md-3 col-sm-6">
+              <div class="search-col">
+                <select name="start_year">
+                  <?php 
+                    for($i=date('Y');$i<=date('Y');$i--)
+                    {
+                      $selected = '';
+                      if($i == 1900){
+
+                        $selected = 'selected';
+                      }
+                        echo '<option value='.$i.' '.$selected.'>'.$i.'</option>';
+                        if($i == 1900){break;}
+                    }
+                  ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="search-col">
-              <select>
-                <option value="0" selected>Select Year</option>
-                <option value="1">2014</option>
-                <option value="2">2015</option>
-                <option value="3">2016</option>
-                <option value="4">2017</option>
-                <option value="5">2018</option>
-              </select>
+            <div class="col-md-3 col-sm-6">
+              <div class="search-col">
+                <select name="end_year">
+                  <?php 
+                    for($i=date('Y');$i<=date('Y');$i--)
+                    {
+                      $selected = '';
+                      if($i == date('Y')){
+
+                        $selected = 'selected';
+                      }
+                        echo '<option value='.$i.' '.$selected.'>'.$i.'</option>';
+                        if($i == 1900){break;}
+                    }
+                  ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="search-col">
-              <select>
-                <option value="0" selected>Choose Color</option>
-                <option value="1">Black</option>
-                <option value="2">Blue</option>
-                <option value="3">Green</option>
-                <option value="4">Red </option>
-                <option value="5">Matt Black</option>
-              </select>
+            <div class="col-md-3 col-sm-6">
+              <div class="search-col">
+                <select name="make" class="make_id">
+                  <option value="0" selected>All Makes</option>
+                  <?php 
+                    foreach ($make as $v) {
+                  ?>
+                  <option value="<?php echo $v['Name'] ?>" data-id="<?php echo $v['id'] ?>"><?php echo $v['Name'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="search-col">
-              <select>
-                <option value="0" selected>Mileage Per Litter</option>
-                <option value="1">12 Km</option>
-                <option value="2">10 Km</option>
-                <option value="3">8 Km</option>
-                <option value="4">16 Km</option>
-                <option value="5">5 Km</option>
-              </select>
+            <div class="col-md-3 col-sm-6">
+              <div class="search-col">
+                <select name="model" id="model_dropdown">
+                  <option value="0" selected>All Model</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="search-col">
-              <p class="car-price">
-                Price Range: <span id="amount"></span>
-              </p>
-              <div id="slider-range"></div>
+            <div class="col-md-6 col-sm-6">
+              <div class="search-col">
+                <p class="car-price">
+                  Price Range: <span id="amount"></span>
+                </p>
+                <div id="slider-range"></div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-12">
-            <div class="search-col">
-              <button class="btn btn-default my-btn" type="submit">Search Car</button>
+            <div class="col-md-3 col-sm-12">
+              <div class="search-col">
+                <button class="btn btn-default my-btn" type="submit">Search Car</button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
