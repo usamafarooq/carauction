@@ -16,4 +16,14 @@ class Main_model extends MY_Model
 				 ->where('p.user_type_id',$role);
 		return $this->db->get()->row_array();
 	}
+
+	public function get_package($id)
+	{
+		$this->db->select('p.*')
+				 ->from('packages p')
+				 ->join('user_package up', 'up.package_id = p.id')
+				 ->where('up.user_id',$id)
+				 ->order_by('up.id','desc');
+		return $this->db->get()->row_array();
+	}
 }

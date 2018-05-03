@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2018 at 11:42 AM
+-- Generation Time: May 03, 2018 at 10:16 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -43,7 +43,8 @@ CREATE TABLE `auctions` (
 INSERT INTO `auctions` (`id`, `Auction`, `Live`, `Location`, `Date`, `user_id`, `created_at`) VALUES
 (1, 'Xyz Auction', 'Yes', 1, '2018-04-30 01:00:00', 2, '2018-04-30 08:14:45'),
 (2, 'Abc Auction', 'No', 1, '2018-04-28 00:00:00', 2, '2018-04-27 07:36:52'),
-(3, 'Xyz Auctionsss', 'No', 2, '2018-05-03 14:12:00', 2, '2018-04-30 05:08:23');
+(3, 'Xyz Auctionsss', 'No', 2, '2018-05-03 14:12:00', 2, '2018-04-30 05:08:23'),
+(4, 'testing auction', 'Yes', 1, '2018-05-31 13:00:00', 2, '2018-05-02 05:17:10');
 
 -- --------------------------------------------------------
 
@@ -183,10 +184,10 @@ CREATE TABLE `locations` (
   `Fax` varchar(255) DEFAULT NULL,
   `Preview_Time` varchar(255) NOT NULL,
   `Preview_Note` varchar(255) DEFAULT NULL,
-  `Pickup_Time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `Pickup_Time` varchar(255) DEFAULT NULL,
   `Pickup_Note` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -274,7 +275,8 @@ INSERT INTO `modules` (`id`, `name`, `main_name`, `sort`, `icon`, `url`, `user_i
 (27, 'Tickets', 'tickets', 7, 'assignment_turned_in', 'tickets', 2),
 (28, 'Pages', 'pages', 6, 'pages', 'pages', 2),
 (29, 'Locations', 'locations', 6, 'location_on', 'locations', 2),
-(30, 'Auctions', 'auctions', 7, 'gavel', 'auctions', 2);
+(30, 'Auctions', 'auctions', 7, 'gavel', 'auctions', 2),
+(31, 'Packages', 'packages', 9, 'layers', 'packages', 2);
 
 -- --------------------------------------------------------
 
@@ -408,7 +410,52 @@ INSERT INTO `modules_fileds` (`id`, `name`, `type`, `filed_type`, `options`, `le
 (210, 'Auction', 'VARCHAR', 'input', '', 255, 1, 30, 0, NULL, NULL, NULL),
 (211, 'Live', 'VARCHAR', 'radio', 'Yes, No', 20, 1, 30, 0, NULL, NULL, NULL),
 (212, 'Location', 'INT', 'input', '', 11, 1, 30, 1, 'id', 'locations', 'Address'),
-(213, 'Date', 'DATE', 'input', '', 0, 1, 30, 0, NULL, NULL, NULL);
+(213, 'Date', 'DATE', 'input', '', 0, 1, 30, 0, NULL, NULL, NULL),
+(214, 'Name', 'VARCHAR', 'input', '', 255, 1, 31, 0, NULL, NULL, NULL),
+(215, 'Create_Watchlist_and_Saved_Searches', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(216, 'Watchlist_SMS_Notifications', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(217, 'I_Buy_Fast', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(218, 'Proxy_Bid', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(219, 'On_Site_Vehicle_Preview', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(220, 'Bidder_Number', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(221, 'I_Bid_Live', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(222, 'Transaction_fee', 'VARCHAR', 'input', '', 100, 1, 31, 0, NULL, NULL, NULL),
+(223, 'Free_Car_Auction_History_Reports', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL),
+(224, 'Price', 'VARCHAR', 'input', '', 100, 1, 31, 0, NULL, NULL, NULL),
+(225, 'Include_Deposit', 'VARCHAR', 'radio', 'Yes,No', 10, 1, 31, 0, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Create_Watchlist_and_Saved_Searches` varchar(10) NOT NULL,
+  `Watchlist_SMS_Notifications` varchar(10) NOT NULL,
+  `I_Buy_Fast` varchar(10) NOT NULL,
+  `Proxy_Bid` varchar(10) NOT NULL,
+  `On_Site_Vehicle_Preview` varchar(10) NOT NULL,
+  `Bidder_Number` varchar(10) NOT NULL,
+  `I_Bid_Live` varchar(10) NOT NULL,
+  `Transaction_fee` varchar(100) NOT NULL,
+  `Free_Car_Auction_History_Reports` varchar(10) NOT NULL,
+  `Price` varchar(100) NOT NULL,
+  `Include_Deposit` varchar(10) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `Name`, `Create_Watchlist_and_Saved_Searches`, `Watchlist_SMS_Notifications`, `I_Buy_Fast`, `Proxy_Bid`, `On_Site_Vehicle_Preview`, `Bidder_Number`, `I_Bid_Live`, `Transaction_fee`, `Free_Car_Auction_History_Reports`, `Price`, `Include_Deposit`, `user_id`, `created_at`) VALUES
+(1, 'BASIC', 'No', 'No', 'No', 'No', 'No', 'No', 'No', '0', 'No', '0', 'No', 2, '2018-05-03 04:55:12'),
+(2, 'PREMIER', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '$250 or 5%', 'Yes', '150', 'No', 2, '2018-05-03 04:55:57'),
+(3, 'GOLD', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '$250', 'Yes', '250', 'Yes', 2, '2018-05-03 04:56:28');
 
 -- --------------------------------------------------------
 
@@ -464,21 +511,22 @@ CREATE TABLE `permission` (
 --
 
 INSERT INTO `permission` (`id`, `module_id`, `user_id`, `user_type_id`, `view`, `view_all`, `created`, `edit`, `deleted`, `disable`) VALUES
-(292, 2, 2, 1, 1, 1, 1, 1, 1, 1),
-(293, 3, 2, 1, 1, 1, 1, 1, 1, 1),
-(294, 5, 2, 1, 1, 1, 1, 1, 1, 1),
-(295, 7, 2, 1, 1, 1, 1, 1, 1, 1),
-(296, 19, 2, 1, 1, 1, 1, 1, 1, 1),
-(297, 20, 2, 1, 1, 1, 1, 1, 1, 1),
-(298, 21, 2, 1, 1, 1, 1, 1, 1, 1),
-(299, 22, 2, 1, 1, 1, 1, 1, 1, 1),
-(300, 24, 2, 1, 1, 1, 1, 1, 1, 1),
-(301, 25, 2, 1, 1, 1, 1, 1, 1, 1),
-(302, 26, 2, 1, 1, 1, 1, 1, 1, 1),
-(303, 27, 2, 1, 1, 1, 1, 1, 1, 1),
-(304, 28, 2, 1, 1, 1, 1, 1, 1, 1),
-(305, 29, 2, 1, 1, 1, 1, 1, 1, 1),
-(306, 30, 2, 1, 1, 1, 1, 1, 1, 1);
+(307, 2, 2, 1, 1, 1, 1, 1, 1, 1),
+(308, 3, 2, 1, 1, 1, 1, 1, 1, 1),
+(309, 5, 2, 1, 1, 1, 1, 1, 1, 1),
+(310, 7, 2, 1, 1, 1, 1, 1, 1, 1),
+(311, 19, 2, 1, 1, 1, 1, 1, 1, 1),
+(312, 20, 2, 1, 1, 1, 1, 1, 1, 1),
+(313, 21, 2, 1, 1, 1, 1, 1, 1, 1),
+(314, 22, 2, 1, 1, 1, 1, 1, 1, 1),
+(315, 24, 2, 1, 1, 1, 1, 1, 1, 1),
+(316, 25, 2, 1, 1, 1, 1, 1, 1, 1),
+(317, 26, 2, 1, 1, 1, 1, 1, 1, 1),
+(318, 27, 2, 1, 1, 1, 1, 1, 1, 1),
+(319, 28, 2, 1, 1, 1, 1, 1, 1, 1),
+(320, 29, 2, 1, 1, 1, 1, 1, 1, 1),
+(321, 30, 2, 1, 1, 1, 1, 1, 1, 1),
+(322, 31, 2, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -492,6 +540,16 @@ CREATE TABLE `subscriptions` (
   `user_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subscriptions`
+--
+
+INSERT INTO `subscriptions` (`id`, `Email`, `user_id`, `created_at`) VALUES
+(1, 'test@gmail.com', 0, '2018-05-02 04:58:00'),
+(2, 'talha@gmail.com', 0, '2018-05-02 05:06:25'),
+(3, 'talha1@gmail.com', 0, '2018-05-02 05:09:39'),
+(4, 'talha2@gmail.com', 0, '2018-05-02 05:10:26');
 
 -- --------------------------------------------------------
 
@@ -531,7 +589,29 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `name`, `email`, `password`, `role`) VALUES
 (2, 'Super', 'Admin', 'admin', 'admin@gmail.com', 'e6e061838856bf47e1de730719fb2609', 1),
-(28, 'Brien', 'Dabson', 'brien.dabson@gmail.com', 'brien.dabson@gmail.com', '6a9c2d841da5779e46cebc20fcc599ff', 2);
+(30, 'brien', 'dabson', 'brien.dabson@gmail.com', 'brien.dabson@gmail.com', '6a9c2d841da5779e46cebc20fcc599ff', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_package`
+--
+
+CREATE TABLE `user_package` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `package_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_package`
+--
+
+INSERT INTO `user_package` (`id`, `user_id`, `package_id`, `created_at`) VALUES
+(1, 30, 1, '2018-05-03 05:26:48'),
+(2, 30, 2, '2018-05-03 05:39:38'),
+(3, 30, 1, '2018-05-03 06:26:55');
 
 -- --------------------------------------------------------
 
@@ -640,6 +720,12 @@ ALTER TABLE `modules_fileds`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
@@ -672,6 +758,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `name` (`name`);
 
 --
+-- Indexes for table `user_package`
+--
+ALTER TABLE `user_package`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_type`
 --
 ALTER TABLE `user_type`
@@ -691,7 +783,7 @@ ALTER TABLE `vehicle_type`
 -- AUTO_INCREMENT for table `auctions`
 --
 ALTER TABLE `auctions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `currency`
 --
@@ -731,12 +823,17 @@ ALTER TABLE `models`
 -- AUTO_INCREMENT for table `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `modules_fileds`
 --
 ALTER TABLE `modules_fileds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=226;
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pages`
 --
@@ -746,12 +843,12 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
 --
 -- AUTO_INCREMENT for table `subscriptions`
 --
 ALTER TABLE `subscriptions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tickets`
 --
@@ -761,7 +858,12 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT for table `user_package`
+--
+ALTER TABLE `user_package`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
