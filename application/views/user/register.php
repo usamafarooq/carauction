@@ -32,7 +32,7 @@
               </div>
               <div class="form-check">
                 <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" required="">By Clicking here you are agree to Auction </br><a href="#">Member Terms & Conditions</a></label>
+                <input type="checkbox" class="form-check-input" required="">By Clicking here you are agree to Auction </br><a target="_blank" href="<?php echo base_url('pages/page/term-condition') ?>">Member Terms & Conditions</a></label>
                 <button type="submit" class="btn btn-primary my-btn login-set">Sign Up</button>
                 <?php if ($this->session->flashdata('error')): ?>
                 <a class="btn btn-danger block full-width m-b"><?php echo $this->session->flashdata('error'); ?></a>

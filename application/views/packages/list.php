@@ -107,6 +107,8 @@
                 </ul>
               </div>
             </div>  -->
+            <a href="<?php echo base_url('account_activation') ?>"><button class="btn btn-default agree-btn pull-right">Skip</button></div></a>
         </div>
       </div>
+
     </section>

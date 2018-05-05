@@ -26,4 +26,14 @@ class Main_model extends MY_Model
 				 ->order_by('up.id','desc');
 		return $this->db->get()->row_array();
 	}
+
+	public function get_user($id)
+	{
+		$this->db->select('u.*,group_concat(ud.file separator ",") as document,group_concat(ud.id separator ",") as document_id')
+				 ->from('users u')
+				 ->join('user_document ud','ud.user_id = u.id', 'left')
+				 ->group_by('u.id')
+				 ->where('u.id',$id);
+		return $this->db->get()->row_array();		 
+	}
 }

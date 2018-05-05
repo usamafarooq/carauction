@@ -144,7 +144,7 @@
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/lib/moment.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
-    
+    <script type="text/javascript" src="<?php echo base_url('front_assets/js/countrys.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
     <?php if(!isset($locations)){ ?>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script>
@@ -223,6 +223,46 @@
           var row =  '<option value="'+obj.Name+'">'+obj.Name+'</option>';
           return row;
       }
+      $('.upload-document').click(function() {
+        $('#select-image').click()
+      })
+      $('#select-image').change(function() {
+        $('#image-upload').submit()
+      })
+      $('#image-upload').submit(function(e) {
+        e.preventDefault();
+        var url = $(this).attr('action')
+        $.ajax({
+            url: url, // Url to which the request is send
+            type: "POST", // Type of request to be send, called as method
+            data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            contentType: false, // The content type used when sending data to the server.
+            cache: false, // To unable request pages to be cached
+            processData: false, // To send DOMDocument or non processed data file it is set to false
+            success: function(data) // A function to be called if request succeeds
+            {
+              //data = data.images
+              data = JSON.parse(data)
+              console.log(data)
+              for (var i = 0; i < data.length; i++) {
+                $('.document-list').append('<li>'+data[i].file.replace("/uploads/", "")+' <i style="cursor: pointer;" class="remove-file" data-id="'+data[i].id+'">X</i></li>')
+              }
+            }
+        });
+      })
+      $('body').on('click', '.remove-file', function() {
+        var id = $(this).attr('data-id')
+        $(this).parent().remove()
+        $.ajax({
+            url: '<?php echo base_url('account_activation/remove_file/') ?>'+id, // Url to which the request is send
+            type: "GET", // Type of request to be send, called as method
+            // To send DOMDocument or non processed data file it is set to false
+            success: function(data) // A function to be called if request succeeds
+            {
+              
+            }
+        });
+      })
     </script>   
 </body>
 </html>

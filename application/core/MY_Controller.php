@@ -373,4 +373,11 @@ class Front_Controller extends CI_Controller {
 		$package = $this->main_model->get_package($id);
 		return $package;
 	}
+
+	public function get_user_detail()
+	{
+		$id = $this->session->userdata('user_id');
+		$user = $this->main_model->get_user($id);
+		return $user;
+	}
 }
