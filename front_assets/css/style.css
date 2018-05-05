@@ -298,7 +298,7 @@ select:not([multiple]) {
 
 /* Default Title CSS */
 .section-title {
-    margin-bottom: 60px;
+    margin-bottom: 35px;
     text-align: center;
 }
 .section-title h3 {
@@ -3543,10 +3543,216 @@ tr:nth-child(even) {
 
 .progress-bar{background-color: #1f69b8;}
 
+.packages-bg {
+    background: #f9f9f9;
+    padding: 30px 15px;
+}
+
+.pck-detail ul li {
+    padding: 13px 0px;
+    font-weight: 600;
+    font-family: Montserrat;
+ }
+
+.space-det {
+    padding-top: 80px;
+}
+
+.space-det-spec{
+    padding-top: 22px; 
+}
+
+.pck-detail-one ul li {
+    padding: 13px 0px;
+    text-align: center;
+        font-weight: 500;
+    color: #1f69b8;
+    font-family: Montserrat;
+}
+
+.space-det-one {
+    background: #5b5b5b;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #fff;
+}
+
+.space-det-two {
+    background: #1f69b8;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #fff;
+}
+
+.space-det-three {
+    background: #134f90;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #fff;
+}
+
+.ex2 {
+    background-color: lightblue;
+    width: 100%;
+    height: 700px;
+    overflow: scroll;
+}
+i.fa.fa-times {color: red;}
+
+i.fa.fa-check {color: #1f69b8;}
+
+.agree-btn {
+    margin-left: -15px;
+    margin-top:  22px;
+    padding: 15px 70px;
+    font-family: Montserrat;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    background: #1f69b8;
+    color: #fff;
+    border: 1px solid #1f69b8;
+}
+
+.agree-btn:hover {
+    background: #fff;
+    border: 1px solid #1f69b8;
+    color: #1f69b8;
+}
+
+.quick-message {
+    text-align: center;
+    background: #f9f9f9;
+    margin-left:  -15px;
+    margin-right: -15px;
+    padding: 16px;
+    margin-bottom:  30px;
+}
+
+.quick-message span {
+    font-family: Montserrat;
+    font-weight: 500;
+    margin-left:  10px;
+    margin-right:  10px;
+    text-transform: uppercase;
+}
+
+i.fa.fa-info-circle {
+    font-size: 20px;
+}
+
+.acti {
+    border-radius: 0px;
+    background: #1f69b8;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: Montserrat;
+    border: 1px solid #1f69b8;
+    padding: 7px 20px;
+    font-weight: 200;
+}
+
+.acti:hover {
+    background: #f9f9f9;
+    border: 1px solid #1f69b8;
+    color: #1f69b8;
+}
+
+/* Base Styles */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  position: relative;
+}
+#cssmenu a {
+  line-height: 1.3;
+}
+#cssmenu {
+  width: 270px;
+}
+#cssmenu > ul > li > a {
+    padding-right: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    background: #e4e3e3;
+    color: #1f69b8;
+    border-bottom: 1px solid #1f69b8;
+    text-transform: uppercase;
+}
+#cssmenu > ul > li > a > span {
+background: #f9f9f9;
+    padding: 16px 10px;
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: Montserrat;
+}
+#cssmenu > ul > li > a:hover {
+  text-decoration: none;
+}
+#cssmenu > ul > li.active {
+  border-bottom: none;
+}
+#cssmenu > ul > li.active > a {
+  color: #fff;
+}
+#cssmenu > ul > li.active > a span {
+  background: #1f69b8;
+}
+#cssmenu span.cnt {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+/* Sub menu */
+#cssmenu ul ul {
+  display: none;
+}
+#cssmenu ul ul li {
+  border: 1px solid #e0e0e0;
+  border-top: 0;
+}
+#cssmenu ul ul a {
+  padding: 10px;
+  display: block;
+  color: #1f69b8;
+  font-size: 13px;
+}
+#cssmenu ul ul a:hover {
+  color: #bd0e36;
+}
+#cssmenu ul ul li.odd {
+  background: #f4f4f4;
+}
+#cssmenu ul ul li.even {
+  background: #fff;
+}
 .sales-calender {
     width:  100%;
 }
-
 .sales-calender select#auc-date {
     width:  100%;
 }

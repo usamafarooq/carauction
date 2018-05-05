@@ -40,7 +40,10 @@ class Register extends Front_Controller {
 		$data['password'] = md5($data['password']);
 		$id = $this->register_model->insert('users',$data);
 		if ($id) {
-			redirect('login');
+			$this->register_model->insert('user_package',array('user_id'=>$id,'package_id'=>1));
+			$this->session->set_userdata('user_id', $id);
+			$this->session->set_userdata('user_type', 2);
+			redirect("packages");
 		}
 	}
 

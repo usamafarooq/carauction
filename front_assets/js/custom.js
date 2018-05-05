@@ -468,32 +468,3 @@
 
 
 })(window.jQuery);
-function buttonUp(event) {
-  if (event.keyCode == 13) {
-    $('.searchbox').submit()
-  }
-}
-
-$("#newslatter-form").submit(function(e) {
-
-    var url = $(this).attr('action'); // the script where you handle the form input.
-
-    $.ajax({
-           type: "POST",
-           url: url,
-           data: $(this).serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-                var data = JSON.parse(data)
-                if (data.status === true) {
-                    $('.subscribe-style-two').hide()
-                }
-                $('.newslatter-alert').hide()
-                $('.success-'+data.status).show()
-                $('.newslatter-message').text(data.message)
-               //alert(data); // show response from the php script.
-           }
-         });
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-});

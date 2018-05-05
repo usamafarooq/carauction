@@ -359,4 +359,25 @@ class Front_Controller extends CI_Controller {
 		$vehicle_type = $this->main_model->all_rows('makes');
 		return $vehicle_type;
 	}
+
+	public function check_login()
+	{
+		if (!$this->session->userdata('user_id')) {
+			redirect("login");
+		}
+	}
+
+	public function package()
+	{
+		$id = $this->session->userdata('user_id');
+		$package = $this->main_model->get_package($id);
+		return $package;
+	}
+
+	public function get_user_detail()
+	{
+		$id = $this->session->userdata('user_id');
+		$user = $this->main_model->get_user($id);
+		return $user;
+	}
 }
