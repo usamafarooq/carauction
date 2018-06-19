@@ -269,14 +269,22 @@
         <div class="row">
           <div class="featured-carousel">
             <?php foreach ($popular_listing as $l) {?>
+            <?php 
+              if (strpos($l['images'], 'http') !== false) {
+                $image = $l['images'];
+              }
+              else{
+                $image = base_url($l['images']);
+              }
+            ?>
             <div class="item">
               <div class="featured-col animated fadeInLeftShort slow delay-250 go">
                 <div class="box">
-                  <img src="<?php echo base_url($l['images']) ?>" alt="">
-                  <h3 class="price">$49,999 | Timeleft: <?php echo get_single_difrreance($l['Sale_Date']); ?></h3>
+                  <img src="<?php echo $image ?>" alt="">
+                  <h3 class="price">$<?php echo number_format($l['amount'], 2) ?> | Timeleft: <?php echo get_single_difrreance($l['Sale_Date']); ?></h3>
                   <div class="box-content">
                     <ul class="icon">
-                      <li><a href="<?php echo base_url($l['images']) ?>" data-lightbox="lightbox-1" data-title="<?php echo $l['Name'] ?>"><i class="fa fa-search"></i></a></li>
+                      <li><a href="<?php echo $image ?>" data-lightbox="lightbox-1" data-title="<?php echo $l['Name'] ?>"><i class="fa fa-search"></i></a></li>
                       <li><a href="<?php echo base_url('listing/detail/'.$l['id']) ?>"><i class="fa fa-link"></i></a></li>
                     </ul>
                   </div>
@@ -309,6 +317,7 @@
               </div>
             </div>
             <?php } ?>
+            
           </div>
         </div>
       </div>
@@ -329,10 +338,18 @@
           <div class="col-md-12">
             <div class="discount-carousel">
               <?php foreach ($live_listing as $l) {?>
+              <?php 
+                if (strpos($l['images'], 'http') !== false) {
+                  $image = $l['images'];
+                }
+                else{
+                  $image = base_url($l['images']);
+                }
+              ?>
               <div class="discount-carousel-item">
                 <div class="discount-box">
                     <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo base_url($l['images']) ?>" alt="">
+                    <img src="<?php echo $image ?>" alt="">
                     <div class="box-content">
                         <div class="content">
                             <h3 class="title"><?php echo $l['Name'] ?></h3>
@@ -341,11 +358,12 @@
                     </div>
                 </div>
                 <div class="discount-price">
-                  <h4>Auction Price: $32</h4>
+                  <h4>Auction Price: $<?php echo number_format($l['amount'], 2) ?></h4>
                   <span>For Sale In <?php echo $l['Location'] ?></span>
                 </div>
               </div>
               <?php } ?>
+              
             </div>
           </div>
         </div>

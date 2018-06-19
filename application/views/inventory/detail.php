@@ -13,9 +13,15 @@
                       $images = explode(',', $detail['images']);
                       $active = 0;
                       for ($i=0; $i < sizeof($images); $i++) { 
+                        if (strpos($images[$i], 'http') !== false) {
+                          $image = $images[$i];
+                        }
+                        else{
+                          $image = base_url(str_replace(' ', '', $images[$i]));
+                        }
                     ?>
                     <div class="item <?php echo ($active == 0 ) ? 'active' : NULL ?> ">
-                      <img src="<?php echo base_url(str_replace(' ', '', $images[$i])) ?>" alt="">
+                      <img src="<?php echo $image ?>" alt="">
                        <div class="carousel-caption">
                         <h3>Best Features</h3>
                       </div>
@@ -31,7 +37,13 @@
                   <ul class="nav nav-pills nav-justified">
                     <?php 
                       for ($i=0; $i < sizeof($images); $i++) { 
-                        echo '<li data-target="#myCarousel" data-slide-to="'.$i.'" class="active"><a href="#"><img src="'.base_url(str_replace(' ', '', $images[$i])).'" alt=""></a></li>';
+                        if (strpos($images[$i], 'http') !== false) {
+                          $image = $images[$i];
+                        }
+                        else{
+                          $image = base_url(str_replace(' ', '', $images[$i]));
+                        }
+                        echo '<li data-target="#myCarousel" data-slide-to="'.$i.'" class="active"><a href="#"><img src="'.$image.'" alt=""></a></li>';
                       }
                     ?>
                   </ul>

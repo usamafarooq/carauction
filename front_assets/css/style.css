@@ -414,7 +414,7 @@ select:not([multiple]) {
     color: #333333;
     border-color: #8e8e8e;
 }
-.inner-pagination .page-item .page-link:hover {
+.inner-pagination .page-item .page-link:hover, .inner-pagination .page-item .page-link.active {
     color: #ffffff !important;
     background: #1E69B8;
 }
@@ -1023,14 +1023,14 @@ select:not([multiple]) {
 }
 .featured-info {
     background: #1E69B8;
-    padding: 5px 20px;
+    padding: 5px 15px;
 }
 .featured-info p {
     color: #ffffff;
     text-transform: capitalize;
     float: left;
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 13px;
 }
 .featured-info p a {
     color: #ffffff;

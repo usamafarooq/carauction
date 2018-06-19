@@ -464,6 +464,11 @@
         });
     });
 
+    // sorting form
+    $('.sorting-form select').on('change', function() {
+        $('.sorting-form').submit()
+    })
+
 
 
 

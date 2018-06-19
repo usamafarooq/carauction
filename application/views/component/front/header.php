@@ -50,6 +50,25 @@ function get_single_difrreance($date)
   }
   return $minutes;
 }
+function Pagination($data, $limit = null, $current = null, $adjacents = null)
+{
+    $result = array();
+
+    if (isset($data, $limit) === true)
+    {
+        $result = range(1, ceil($data / $limit));
+
+        if (isset($current, $adjacents) === true)
+        {
+            if (($adjacents = floor($adjacents / 2) * 2 + 1) >= 1)
+            {
+                $result = array_slice($result, max(0, min(count($result) - $adjacents, intval($current) - ceil($adjacents / 2))), $adjacents);
+            }
+        }
+    }
+
+    return $result;
+}
 ?>
 
 <!DOCTYPE html>
@@ -361,6 +380,8 @@ function get_single_difrreance($date)
                   Price Range: <span id="amount"></span>
                 </p>
                 <div id="slider-range"></div>
+                <input type="hidden" name="min" id="amount1">
+                <input type="hidden" name="max" id="amount2">
               </div>
             </div>
             <div class="col-md-3 col-sm-12">

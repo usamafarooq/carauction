@@ -13,6 +13,7 @@ class Home extends Front_Controller {
 	{
 		$this->data['home'] = 1;
 		$this->data['popular_listing'] = $this->home_model->get_popular_listing();
+		//$this->data['popular_listing'] = array();
 		$this->data['live_listing'] = $this->home_model->get_live_listing();
 		$this->data['makes']  = $this->home_model->all_rows('makes');
 		$this->data['locations']  = $this->home_model->all_rows('locations');
