@@ -3759,3 +3759,231 @@ background: #f9f9f9;
 .header-navbar .navbar-nav .dropdown-menu .dropdown-menu {
     margin-left:  200px;
 }
+
+/* account page */
+.top-notify {
+    background-color: #f0f0f0;
+    border: 1px solid #e4e4e4;
+    padding: 15px;
+    margin: 15px 0 15px;
+    font-size: 14px;
+    text-align: center;
+}
+.top-notify__item__desc {
+    color: #666666;
+}
+.top-notify__attention-icon {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url(https://sca.auction/img/attention-notification.png) no-repeat 0 0 transparent;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.top-notify-activate strong, .top-notify-expiring-membership strong {
+    color: #db363a;
+    font-size: 18px;
+}
+.top-notify-activate .button {
+    margin-left: 10px;
+    min-width: 0;
+}
+.yBtn_24 {
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    background: #ffb400;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 25%;
+}
+.button {
+    display: inline-block;
+    text-decoration: none !important;
+    color: #222;
+    white-space: nowrap;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.yBtn_24.yBtn_h32 {
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+}
+#content {
+    min-height: 400px;
+    margin-bottom: 30px;
+}
+#content h2 {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+.account-table {
+    margin-top: 30px;
+}
+.searchBox {
+    background-color: #fff;
+    z-index: 10;
+}
+#profile-side-menu .responsive_header {
+    line-height: 46px;
+    font-size: 18px;
+    color: #222222;
+    background-image: url(https://sca.auction/img/menu_arrows_responsive.png);
+    background-repeat: no-repeat;
+    background-position: right 11px top -33px;
+}
+.responsive_header {
+    display: none;
+}
+#profile-side-menu .responsive_box {
+    border: 1px solid #ececec;
+}
+.side-menu ul.level1 {
+    background-color: #ffffff;
+    margin: 0;
+}
+.side-menu ul.level1 {
+    background-color: #ffffff;
+    margin: 0;
+}
+.side-menu ul.level1 li {
+    /* padding: 8px 12px; */
+    border-bottom: 1px solid #e9e9e9;
+    color: #666666;
+}
+.side-menu li.active {
+    background-color: #1E69B8;
+    color: #fff;
+}
+.side-menu li.active a, .side-menu li.active a:hover {
+    color: #fff;
+}
+.side-menu a, .side-menu a:hover {
+    display: block;
+    padding: 8px 12px;
+    color: #666666;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.side-menu .sublevel.droparrow {
+    padding-right: 20px;
+    background-image: url(https://sca.auction/img/ul-vertical-arrows.png);
+    background-repeat: no-repeat;
+    background-position: right 11px top -39px;
+    cursor: pointer;
+    border-bottom: 1px solid #ececec;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    color: #333;
+}
+.side-menu ul.level2 {
+    /* background-color: #f4f4f4; */
+    margin: 0;
+    border-bottom: 1px solid #e9e9e9;
+    display: none;
+}
+.side-menu ul.level2 li {
+    /* padding: 8px 12px 8px 25px; */
+    border: none;
+    color: #666666;
+    font-size: 13px;
+}
+.side-menu .sublevel.droparrow.expand {
+    background-position: right 11px top 14px;
+}
+.side-menu ul.level2 li a {
+    padding: 8px 12px 8px 25px;
+    text-transform: capitalize;
+}
+.side-menu a, .side-menu a:hover {
+    display: block;
+    color: #666666;
+    text-decoration: none;
+}
+#content h2 {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+.welcome_client {
+    border: 1px solid #ececec;
+    background-color: #fff0cc;
+    padding: 10px 15px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.welcome_client--close-modal {
+    top: 5px;
+    right: 20px;
+}
+.close-modal {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url(https://sca.auction/img/closer-black.png) no-repeat center center transparent;
+    cursor: pointer;
+}
+.welcome_client--name {
+    text-align: center;
+    font-size: 22px;
+    margin: 5px 0 10px 0;
+    font-weight: bold;
+}
+.account-boxes {
+    width: 48%;
+}
+.account-boxes {
+    float: left;
+    min-height: 300px;
+}
+.account-boxes + .account-boxes {
+    margin-left: 4%;
+}
+.account-boxes > div.box {
+    float: none;
+}
+.account-boxes > div.box {
+    width: 100%;
+    margin: 0 20px 20px 0;
+    border: 1px solid #ececec;
+    position: relative;
+
+}
+.account-boxes > div.box > h4 {
+    height: 37px;
+    background-color: #ffffff;
+    padding: 0 15px;
+    line-height: 37px;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    border-bottom: 1px solid #ececec;
+}
+.portlet-header {
+    position: relative;
+}
+#move {
+    position: absolute;
+    right: 11px;
+    top: 10px;
+    display: none;
+}
+.account-boxes > div.box > div.wrapper {
+    padding: 10px;
+    min-height: 15px;
+    border-bottom: 1px solid #ececec;
+}
+.account-boxes > div.box .no-result {
+    display: block;
+    padding: 2px 0;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}

@@ -250,7 +250,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                                     <li class="dropdown">
                                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                       <ul class="dropdown-menu">
-                                        <li><a href="<?php echo base_url('my-account') ?>">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url('my_account') ?>">Dashboard</a></li>
                                         <li><a href="<?php echo base_url('account_activation') ?>">Account Activation</a></li>
                                         <li><a href="<?php echo base_url('save-search') ?>">Save Search</a></li>
                                         <li><a href="<?php echo base_url('watchlist') ?>">Watchlist</a></li>
