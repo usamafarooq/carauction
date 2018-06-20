@@ -262,9 +262,14 @@
       })
     </script>  
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/countrys.js') ?>"></script>
-    <?php if(!isset($locations)){ ?>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script>
-    <script type="text/javascript" src="<?php echo base_url('front_assets/js/map.js') ?>"></script>
-    <?php } ?> 
+    <?php //if(!$location) print_r($location) ?>
+    <?php 
+      if(isset($locations) || isset($location) || isset($detail)){
+        
+      } 
+      else{
+        echo '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script><script type="text/javascript" src="'.base_url('front_assets/js/map.js').'"></script>';
+      }
+    ?> 
 </body>
 </html>

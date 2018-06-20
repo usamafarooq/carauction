@@ -99,7 +99,7 @@ class Listing_model extends MY_Model
 
 	public function get_detail($id)
 	{
-		$this->db->select('inventory.*,makes.Name as make,models.Name as model,group_concat(inventory_images.images separator ",") as images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location as Sale_Location,inventory_bids.bid as amount')
+		$this->db->select('inventory.*,makes.Name as make,models.Name as model,group_concat(inventory_images.images separator ",") as images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location as Sale_Location,inventory_bids.bid as amount,locations.id as location_id')
 				 ->from('inventory')
 				 ->join('makes', 'makes.id = inventory.Make', 'left')
 				 ->join('inventory_bids', 'inventory_bids.stock_number = inventory.Stock_ID', 'left')

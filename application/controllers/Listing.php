@@ -111,6 +111,7 @@ class Listing extends Front_Controller {
 	public function detail($id)
 	{
 		$this->data['detail'] = $this->listing_model->get_detail($id);
+		$this->data['location'] = $this->listing_model->get_row_single('locations',array('id'=>$this->data['detail']['location_id']));
 		$this->load->front_template('inventory/detail',$this->data);
 	}
 

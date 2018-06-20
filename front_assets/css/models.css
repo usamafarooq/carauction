@@ -14,8 +14,16 @@
 }
 #fpc-bid-info-modal, #fpc-buynow-info-modal {
     width: 310px;
-    height: 150px;
+    min-height: 150px;
     z-index: 1000;
+}
+#lgm-map-modal {
+    width: 450px;
+    height: 400px;
+}
+div#location-map {
+    width: auto;
+    height:  300px;
 }
 .glue-modal .title {
     height: 35px;

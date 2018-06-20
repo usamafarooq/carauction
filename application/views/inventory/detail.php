@@ -56,7 +56,17 @@
                     <div class="row">
                         <ul class="specification-list">
                           <li><strong>Bid Status:</strong> <span>Bid Status</span></li>
-                          <li><strong>Sale Location:</strong><span>  <?php echo $detail['Sale_Location'] ?> <a href="#">Show on map</a></span></li>
+                          <li><strong>Sale Location:</strong><span>  <?php echo $detail['Sale_Location'] ?> <a href="javascript:;" class="open-model" data-model="map-model">Show on map</a></span></li>
+                          <div class="glue-modal map-model" id="lgm-map-modal">
+                            <div class="title">
+                              <?php echo $detail['Sale_Location'] ?>                            
+                              <span class="modal-arrow-up"></span>
+                              <div class="close-modal"></div>
+                            </div>
+                            <div class="content">
+                               <div id="location-map"></div>               
+                            </div>
+                          </div>
                           <li><strong>Vehicle Location:</strong><span> <?php echo $detail['Vehicle_Location'] ?></span></li>
                           <li><strong>Sale Status:</strong><span> <?php echo $detail['Sale_Status'] ?></span></li>
                           <li><strong>Sale Date:</strong><span>  <?php echo date('l, F d, Y', strtotime($detail['Sale_Date'])) ?></span></li>
@@ -89,8 +99,9 @@
             <div class="col-lg-6 col-md-4">
               <div class="car-sidebar">
                  <div class="bid-box">
-                  <h3><i class="fa fa-circle"></i>Live Auction is About to Start </br><button class="btn btn-deafult bid-btn-inner open-model" data-model="glue-modal">Bid Now</button></h3>
-                  <div class="glue-modal" id="fpc-bid-info-modal">
+                  <h3><i class="fa fa-circle"></i>Live Auction is About to Start </br><button class="btn btn-deafult bid-btn-inner open-model" data-model="login-model">Bid Now</button></h3>
+                  <?php if (!$this->session->userdata('user_id')) { ?>
+                  <div class="glue-modal login-model" id="fpc-bid-info-modal">
                     <div class="title">
                       Bid Now                            
                       <span class="modal-arrow-up"></span>
@@ -101,6 +112,7 @@
                       <p><a href="<?php echo base_url('login') ?>">Login to account</a> or <a href="<?php echo base_url('register') ?>">Register for FREE</a></p>                        
                     </div>
                   </div>
+                  <?php } ?>
                   <h2>Timer: <?php echo get_single_difrreance($detail['Sale_Date']); ?></h2>
                 </div>  
                 <div class="car-sidebar-widget car-category clearfix">
@@ -142,3 +154,50 @@
         </div>
       </div>
     </section>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfYi223bynfI12jcbfAGFw9eRYPLISRx0&sensor=false"></script>
+<script type="text/javascript">
+  var map;
+  
+  var INFOwindow;
+  var latitude;
+  var longitude;
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({
+    'address': '<?php echo $location['Zip_Code'] ?>'
+  }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      latitude = results[0].geometry.location.lat();
+      longitude = results[0].geometry.location.lng();
+      map = new google.maps.Map(document.getElementById('location-map'), {
+        zoom: 4,
+        center: new google.maps.LatLng(latitude, longitude),
+        mapTypeId: 'roadmap'
+    });
+      var position = new google.maps.LatLng(latitude, longitude);
+      var marker = new google.maps.Marker({
+          position: position,
+          // icon: {
+          //     url: feature.type,
+          //     size: new google.maps.Size(150, 150),
+          //     origin: new google.maps.Point(0, 0),
+          //     anchor: new google.maps.Point(25, 50)
+          // },
+          map: map
+      });
+      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $location['Location'] ?></a></div><div class="address"> <?php echo $location['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $location['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $location['Office_Hours'] ?></div><div><br>For more information <a href="<?php echo base_url('listing/location/'.$location['id']) ?>">click here</a></div></div>';
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+      marker.addListener('click', function () {
+        if (INFOwindow)
+        {
+            INFOwindow.close();
+        }
+        INFOwindow = infowindow;
+        infowindow.open(map, marker);
+        //$('.gm-style-iw').parent().css('margin-left', '-60px')
+      });
+    }
+  });
+</script>
