@@ -1,0 +1,64 @@
+.glue-modal {
+    display: none;
+    position: absolute;
+    width: 520px;
+    /* height: 345px; */
+    min-height: 94px;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7); */
+    /* top: 50%; */
+    left: 21.5%;
+    z-index: 10000;
+    text-align: left;
+}
+#fpc-bid-info-modal, #fpc-buynow-info-modal {
+    width: 310px;
+    height: 150px;
+    z-index: 1000;
+}
+.glue-modal .title {
+    height: 35px;
+    background-color: #ffffff;
+    color: #333333;
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 30px 0 15px;
+    line-height: 35px;
+    position: relative;
+    margin-bottom:  0;
+}
+.glue-modal .close-modal {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url(https://sca.auction//img/closer-black.png) no-repeat center center transparent;
+    cursor: pointer;
+}
+.glue-modal .modal-arrow-up {
+    display: block;
+    width: 13px;
+    height: 6px;
+    background: url(https://sca.auction/img/modal-arrow-up.png) no-repeat 0 0 transparent;
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    margin-left: -6px;
+}
+.glue-modal .content {
+    padding: 10px 20px;
+}
+.glue-modal a {
+    /* color: #c80107; */
+    color: #e14045;
+    outline: none;
+}
+
+.bid-box {
+    position:  relative;
+}

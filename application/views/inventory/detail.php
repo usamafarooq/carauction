@@ -78,10 +78,10 @@
                       </div>
                   </div>
                 </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere doloremque iure architecto nobis sint rerum nemo consequuntur, maiores voluptatibus dolore quo qui fugiat soluta cumque voluptates exercitationem optio non libero error perspiciatis sequi incidunt. Architecto id explicabo libero aspernatur aperiam voluptatibus doloribus, autem, repudiandae suscipit nisi in sunt ut ipsa error placeat vero quia corporis dolorem iusto porro, ad eos impedit! Fuga dicta modi ipsa, mollitia amet nihil ullam nam quia assumenda nesciunt tempora.</p>
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere doloremque iure architecto nobis sint rerum nemo consequuntur, maiores voluptatibus dolore quo qui fugiat soluta cumque voluptates exercitationem optio non libero error perspiciatis sequi incidunt. Architecto id explicabo libero aspernatur aperiam voluptatibus doloribus, autem, repudiandae suscipit nisi in sunt ut ipsa error placeat vero quia corporis dolorem iusto porro, ad eos impedit! Fuga dicta modi ipsa, mollitia amet nihil ullam nam quia assumenda nesciunt tempora.</p>
                   <p class="text-hilight">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae minus ipsum, repellendus repellat obcaecati esse quae nisi, consectetur, mollitia provident voluptates doloremque.
-                  </p>
+                  </p> -->
                 </div>
 
               </div>
@@ -89,7 +89,18 @@
             <div class="col-lg-6 col-md-4">
               <div class="car-sidebar">
                  <div class="bid-box">
-                  <h3><i class="fa fa-circle"></i>Live Auction is About to Start </br><button class="btn btn-deafult bid-btn-inner">Bid Now</button></h3>
+                  <h3><i class="fa fa-circle"></i>Live Auction is About to Start </br><button class="btn btn-deafult bid-btn-inner open-model" data-model="glue-modal">Bid Now</button></h3>
+                  <div class="glue-modal" id="fpc-bid-info-modal">
+                    <div class="title">
+                      Bid Now                            
+                      <span class="modal-arrow-up"></span>
+                      <div class="close-modal"></div>
+                    </div>
+                    <div class="content">
+                      <p>You must be logged in or registered in order to be able to bid</p>
+                      <p><a href="<?php echo base_url('login') ?>">Login to account</a> or <a href="<?php echo base_url('register') ?>">Register for FREE</a></p>                        
+                    </div>
+                  </div>
                   <h2>Timer: <?php echo get_single_difrreance($detail['Sale_Date']); ?></h2>
                 </div>  
                 <div class="car-sidebar-widget car-category clearfix">
@@ -109,7 +120,7 @@
                       <li><strong>Loss</strong><span><?php echo $detail['Loss'] ?></span></li>
                       <li><strong>Damage Type</strong><span><?php echo $detail['Damage_Type'] ?></span></li>
                       <li><strong>ACV</strong><span>$<?php echo $detail['ACV'] ?></span></li>
-                      <li><strong>Estimated Repair Cost</strong><span>$<?php echo $detail['Estimated_Repair_Coast'] ?></span></li>
+                      <!-- <li><strong>Estimated Repair Cost</strong><span>$<?php echo $detail['Estimated_Repair_Coast'] ?></span></li> -->
                       <li><strong>VIN</strong><span><?php echo $detail['VIN'] ?></span></li>
                       <li><strong>Exterior Color</strong><span><?php echo $detail['Exterior_Color'] ?></span></li>
                       <li><strong>Interior Color</strong><span><?php echo $detail['Interior_Color'] ?></span></li>
@@ -120,7 +131,7 @@
                       <li><strong>Fuel Type</strong><span><?php echo $detail['Fuel_Type'] ?></span></li>
                       <li><strong>Transmission</strong><span><?php echo $detail['Transmission'] ?></span></li>
                       <li><strong>Drive Type</strong><span><?php echo $detail['Driver_Type_'] ?></span></li>
-                      <li><strong>Manufactured in</strong><span><?php echo $detail['Manufactured_In'] ?></span></li>
+                      <!-- <li><strong>Manufactured in</strong><span><?php echo $detail['Manufactured_In'] ?></span></li> -->
                       <li><strong>Key</strong><span><?php echo $detail['Key_item'] ?></span></li>
                       <li><strong>Start Code</strong><span><?php echo $detail['Start_Code'] ?></span></li>
                     </ul>

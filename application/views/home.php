@@ -296,7 +296,7 @@
                 </div>
                 <div class="featured-content">
                   <h4><a href="<?php echo base_url('listing/detail/'.$l['id']) ?>"><?php echo $l['Name'] ?></a></h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
+                  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores Repellat quia expedita, ullam minima cum.</p>
                   <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6">
                       <ul>
@@ -312,7 +312,7 @@
                         <li><i class="fa fa-check" aria-hidden="true"></i><a href="#">7 Gear box</a></li>
                       </ul>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>

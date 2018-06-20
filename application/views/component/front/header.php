@@ -96,6 +96,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/models.css') ?>">
 
     <!-- Responsive stylesheet  -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/responsive.css') ?>">

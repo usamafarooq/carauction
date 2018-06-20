@@ -469,6 +469,14 @@
         $('.sorting-form').submit()
     })
 
+    $('.open-model').click(function() {
+        $('.'+$(this).attr('data-model')).toggle()
+    })
+
+    $('.close-modal').click(function() {
+        $('.glue-modal').hide()
+    })
+
 
 
 

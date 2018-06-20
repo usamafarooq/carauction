@@ -9,9 +9,17 @@
                 $start = ($result * ($current_page - 1));
                 $on = $start + 1;
                 $end = $start + sizeof($listing);
+                if ($total_rows > 0) {
+                  $num = $on .' - '.$end;
+                }
+                else{
+                  $num = '0';
+                }
                 //echo $start;
               ?>
-              <div class="result-detail"><h4>Showing results  ( <?php echo $on ?> - <?php echo $end ?> ) of <span>  <?php echo $total_rows ?>+ </span></h4></div>  
+
+              
+              <div class="result-detail"><h4>Showing results  ( <?php echo $num ?> ) of <span>  <?php echo $total_rows ?>+ </span></h4></div>  
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
               <form method="get" action="<?php echo current_url() ?>" class="sorting-form">
@@ -88,7 +96,7 @@
               </div>
               <div class="featured-content">
                 <h4><a href="<?php echo base_url('listing/detail/'.$l['id']) ?>"><?php echo substr($l['Name'], 0, 20)  ?></a></h4>
-                <p>999999 miles | <?php echo substr($l['Damage_Type'], 0, 10)?></p>
+                <p><?php echo substr($l['Damage_Type'], 0, 10)?></p>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <ul>
@@ -108,17 +116,12 @@
             <nav aria-label="Page navigation">
               <ul class="pagination m0">
                 <?php 
-                $total = $total_rows;
-$per_page = $result;
-//$current_page = 2;
-$adjacent_links = 4;
-$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-//print_r($actual_link);
-$pages = Pagination($total, $per_page, $current_page, $adjacent_links);
-                  //$currentURL = current_url();
+                  $total = $total_rows;
+                  $per_page = $result;
+                  $adjacent_links = 4;
+                  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                  $pages = Pagination($total, $per_page, $current_page, $adjacent_links);
                   $currentURL = $actual_link;
-
-                  //print_r($currentURL);
                   $num = $total_rows;
                   $num = $num / 10;
                   if (strpos($num,'.')) {
@@ -152,27 +155,30 @@ $pages = Pagination($total, $per_page, $current_page, $adjacent_links);
                   //   }
                   //   echo '<li class="page-item"><a class="page-link '.$class.'" href="'.$currentURL.'?page='.$page.'">'.$page.'</a></li>';
                   // }
-                  for ($i=0; $i < sizeof($pages); $i++) { 
-                    $class = '';
-                    $page = $pages[$i];
-                    if ($page == $current_page) {
-                      $class = 'active';
+                  if ($total_rows > 0) {
+                    for ($i=0; $i < sizeof($pages); $i++) { 
+                      $class = '';
+                      $page = $pages[$i];
+                      if ($page == $current_page) {
+                        $class = 'active';
+                      }
+                      $url = '';
+                      if ($this->input->get()) {
+                        $symbol = '&';
+                      }
+                      else{
+                        $symbol = '?';
+                      }
+                      if ($this->input->get('page')) {
+                        $url = str_replace('page='.$this->input->get('page'), 'page='.$pages[$i], $currentURL);
+                      }
+                      else{
+                        $url = $actual_link.''.$symbol.'page='.$pages[$i];
+                      }
+                      echo '<li class="page-item"><a class="page-link '.$class.'" href="'.$url.'">'.$page.'</a></li>';
                     }
-                    $url = '';
-                    if ($this->input->get()) {
-                      $symbol = '&';
-                    }
-                    else{
-                      $symbol = '?';
-                    }
-                    if ($this->input->get('page')) {
-                      $url = str_replace('page='.$this->input->get('page'), 'page='.$pages[$i], $currentURL);
-                    }
-                    else{
-                      $url = $actual_link.''.$symbol.'page='.$pages[$i];
-                    }
-                    echo '<li class="page-item"><a class="page-link '.$class.'" href="'.$url.'">'.$page.'</a></li>';
                   }
+                    
                   if ($num > 1 && $current_page != $num) {
                     $url = '';
                     if ($this->input->get()) {
