@@ -70,3 +70,77 @@ div#location-map {
 .bid-box {
     position:  relative;
 }
+
+.select-label {
+    width: 49%;
+    display: inline-block;
+    position:  relative;
+}
+.site-form select, .site-form .textarea {
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0;
+    resize: none;
+    line-height: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.custom-select {
+    width: 100% !important;
+    display: inline-block;
+    background: #fff url(https://sca.auction/img/select_arrow.png) right center no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    color: #666666;
+    height: 40px;
+    line-height: 38px;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    padding: 0 15px 0 10px;
+    border-radius: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+select.hasCustomSelect {
+    width: 100% !important;
+}
+.site-form .caption {
+    font-size: 12px;
+    padding-top: 10px;
+    word-wrap: break-word;
+    text-align: center;
+}
+.site-form .caption span {
+    color: #777777;
+}
+.site-form .button {
+    border: none;
+    cursor: pointer;
+    color: #222;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none !important;
+    color: #222;
+    white-space: nowrap;
+    background: #ffb400;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 25%;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+}
+
+form.site-form {
+    text-align:  center;
+}

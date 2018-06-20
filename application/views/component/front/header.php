@@ -246,6 +246,35 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                                             <?php } ?>
                                         </ul>
                                     </li> 
+                                    <?php if ($this->session->userdata('user_id')) { ?>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="<?php echo base_url('my-account') ?>">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url('account_activation') ?>">Account Activation</a></li>
+                                        <li><a href="<?php echo base_url('save-search') ?>">Save Search</a></li>
+                                        <li><a href="<?php echo base_url('watchlist') ?>">Watchlist</a></li>
+                                        <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Document center</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url('document_center/waiting') ?>">Waiting for e-Signature</a></li>
+                                            <li><a href="<?php echo base_url('document_center/processing') ?>">Processing</a></li>
+                                            <li><a href="<?php echo base_url('document_center/completed') ?>">Completed</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a href="<?php echo base_url('bidding_limit') ?>">Bidding Limit</a></li>
+                                        <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url('profile/personal') ?>">Personal Information</a></li>
+                                            <li><a href="<?php echo base_url('profile/billing') ?>">Billing Information</a></li>
+                                            <li><a href="<?php echo base_url('profile/account') ?>">Login and Password</a></li>
+                                            <li><a href="<?php echo base_url('profile/membership') ?>">Membership</a></li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <?php } ?>
                                     <!--<li><a href="contact.html">Contact</a>
                                     </li>-->
                                     <li><div class="tobar-searchbox">

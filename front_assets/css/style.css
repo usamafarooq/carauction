@@ -3756,3 +3756,6 @@ background: #f9f9f9;
 .sales-calender select#auc-date {
     width:  100%;
 }
+.header-navbar .navbar-nav .dropdown-menu .dropdown-menu {
+    margin-left:  200px;
+}

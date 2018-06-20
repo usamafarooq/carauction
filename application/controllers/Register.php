@@ -18,7 +18,7 @@ class Register extends Front_Controller {
 	public function is_login()
 	{
 		if ($this->session->userdata('user_id')) {
-			redirect("home");
+			redirect("my-account");
 		}
 	}
 

@@ -104,7 +104,63 @@
                       <li>Date: <span><?php echo date('d / m / Y', strtotime($l['Sale_Date'])) ?></span></li>
                       <li>Time Left: <span><?php echo get_difrreance($l['Sale_Date']); ?></span></li>
                     </ul>
-                    <button class="btn btn-deafult bid-btn">Bid Now</button>
+                    <button class="btn btn-deafult bid-btn">Bid Now</button><br><br>
+                    <button class="btn btn-deafult  open-model" data-model="watch-model">+Watch</button>
+                    <?php if ($this->session->userdata('user_id')) { ?>
+                    <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button>
+                    <?php } ?>
+                    <?php if (!$this->session->userdata('user_id')) { ?>
+                    <div class="glue-modal watch-model" id="fpc-bid-info-modal">
+                      <div class="title">
+                        Please Enter to the Site                            
+                        <span class="modal-arrow-up"></span>
+                        <div class="close-modal"></div>
+                      </div>
+                      <div class="content">
+                        <p>You must be logged in or registered in order to be able to bid</p>
+                        <p><a href="<?php echo base_url('login') ?>">Login to account</a> or <a href="<?php echo base_url('register') ?>">Register for FREE</a></p>                        
+                      </div>
+                    </div>
+                    <?php }else{ ?>
+                    <div class="glue-modal noti<?php echo $l['id'] ?>-model" id="fpc-bid-info-modal" style="width: 370px !important;">
+                      <div class="title">
+                        Watchlist Notifications                           
+                        <span class="modal-arrow-up"></span>
+                        <div class="close-modal"></div>
+                      </div>
+                      <div class="content">
+                        <form class="site-form" action="#" method="post">
+                          <label class="select-label select-label--first">
+                            <select class="wn-notify_status hasCustomSelect" name="notify_status" id="notify_status" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
+                              <option value="2">Always</option>
+                              <option value="1">Never</option>
+                            </select>
+                            <span class="custom-select wn-notify_status" style="display: inline-block;">
+                              <span class="custom-selectInner" style="width: 100px; display: inline-block;">Always</span>
+                            </span>                                
+                          </label>
+                          <label class="select-label">
+                            <select class="wn-notify_method hasCustomSelect" name="notify_method" id="notify_method" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
+                              <option value="1">Email</option>
+                              <option value="2">SMS</option>
+                              <option value="3">Email + SMS</option>
+                            </select>
+                            <span class="custom-select wn-notify_method custom-selectOpen" style="display: inline-block;">
+                              <span class="custom-selectInner" style="width: 100px; display: inline-block;">Email</span>
+                            </span>                                
+                          </label>
+                          <input type="hidden" name="auction" value="iaai">
+                          <input type="hidden" name="lot" value="21613741">
+                          <div class="caption">
+                            <span>Email:</span> 
+                            <strong>brien.dabson@gmail.com</strong>
+                          </div>
+                          <a class="button yBtn_24" href="#" id="shc-submit" style="margin-top: 5px;">Save Settings</a>
+                          <img class="spinner" src="/img/ajax-loader.gif" style="display:none" alt="Please Wait">
+                        </form>                    
+                      </div>
+                    </div>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
