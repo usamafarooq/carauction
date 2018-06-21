@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">My Account</h2>
+        <h2 class="account-header hidden-xs hidden-sm">Create Tickets</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
@@ -26,7 +26,7 @@
                                 <a href="<?php echo base_url('My_account/Watchlist') ?>"> Watchlist (0)</a>
                             </li>
                             <li>
-                                <a href="/en/account/saved_search">Saved Searches (0)</a>
+                                <a href="<?php echo base_url('My_account/saved_search') ?>">Saved Searches (0)</a>
                             </li>
                         </ul>
                         <div class="sublevel droparrow">Tickets </div>
@@ -121,76 +121,39 @@
                 </div>
             </div>
                <div class="col-sm-12 col-md-9">
-                <h2 class="account-header hidden-md hidden-lg">My Account </h2>
-                <div id="ajax-content">
-                    <div class="welcome_client" id="welcome-client">
-                        <span class="welcome_client--close-modal close-modal"></span>
-                        <div class="welcome_client--name">Welcome, saim</div>
-                        <p style="text-align:justify">Welcome to SCA&trade; Online Car Auctions! With over 300,000 vehicles in stock, we guarantee we have what you are looking for.&nbsp; Now that you are member, you can benefit from the ease of bidding with SCA&trade;. Simply <a href="https://sca.auction/en/search">search</a> our inventory and choose the vehicle you want to bid on. It&rsquo;s that easy. You can choose from cars, trucks, trailers, boats, watercraft, busses, tractor-trailers, motorcycles, jet skis, snowmobiles and more. We have so many vehicles in stock you will never run out of options.</p>
+                <h2 class="account-header hidden-md hidden-lg">Create tickets </h2>
+     
+                   <div id="ajax-content">
 
-                        <p style="text-align:justify">Once you have chosen the vehicle you want to bid on, place a bid and let SCA&trade; do the rest. We will notify you as to whether your bid is the winning bid or if you were outbid for that vehicle. Don&rsquo;t worry because there are still hundreds of thousands of other vehicles up for auction giving you over a hundred thousand chances to get the vehicle you need.</p>
-
-                        <p style="text-align:justify">Start browsing and join the fun in searching and bidding on vehicles. If you have any questions please <a href="https://sca.auction/en/contact-us">contact</a>&nbsp;our member support team or visit our <a href="https://sca.auction/en/faq">FAQ</a> page for a quick reference to some of the most popular questions asked at SCA&trade;.&nbsp;</p>
-
-                        <p style="text-align:justify">Once again, welcome! We are happy to have you here.</p>
-
-                        <p style="text-align:justify">Thank You For Doing Business With Us,</p>
-
-                        <p style="text-align:justify">&nbsp;</p>
-
-                        <p style="text-align:justify">-SCA&trade;</p>
+<div class="form-group create_ticket block-style">
+    <!--    <div class="group-title">--><!--</div>-->
+    <form enctype="multipart/form-data" id="kaykao-form" action="/en/account/tickets" method="post">    <div class="form-row1">
+        <div class="kayako_left">
+                        <label class="select-label1">
+                <select name="KaykaoForm[priority]" id="KaykaoForm_priority" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 187.563px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+<option value="" selected="selected">Select Priority</option>
+<option value="1">Normal</option>
+<option value="2">Medium</option>
+<option value="3">High</option>
+<option value="4">Urgent</option>
+<option value="5">Emegrency</option>
+<option value="6">Critical</option>
+</select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 160px; display: inline-block;">Select Priority</span></span>            </label>
                     </div>
-                    <!--<div class="account-boxes">-->
-                    <div class="account-boxes">
-                        <div class="box box-payments">
-                            <h4 class="portlet-header">Payments </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current payment due.</span>
-                            </div>
-                        </div>
-                        <div class="box box-current_bids">
-                            <h4 class="portlet-header">Current Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current bids.</span>
-                            </div>
-                        </div>
-                        <div class="box box-won_bids">
-                            <h4 class="portlet-header">Won Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any won bids.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="account-boxes">
-                        <div class="box box-shipping_status">
-                            <h4 class="portlet-header">Shipping Status </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any shipping orders.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-watchlist">
-                            <h4 class="portlet-header">Watchlist (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">Your watchlist is currently empty.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-saved_searches">
-                            <h4 class="portlet-header">Saved Searches (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any saved searches.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clr"></div>
-                </div>
+        <div class="kayako_right">
+                        <input placeholder="Subject" name="KaykaoForm[subject]" id="KaykaoForm_subject" type="text">                    </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="form-row1"> 
+        <div class="message-input">
+                        <textarea placeholder="Message" name="KaykaoForm[message]" id="KaykaoForm_message"></textarea>                    </div>
+    </div>
+    <div class="form-row1">
+                <input id="ytKaykaoForm_file" type="hidden" value="" name="KaykaoForm[file]"><input name="KaykaoForm[file]" id="KaykaoForm_file" type="file">    </div>
+    <div class="form-row1 send">
+        <input class="button yBtn_24" type="submit" name="yt0" value="Send">    </div>
+    </form></div>        </div>
+          </div>
             </div>
             
         </div>

@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">My Account</h2>
+        <h2 class="account-header hidden-xs hidden-sm">OpenTickets</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
@@ -26,7 +26,7 @@
                                 <a href="<?php echo base_url('My_account/Watchlist') ?>"> Watchlist (0)</a>
                             </li>
                             <li>
-                                <a href="/en/account/saved_search">Saved Searches (0)</a>
+                                <a href="<?php echo base_url('My_account/saved_search') ?>">Saved Searches (0)</a>
                             </li>
                         </ul>
                         <div class="sublevel droparrow">Tickets </div>
@@ -121,76 +121,46 @@
                 </div>
             </div>
                <div class="col-sm-12 col-md-9">
-                <h2 class="account-header hidden-md hidden-lg">My Account </h2>
-                <div id="ajax-content">
-                    <div class="welcome_client" id="welcome-client">
-                        <span class="welcome_client--close-modal close-modal"></span>
-                        <div class="welcome_client--name">Welcome, saim</div>
-                        <p style="text-align:justify">Welcome to SCA&trade; Online Car Auctions! With over 300,000 vehicles in stock, we guarantee we have what you are looking for.&nbsp; Now that you are member, you can benefit from the ease of bidding with SCA&trade;. Simply <a href="https://sca.auction/en/search">search</a> our inventory and choose the vehicle you want to bid on. It&rsquo;s that easy. You can choose from cars, trucks, trailers, boats, watercraft, busses, tractor-trailers, motorcycles, jet skis, snowmobiles and more. We have so many vehicles in stock you will never run out of options.</p>
+                <h2 class="account-header hidden-md hidden-lg">OpenTickets </h2>
+               <div id="ajax-content">
+             
+             <div class="searchResult tickets">
+    <div class="sorter">
+        <table>
+            <tbody>
+                <tr>
+                    <td width="30%">Subject</td>
+                    <td width="20%">Ticket Id</td>
+                    <td width="10%">Priority</td>
+                    <td width="25%">Last Activity</td>
+                    <td width="45%">Last Replier</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="items">
+        <div id="yw0" class="list-view">
+<div class="items">
+<span class="empty">Your tickets is currently empty.</span></div><div class="keys" style="display:none" title="/en/account/openTickets"></div>
+</div>    </div>
 
-                        <p style="text-align:justify">Once you have chosen the vehicle you want to bid on, place a bid and let SCA&trade; do the rest. We will notify you as to whether your bid is the winning bid or if you were outbid for that vehicle. Don&rsquo;t worry because there are still hundreds of thousands of other vehicles up for auction giving you over a hundred thousand chances to get the vehicle you need.</p>
+    <div class="paging">
+        <table>
+            <tbody><tr><td>
+                                    </td><td style="text-align:center">
 
-                        <p style="text-align:justify">Start browsing and join the fun in searching and bidding on vehicles. If you have any questions please <a href="https://sca.auction/en/contact-us">contact</a>&nbsp;our member support team or visit our <a href="https://sca.auction/en/faq">FAQ</a> page for a quick reference to some of the most popular questions asked at SCA&trade;.&nbsp;</p>
+                    <div class="pagination">
+                                            </div>
+                </td><td>
 
-                        <p style="text-align:justify">Once again, welcome! We are happy to have you here.</p>
+                </td></tr>
+        </tbody></table>
 
-                        <p style="text-align:justify">Thank You For Doing Business With Us,</p>
+    </div>
 
-                        <p style="text-align:justify">&nbsp;</p>
+</div>
 
-                        <p style="text-align:justify">-SCA&trade;</p>
-                    </div>
-                    <!--<div class="account-boxes">-->
-                    <div class="account-boxes">
-                        <div class="box box-payments">
-                            <h4 class="portlet-header">Payments </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current payment due.</span>
-                            </div>
-                        </div>
-                        <div class="box box-current_bids">
-                            <h4 class="portlet-header">Current Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current bids.</span>
-                            </div>
-                        </div>
-                        <div class="box box-won_bids">
-                            <h4 class="portlet-header">Won Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any won bids.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="account-boxes">
-                        <div class="box box-shipping_status">
-                            <h4 class="portlet-header">Shipping Status </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any shipping orders.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-watchlist">
-                            <h4 class="portlet-header">Watchlist (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">Your watchlist is currently empty.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-saved_searches">
-                            <h4 class="portlet-header">Saved Searches (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any saved searches.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clr"></div>
-                </div>
+          </div>
             </div>
             
         </div>

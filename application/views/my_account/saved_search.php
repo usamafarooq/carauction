@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">My Account</h2>
+        <h2 class="account-header hidden-xs hidden-sm">Saved Searches (0)</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
@@ -26,7 +26,7 @@
                                 <a href="<?php echo base_url('My_account/Watchlist') ?>"> Watchlist (0)</a>
                             </li>
                             <li>
-                                <a href="/en/account/saved_search">Saved Searches (0)</a>
+                                <a href="<?php echo base_url('My_account/saved_search') ?>">Saved Searches (0)</a>
                             </li>
                         </ul>
                         <div class="sublevel droparrow">Tickets </div>
@@ -122,75 +122,132 @@
             </div>
                <div class="col-sm-12 col-md-9">
                 <h2 class="account-header hidden-md hidden-lg">My Account </h2>
-                <div id="ajax-content">
-                    <div class="welcome_client" id="welcome-client">
-                        <span class="welcome_client--close-modal close-modal"></span>
-                        <div class="welcome_client--name">Welcome, saim</div>
-                        <p style="text-align:justify">Welcome to SCA&trade; Online Car Auctions! With over 300,000 vehicles in stock, we guarantee we have what you are looking for.&nbsp; Now that you are member, you can benefit from the ease of bidding with SCA&trade;. Simply <a href="https://sca.auction/en/search">search</a> our inventory and choose the vehicle you want to bid on. It&rsquo;s that easy. You can choose from cars, trucks, trailers, boats, watercraft, busses, tractor-trailers, motorcycles, jet skis, snowmobiles and more. We have so many vehicles in stock you will never run out of options.</p>
+               <div id="ajax-content">
+        
 
-                        <p style="text-align:justify">Once you have chosen the vehicle you want to bid on, place a bid and let SCA&trade; do the rest. We will notify you as to whether your bid is the winning bid or if you were outbid for that vehicle. Don&rsquo;t worry because there are still hundreds of thousands of other vehicles up for auction giving you over a hundred thousand chances to get the vehicle you need.</p>
+                    <div class="searchResult">
 
-                        <p style="text-align:justify">Start browsing and join the fun in searching and bidding on vehicles. If you have any questions please <a href="https://sca.auction/en/contact-us">contact</a>&nbsp;our member support team or visit our <a href="https://sca.auction/en/faq">FAQ</a> page for a quick reference to some of the most popular questions asked at SCA&trade;.&nbsp;</p>
-
-                        <p style="text-align:justify">Once again, welcome! We are happy to have you here.</p>
-
-                        <p style="text-align:justify">Thank You For Doing Business With Us,</p>
-
-                        <p style="text-align:justify">&nbsp;</p>
-
-                        <p style="text-align:justify">-SCA&trade;</p>
-                    </div>
-                    <!--<div class="account-boxes">-->
-                    <div class="account-boxes">
-                        <div class="box box-payments">
-                            <h4 class="portlet-header">Payments </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current payment due.</span>
-                            </div>
-                        </div>
-                        <div class="box box-current_bids">
-                            <h4 class="portlet-header">Current Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any current bids.</span>
-                            </div>
-                        </div>
-                        <div class="box box-won_bids">
-                            <h4 class="portlet-header">Won Bids </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any won bids.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="account-boxes">
-                        <div class="box box-shipping_status">
-                            <h4 class="portlet-header">Shipping Status </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any shipping orders.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-watchlist">
-                            <h4 class="portlet-header">Watchlist (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">Your watchlist is currently empty.</span>
-                            </div>
-                        </div>
-
-                        <div class="box box-saved_searches">
-                            <h4 class="portlet-header">Saved Searches (0) </h4>
-                            
-                            <div class="wrapper">
-                                <span class="no-result">You do not have any saved searches.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clr"></div>
+    <div id="yw0" class="list-view">
+<div class="sorter">
+<table><tbody><tr>
+<td style="width:27%" class="r-border">Search Name</td><td style="width:15%" class="r-border"></td><td style="width:10%" class="r-border">Total</td><td style="width:10%" class="r-border">Changes</td><td style="width:15%" class="r-border">Notifications</td><td style="width:15%" class="r-border">Expires On</td></tr></tbody></table></div><div class="items">
+<table class="savedSearchResTable">
+    <tbody>
+        <tr>
+            <td class="savedSearchResTable--first">
+                <div class="h">Transaction Date:</div>
+                <a class="sv-name" href="/en/search/type-cars">Save Search</a>
+            </td>
+            <td class="savedSearchResTable--second">
+                <div class="saved-search-controls">
+                    <div style="display: none">AUTOMOBILE</div>
+                    <a data-notify="0" data-notify_days="30" data-id="886" href="#" class="search-save-link">Edit</a>&nbsp;&nbsp;
+                    <a href="/en/account/saved_search_delete/886">Delete</a>
                 </div>
+            </td>
+            <td class="savedSearchResTable--third">
+                <div class="h">Total:</div>
+                50000            </td>
+            <td class="savedSearchResTable--fourth">
+
+            </td>
+            <td class="savedSearchResTable--fifth">
+                <div class="h">Notifications:</div>
+                                    <a href="#" class="search-notify-link n-off" data-id="886">
+                        <span class="notify-icon"></span>
+                        <span class="text">Off</span>
+                    </a>
+                            </td>
+            <td class="savedSearchResTable--sixth">
+                <div class="h">Expires On:</div>
+                07/21/2018            </td>
+        </tr>
+    </tbody>
+</table></div><div class="keys" style="display:none" title="/en/account/saved_search"><span>886</span></div>
+</div>
+    
+    <div class="paging saved-search__paging">
+
+        <table>
+        <tbody><tr><td>
+
+            Showing 1 - 1 of 1
+        </td><td style="text-align:center">
+
+            <div class="pagination">
+                            </div>
+
+        </td></tr>
+        </tbody></table>
+
+    </div>
+
+</div>
+<div id="bid-modal-savesearch" style="display: none">
+    <div class="title">Save your Search        <span class="close-modal"></span>
+    </div>
+    <div class="content">
+
+        <table class="table-savesearch"><tbody><tr>
+                <td>
+                    <div class="filter">
+
+                        Filters:
+                        <div class="filterbox"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <div style="color:#c00;padding-bottom:10px;display:none" id="error_text">
+                        Please fill the name of your search                    </div>
+
+                    <form class="form-vertical" id="saved-search-update-from" action="/en/vehicle/search/save" method="post">
+
+                        <label for="SaveSearch_name" class="required">Search Name<span class="required">*</span></label>
+                        <input name="SaveSearch[name]" id="SaveSearch_name" type="text" maxlength="255" placeholder="My Search">
+
+
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <label for="SaveSearch_notify">Notify</label>
+                                    <label class="radio">
+                                        <input id="SaveSearch_notify_0" value="0" type="radio" checked="checked" name="SaveSearch[notify]">
+                                        <label for="SaveSearch_notify_0">None</label>
+                                    </label>
+                                    <label class="radio">
+                                        <input id="SaveSearch_notify_1" value="1" type="radio" name="SaveSearch[notify]">
+                                        <label for="SaveSearch_notify_1">Email</label>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label for="SaveSearch_notify_days" class="required">Notify Days <span class="required">*</span></label>
+                                    <label class="select-label">
+                                        <select name="SaveSearch[notify_days]" id="SaveSearch_notify_days" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                            <option value="30">30 Days</option>
+                                            <option value="14">14 Days</option>
+                                            <option value="7">7 Days</option>
+                                            <option value="3">3 Days</option>
+                                            <option value="1">Once</option>
+                                            <option value="0">Never</option>
+                                        </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">30 Days</span></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="text-align: center;margin-top: 10px"><button class="yBtn_24">Save</button></div>
+
+                    </form>
+
+                </td>
+            </tr></tbody></table>
+    </div>
+</div>        </div>
             </div>
             
         </div>
