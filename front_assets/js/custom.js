@@ -477,6 +477,13 @@
         $('.glue-modal').hide()
     })
 
+    var t = $("#profile-side-menu");
+    t.length && t.find("div.droparrow").on("click", function() {
+        var t = $(this),
+            n = t.next(".level2");
+        n.length && !n.hasClass("expand") && (t.hasClass("expand") ? (t.removeClass("expand"), n.slideUp()) : (t.addClass("expand"), n.slideDown()))
+    })
+
 
 
 
