@@ -18,7 +18,7 @@ class Login extends Front_Controller {
 	public function is_login()
 	{
 		if ($this->session->userdata('user_id')) {
-			redirect("my-account");
+			redirect("my_account");
 		}
 	}
 
@@ -29,7 +29,13 @@ class Login extends Front_Controller {
 		if (!empty($user)) {
 			$this->session->set_userdata('user_id', $user['id']);
 			$this->session->set_userdata('user_type', $user['role']);
-			redirect("my-account");
+			$set = 0;
+			foreach ($user as $key => $value) {
+				if (empty($value)) {
+					redirect("account_activation");
+				}
+			}
+			redirect("my_account");
 		}
 		else{
 			$this->session->set_flashdata('error', 'Email and Password do not match');

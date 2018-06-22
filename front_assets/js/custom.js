@@ -5,6 +5,9 @@
 
     // Preloder
     $(window).on('load', function() {
+        $('.ajax-img').each(function() {
+            $(this).attr('src', $(this).attr('data-src'))
+        })
         $('#status').fadeOut();
         $('#preloader').delay(350).fadeOut('slow');
         $('body').delay(350).css({'overflow':'visible'});
@@ -66,6 +69,7 @@
 
     // Topbar Searchbox
     $(document).ready(function(){
+        
         var submitIcon = $('.searchbox-icon');
         var inputBox = $('.searchbox-input');
         var searchBox = $('.searchbox');

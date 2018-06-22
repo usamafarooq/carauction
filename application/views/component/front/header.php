@@ -340,7 +340,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="type">
-                  <option value="0" selected>All Vehicle Types</option>
+                  <option selected>All Vehicle Types</option>
                   <?php 
                     foreach ($vehicle_type as $v) {
                   ?>
@@ -388,7 +388,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="make" class="make_id">
-                  <option value="0" selected>All Makes</option>
+                  <option value="" selected>All Makes</option>
                   <?php 
                     foreach ($make as $v) {
                   ?>
@@ -400,7 +400,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="model" id="model_dropdown">
-                  <option value="0" selected>All Model</option>
+                  <option value="" selected>All Model</option>
                 </select>
               </div>
             </div>

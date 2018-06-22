@@ -79,7 +79,7 @@
                     $image = base_url($l['images']);
                   }
                 ?>
-                <img src="<?php echo $image ?>" alt="">
+                <img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo $image ?>" alt="">
                 <h3 class="price">$<?php echo number_format($l['amount'], 2) ?></h3>
                 <div class="box-content">
                   <ul class="icon">

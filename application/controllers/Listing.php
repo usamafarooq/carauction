@@ -126,6 +126,7 @@ class Listing extends Front_Controller {
 		$this->data['current_page'] = $page;
 		$query = array();
 		if ($this->input->post() && !$this->input->post('pagination')) {
+			//print_r($this->input->post());die;
 			$data = $this->input->post();
 			$this->session->set_userdata('search', $data);
 		}
@@ -141,37 +142,39 @@ class Listing extends Front_Controller {
 				$this->data['sorting'] = $this->input->get();
 			}
 		}
-		if (isset($data['make'])) {
+		if (isset($data['make']) && !empty($data['make'])) {
 			$query['makes.Name'] = $data['make'];
 		}
-		if (isset($data['location'])) {
+		if (isset($data['location']) && !empty($data['location'])) {
 			$query['locations.Location'] = $data['location'];
 		}
-		if (isset($data['search'])) {
+		if (isset($data['search']) && !empty($data['search'])) {
 			$query['title'] = $data['search'];
 		}
-		if (isset($data['type'])) {
+		if (isset($data['type']) && !empty($data['type'])) {
 			$query['vehicle_type.Name'] = $data['type'];
 		}
-		if (isset($data['start_year'])) {
+		if (isset($data['start_year']) && !empty($data['start_year'])) {
 			$query['inventory.Year >='] = $data['start_year'];
 		}
-		if (isset($data['end_year'])) {
+		if (isset($data['end_year']) && !empty($data['end_year'])) {
 			$query['inventory.Year <='] = $data['end_year'];
 		}
-		if (isset($data['min'])) {
+		if (isset($data['min']) && !empty($data['min'])) {
 			$query['inventory_bids.bid >='] = $data['min'];
 		}
-		if (isset($data['max'])) {
+		if (isset($data['max']) && !empty($data['mamaxke'])) {
 			$query['inventory_bids.bid <='] = $data['max'];
 		}
-		if (isset($data['model'])) {
+		if (isset($data['model']) && !empty($data['model'])) {
 			$query['models.Name'] = $data['model'];
 		}
+
 		$this->data['result'] = $result;
 		$this->data['current_page'] = $page;
 		$this->data['total_rows'] = $this->listing_model->get_inventory_count('search',$query);
 		$this->data['listing'] = $this->listing_model->get_inventory($order,$result,$page,'search',$query);
+		//print_r($this->db->last_query());die;
 		//print_r($this->db->last_query());die;
 		$this->load->front_template('inventory/listing',$this->data);
 	}

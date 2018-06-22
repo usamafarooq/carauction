@@ -21,7 +21,7 @@
                         }
                     ?>
                     <div class="item <?php echo ($active == 0 ) ? 'active' : NULL ?> ">
-                      <img src="<?php echo $image ?>" alt="">
+                      <img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo $image ?>" alt="">
                        <div class="carousel-caption">
                         <h3>Best Features</h3>
                       </div>
@@ -43,7 +43,7 @@
                         else{
                           $image = base_url(str_replace(' ', '', $images[$i]));
                         }
-                        echo '<li data-target="#myCarousel" data-slide-to="'.$i.'" class="active"><a href="#"><img src="'.$image.'" alt=""></a></li>';
+                        echo '<li data-target="#myCarousel" data-slide-to="'.$i.'" class="active"><a href="#"><img src="'.base_url('front_assets/images/ajax-loader-gif.gif').'" class="ajax-img" data-src="'.$image.'" alt=""></a></li>';
                       }
                     ?>
                   </ul>

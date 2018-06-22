@@ -17,7 +17,7 @@
           <div class="col-md-4 col-sm-6">
             <div class="post-item animated fadeInLeftShort slow delay-250 go">
               <div class="post-img">
-                  <a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><img src="<?php echo base_url($v['Image']) ?>" alt=""></a>
+                  <a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo base_url($v['Image']) ?>" alt=""></a>
               </div>
               <div class="post-content">
                   <h3 class="post-title"><a href="<?php echo base_url('listing/category/'.$v['id']) ?>"><?php echo $v['Name'] ?></a></h3>
@@ -280,7 +280,7 @@
             <div class="item">
               <div class="featured-col animated fadeInLeftShort slow delay-250 go">
                 <div class="box">
-                  <img src="<?php echo $image ?>" alt="">
+                  <img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo $image ?>" alt="">
                   <h3 class="price">$<?php echo number_format($l['amount'], 2) ?> | Timeleft: <?php echo get_single_difrreance($l['Sale_Date']); ?></h3>
                   <div class="box-content">
                     <ul class="icon">
@@ -349,7 +349,7 @@
               <div class="discount-carousel-item">
                 <div class="discount-box">
                     <div class="ribbon ribbon-top-left"><span>Live</span></div>
-                    <img src="<?php echo $image ?>" alt="">
+                    <img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo $image ?>" alt="">
                     <div class="box-content">
                         <div class="content">
                             <h3 class="title"><?php echo $l['Name'] ?></h3>
