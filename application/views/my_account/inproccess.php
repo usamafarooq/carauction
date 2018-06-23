@@ -11,13 +11,13 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">Processing</h2>
+        <h2 class="account-header hidden-xs hidden-sm">In Proccess (0)</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
                     <div class="group-title block_header responsive_header">
                         Account Menu </div>
-                    <div class="responsive_box">
+                     <div class="responsive_box">
                         <ul class="level1">
                             <li class="active">
                                 <a href="<?php echo base_url('My_account') ?>">My Account</a>

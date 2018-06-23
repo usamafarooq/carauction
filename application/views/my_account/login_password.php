@@ -11,13 +11,13 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">Processing</h2>
+        <h2 class="account-header hidden-xs hidden-sm">Login & Password</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
                     <div class="group-title block_header responsive_header">
                         Account Menu </div>
-                    <div class="responsive_box">
+                   <div class="responsive_box">
                         <ul class="level1">
                             <li class="active">
                                 <a href="<?php echo base_url('My_account') ?>">My Account</a>
@@ -121,47 +121,42 @@
                 </div>
             </div>
                <div class="col-sm-12 col-md-9">
-                <h2 class="account-header hidden-md hidden-lg">Transactions </h2>
-                
-                   <div id="ajax-content">
-       
+              <div id="ajax-content">
+                   
+                    <div class="form-p">
+                                              <form>
+                                            <center><h3 class="g-tittle">Change Your Password</h3>
+                                            <p style="margin-top: -15px;margin-bottom: 5px;">Youll receive notifications of current bid increases, sale date changes</p>
+                                            </center>    
 
-<div class="clr"></div>
+                          <div class="form-group">
+                            <label for="inputAddress2">Email</label>
+                            <input class="form-control" type="text" placeholder="skpathan250@gmail.com" readonly>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">New Password</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">Retype Password</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                           
+                          <center><button type="submit" class="btn validate btn-primary">Save</button></center>
+                        </form>
 
-
-<div class="searchResult transactions">
-
-    <div class="menu" style="display: none">
-
-        <ul id="yw0">
-<li class="active"><a href="/en/account/transactionList">Transaction List (0)</a></li>
-<li><a href="/en/account/deposits">Deposits (0)</a></li>
-<li><a href="/en/account/refunds">Refunds (0)</a></li>
-</ul>
-        <div>
                     </div>
-    </div>
-
-    <div id="yw1" class="list-view">
-<div class="items">
-<span class="empty">Your list is currently empty.</span></div><div class="keys" style="display:none" title="/en/account/transactionList"></div>
-</div>
-    <div class="paging">
-        <table>
-            <tbody><tr><td>
-                                    </td><td style="text-align:center">
-
-                    <div class="pagination">
-                                            </div>
-                </td><td>
-
-                </td></tr>
-        </tbody></table>
-
-    </div>
-</div>        </div>
-            </div>
+              </div>
+                
+                  
+           </div>
             
+      
+
+
+
         </div>
     </div>
 </div>

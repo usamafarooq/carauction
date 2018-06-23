@@ -4327,3 +4327,96 @@ select {
 .select-sorter {
     display: inline-block;
 }
+.form-1{
+    border: 1px solid #ececec;
+    padding: 10px;
+}
+.form-2{
+    border: 1px solid #ececec;
+    padding: 10px;
+    margin-top: 20px;
+}
+.form-3{
+    border: 1px solid #ececec;
+    margin-top: 20px;
+}
+.g-tittle {
+    font-size: 15px;
+    font-weight: 900;
+    padding-bottom: 4px;
+}
+.validate {
+      padding-right: 45px;
+      padding-left: 45px;
+      font-size: 20px;
+      border-radius: 3px;
+
+}
+.form-group > input {
+    border-radius: 3px;
+}
+.form-group > select {
+    border-radius: 3px;
+}
+.form-group > label {
+    font-weight: 550;
+    font-size: 14px;
+}
+
+
+#bidding-limit-form {
+    margin-bottom: 0px;
+    border: 1px solid #ececec;
+}
+.bidding-limit {
+    background-color: #ffffff;
+    padding: 10px 20px;
+}
+.bidding-grid {
+    margin: 15px 0 10px;
+}
+.bidding-grid .title {
+    text-align: center;
+    font-size: 12px;
+    color: #888888;
+    margin-bottom: 8px;
+}
+.bidding-grid table.grid-caption {
+    width: 100%;
+}
+
+table {
+    max-width: 100%;
+    background-color: transparent;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.slider-table {
+    width: 100%;
+}
+.bidding-numbers {
+    margin: 20px 0 10px;
+}
+.bidding-limit .bidding-numbers table {
+    width: 100%;
+    table-layout: fixed;
+}
+.memberships-table .check {
+    background: url(http://localhost/carauction/front_assets/images/check-red.png) no-repeat;
+    width: 18px;
+    height: 14px;
+    display: inline-block;
+}
+.memberships-table .name-block.guest .content {
+    background: #c4c4c4;
+}
+.memberships-wrapper .memberships-table tr.names th {
+    width: 20%;
+}
+
+.memberships-table tr.names th {
+    border: none;
+    padding: 0;
+}

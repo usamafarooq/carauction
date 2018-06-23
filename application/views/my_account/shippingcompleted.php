@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">Processing</h2>
+        <h2 class="account-header hidden-xs hidden-sm">Shipping Completed (0)</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">

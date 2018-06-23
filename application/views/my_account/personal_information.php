@@ -11,7 +11,8 @@
         </div>
     </div>
     <div id="content">
-        <h2 class="account-header hidden-xs hidden-sm">Waiting For E-Signature</h2>
+        <h2 class="account-header hidden-xs hidden-sm">Personal Information
+</h2>
         <div class="account-table row">
             <div class="col-sm-12 col-md-3 side-menu account-menu">
                 <div id="profile-side-menu" class="searchBox">
@@ -121,47 +122,122 @@
                 </div>
             </div>
                <div class="col-sm-12 col-md-9">
-                <h2 class="account-header hidden-md hidden-lg">Transactions </h2>
-                
-                   <div id="ajax-content">
-       
+              <div id="ajax-content">
+                   
+                    <div class="form-p">
+                                              <form>
+                                            <center><h3 class="g-tittle">Account Information</h3></center>    
 
-<div class="clr"></div>
+                          <div class="form-row">
+                            <div class="form-group col-md-4">
+                              <label for="inputEmail4">First Name</label>
+                              <input type="First Name" class="form-control" id="inputEmail4" placeholder="First Name">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputPassword4">Last Name</label>
+                              <input type="Last Name" class="form-control" id="inputPassword4" placeholder="Last Name">
+                            </div>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputAddress">Company</label>
+                            <input type="Company" class="form-control" id="inputAddress" placeholder="Company">
+                          </div>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                               I understand that by selecting this option all my invoices will be issued to my company name
+                              </label>
+                            </div>
+                            <div class="form-group col-md-6">
+                               <label for="inputState">Notifications Language</label>
+                               <select id="inputState" class="form-control">
+                                <option selected>English</option>
+                                <option>Dutch</option>
+                              </select>
+                            </div>
+                             <div class="form-group col-md-6">
+                              <label for="inputState">Physical address</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>-Select Country-</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                          <div class="form-group">
+                            <label for="inputAddress2">Address</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">State</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputZip">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                           <div class="form-group">
+                            <label for="inputAddress2">Phone</label>
+                            <input type="Number" class="form-control" id="inputPhone" placeholder="Phone">
+                          </div>
+                         <center><h3 class="g-tittle">Mailing Information</h3></center>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="chkPassport">
+                                My mailing address is the same as profile address
+                              </label>
+                            </div>
+                          </div>
+                            <div class="form-group">
+                              <label for="inputState">Physical address</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>-Select Country-</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                          <div class="form-group">
+                            <label for="inputAddress2">Address</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">State</label>
+                              <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputZip">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                          <center><button type="submit" class="btn validate btn-primary">Save</button></center>
+                        </form>
 
-
-<div class="searchResult transactions">
-
-    <div class="menu" style="display: none">
-
-        <ul id="yw0">
-<li class="active"><a href="/en/account/transactionList">Transaction List (0)</a></li>
-<li><a href="/en/account/deposits">Deposits (0)</a></li>
-<li><a href="/en/account/refunds">Refunds (0)</a></li>
-</ul>
-        <div>
                     </div>
-    </div>
-
-    <div id="yw1" class="list-view">
-<div class="items">
-<span class="empty">Your list is currently empty.</span></div><div class="keys" style="display:none" title="/en/account/transactionList"></div>
-</div>
-    <div class="paging">
-        <table>
-            <tbody><tr><td>
-                                    </td><td style="text-align:center">
-
-                    <div class="pagination">
-                                            </div>
-                </td><td>
-
-                </td></tr>
-        </tbody></table>
-
-    </div>
-</div>        </div>
-            </div>
+              </div>
+                
+                  
+           </div>
             
+      
+
+
+
         </div>
     </div>
 </div>

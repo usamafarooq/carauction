@@ -70,5 +70,41 @@ class My_account extends Front_Controller {
 	{
 		$this->load->front_template('my_account/completed',$this->data);
 	}
+	public function inProccess()
+	{
+		$this->load->front_template('my_account/inproccess',$this->data);
+	}
+	public function shippingcompleted()
+	{
+		$this->load->front_template('my_account/shippingcompleted',$this->data);
+	}
+	public function shippingcustom()
+	{
+		$this->load->front_template('my_account/shipping_custom',$this->data);
+	}
+	public function biddinglimit()
+	{
+		$this->load->front_template('my_account/bidding_limit',$this->data);
+	}
+	public function personal_information()
+	{
+		$this->load->front_template('my_account/personal_information',$this->data);
+	}
+	public function billing_info()
+	{
+		$this->load->front_template('my_account/billing_info',$this->data);
+	}
+	public function login_and_password()
+	{
+		$this->load->front_template('my_account/login_password',$this->data);
+	}
+	public function documents()
+	{
+		$this->load->front_template('my_account/documents',$this->data);
+	}
+	public function memberships()
+	{
+		$this->load->front_template('my_account/membership',$this->data);
+	}
 
 }
