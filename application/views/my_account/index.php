@@ -1,136 +1,40 @@
 <div class="container">
+    <?php 
+        $set = 0;
+        foreach ($user as $key => $value) {
+            if (empty($value)) {
+                $set = 1;
+            }
+        }
+    ?>
+    <?php if($set == 1){ ?>
     <div class="row">
         <div class="col-md-12">
             <div class="top-notify top-notify-activate">
                 <div class="top-notify__item__desc">
                     <span class="top-notify__attention-icon"></span>
-                    <strong>Dear saim, in order to BID please activate your membership!</strong>
+                    <strong>Dear <?php echo $user['first_name'] ?>, in order to BID please activate your membership!</strong>
                     <a class="button yBtn_24 yBtn_h32" href="<?php echo base_url('account_activation') ?>">Activate</a>
                 </div>
             </div>
         </div>
     </div>
+    <?php } ?>
     <div id="content">
         <h2 class="account-header hidden-xs hidden-sm">My Account</h2>
         <div class="account-table row">
-            <div class="col-sm-12 col-md-3 side-menu account-menu">
-                <div id="profile-side-menu" class="searchBox">
-                    <div class="group-title block_header responsive_header">
-                        Account Menu </div>
-                    <div class="responsive_box">
-                        <ul class="level1">
-                            <li class="active">
-                                <a href="<?php echo base_url('My_account') ?>">My Account</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/Watchlist') ?>"> Watchlist (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('my_account/saved_search') ?>">Saved Searches (0)</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Tickets </div>
-                        <ul class="level2 ">
-                            <li>
-                                <a href="<?php echo base_url('my_account/opentickets') ?>">Open Tickets</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/closetickets') ?>">Closed Tickets</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/createtickets') ?>">Submit New Ticket</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Bids </div>
-                        <ul class="level2">
-                            <li>
-                                <a href="<?php echo base_url('My_account/currentbid') ?>">Current Bids (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/wonbid') ?>">Won Bids (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/lostbid') ?>">Lost Bids (0)</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Transactions </div>
-                        <ul class="level2">
-                            <li>
-                                <a href="<?php echo base_url('My_account/transaction') ?>">Transaction List (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/deposit') ?>">Deposits (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/refund') ?>">Refunds (0)</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Document Center </div>
-                        <ul class="level2">
-                            <li>
-                                <a href="<?php echo base_url('My_account/waitingforesign') ?>">Waiting for e-signature</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/processing') ?>">Processing</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/completed') ?>">Completed</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Shipping </div>
-                        <ul class="level2">
-                            <li>
-                                <a href="<?php echo base_url('My_account/inProccess') ?>">In Process (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/shippingcompleted') ?>">Completed (0)</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/shippingcustom') ?>">Custom Shipping Quote</a>
-                            </li>
-                        </ul>
-                        <ul class="level1">
-                            <li>
-                                <a href="<?php echo base_url('My_account/biddinglimit') ?>">Bidding Limit</a>
-                            </li>
-                        </ul>
-                        <div class="sublevel droparrow">Profile </div>
-                        <ul class="level2">
-                            <li>
-                                <a href="<?php echo base_url('My_account/personal_information') ?>">Personal Information</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/billing_info') ?>">Billing Information</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/login_and_password') ?>">Login and Password</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/documents') ?>">Documents</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url('My_account/memberships') ?>">Membership</a>
-                            </li>
-                        </ul>
-                        <ul class="level1">
-                            <li>
-                                <a href="<?php echo base_url('My_account/Watchlist') ?>">Log Out</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-               <div class="col-sm-12 col-md-9">
+            <?php $this->load->view('my_account/menu') ?>
+            <div class="col-sm-12 col-md-9">
                 <h2 class="account-header hidden-md hidden-lg">My Account </h2>
                 <div id="ajax-content">
                     <div class="welcome_client" id="welcome-client">
                         <span class="welcome_client--close-modal close-modal"></span>
-                        <div class="welcome_client--name">Welcome, saim</div>
-                        <p style="text-align:justify">Welcome to SCA&trade; Online Car Auctions! With over 300,000 vehicles in stock, we guarantee we have what you are looking for.&nbsp; Now that you are member, you can benefit from the ease of bidding with SCA&trade;. Simply <a href="https://sca.auction/en/search">search</a> our inventory and choose the vehicle you want to bid on. It&rsquo;s that easy. You can choose from cars, trucks, trailers, boats, watercraft, busses, tractor-trailers, motorcycles, jet skis, snowmobiles and more. We have so many vehicles in stock you will never run out of options.</p>
+                        <div class="welcome_client--name">Welcome, <?php echo $user['first_name'] ?></div>
+                        <p style="text-align:justify">Welcome to Car Hut Online Car Auctions! With over 300,000 vehicles in stock, we guarantee we have what you are looking for.&nbsp; Now that you are member, you can benefit from the ease of bidding with Car Hut. Simply <a href="<?php echo base_url('listing/search') ?>">search</a> our inventory and choose the vehicle you want to bid on. It&rsquo;s that easy. You can choose from cars, trucks, trailers, boats, watercraft, busses, tractor-trailers, motorcycles, jet skis, snowmobiles and more. We have so many vehicles in stock you will never run out of options.</p>
 
-                        <p style="text-align:justify">Once you have chosen the vehicle you want to bid on, place a bid and let SCA&trade; do the rest. We will notify you as to whether your bid is the winning bid or if you were outbid for that vehicle. Don&rsquo;t worry because there are still hundreds of thousands of other vehicles up for auction giving you over a hundred thousand chances to get the vehicle you need.</p>
+                        <p style="text-align:justify">Once you have chosen the vehicle you want to bid on, place a bid and let Car Hut do the rest. We will notify you as to whether your bid is the winning bid or if you were outbid for that vehicle. Don&rsquo;t worry because there are still hundreds of thousands of other vehicles up for auction giving you over a hundred thousand chances to get the vehicle you need.</p>
 
-                        <p style="text-align:justify">Start browsing and join the fun in searching and bidding on vehicles. If you have any questions please <a href="https://sca.auction/en/contact-us">contact</a>&nbsp;our member support team or visit our <a href="https://sca.auction/en/faq">FAQ</a> page for a quick reference to some of the most popular questions asked at SCA&trade;.&nbsp;</p>
+                        <p style="text-align:justify">Start browsing and join the fun in searching and bidding on vehicles. If you have any questions please <a href="<?php echo base_url('pages/page/contact-us') ?>">contact</a>&nbsp;our member support team or visit our <a href="<?php echo base_url('pages/page/faqs') ?>">FAQ</a> page for a quick reference to some of the most popular questions asked at Car Hut.&nbsp;</p>
 
                         <p style="text-align:justify">Once again, welcome! We are happy to have you here.</p>
 
@@ -138,7 +42,7 @@
 
                         <p style="text-align:justify">&nbsp;</p>
 
-                        <p style="text-align:justify">-SCA&trade;</p>
+                        <p style="text-align:justify">-Car Hut</p>
                     </div>
                     <!--<div class="account-boxes">-->
                     <div class="account-boxes">

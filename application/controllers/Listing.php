@@ -55,7 +55,7 @@ class Listing extends Front_Controller {
 		$this->data['current_page'] = $page;
 		$this->data['total_rows'] = $this->listing_model->get_inventory_count('type',$id);
 		$this->data['listing'] = $this->listing_model->get_inventory($order,$result,$page,'type',$id);
-		//echo '<pre>';print_r($this->data['listing']);echo '</pre>';
+		//echo '<pre>';print_r($this->data['listing']);echo '</pre>';die;
 		//print_r($this->db->last_query());die;
 		$this->load->front_template('inventory/listing',$this->data);
 	}
@@ -178,4 +178,40 @@ class Listing extends Front_Controller {
 		//print_r($this->db->last_query());die;
 		$this->load->front_template('inventory/listing',$this->data);
 	}
+
+	public function watch()
+	{
+		if ($this->input->post('id')) {
+			$data['inventory_id'] = $this->input->post('id');
+			$data['user_id'] = $this->session->userdata('user_id');
+			$id = $this->listing_model->insert('watchlist',$data);
+			if ($id) {
+				echo 'done';
+			}
+			else{
+				echo 'not';
+			}
+		}
+		else{
+			echo 'not';
+		}
+	}
+
+	public function unwatch()
+	{
+		if ($this->input->post('id')) {
+			$data['inventory_id'] = $this->input->post('id');
+			$id = $this->listing_model->delete('watchlist',$data);
+			if ($id) {
+				echo 'done';
+			}
+			else{
+				echo 'not';
+			}
+		}
+		else{
+			echo 'not';
+		}
+	}
+
 }

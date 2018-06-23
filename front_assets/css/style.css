@@ -4020,7 +4020,7 @@ a.notification-link-simple, a.search-notify-link {
 }
 .notify-icon {
     display: inline-block;
-    background-image: url(/img/notify-bells.png);
+    background-image: url(https://sca.auction/img/notify-bells.png);
     width: 19px;
     height: 18px;
     vertical-align: middle;
@@ -4419,4 +4419,34 @@ table {
 .memberships-table tr.names th {
     border: none;
     padding: 0;
+}
+
+.sort label {
+    width: inherit;
+}
+
+.searchResult .toolbar .sort .custom-select {
+    display: inline-block;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    border: 1px solid #e0e0e0;
+    line-height: 31px;
+    font-size: 13px;
+    font-weight: bold;
+    /* border: none; */
+    width: 115px !important;
+    float: left;
+    -webkit-appearance: none;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    color: #666666;
+    box-sizing: border-box;
+    padding: 0 20px 0 10px;
+}
+
+.custom-selectInner {
+    width: 100% !important;
 }

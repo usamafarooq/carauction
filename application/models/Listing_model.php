@@ -16,7 +16,11 @@ class Listing_model extends MY_Model
 				 ->from('inventory_bids')
 				 ->group_by('stock_number');
 		$bid = $this->db->get_compiled_select();
-		$this->db->select('inventory.*,makes.Name as make,models.Name as model,inventory_images.images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location,inventory_bids.bid as amount')
+		$watch = '';
+		if ($this->session->userdata('user_id')) {
+			$watch = ', watchlist.type as watch_type, watchlist.status as watch_status, count(watchlist.id) as watch';
+		}
+		$this->db->select('inventory.*,makes.Name as make,models.Name as model,inventory_images.images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location,inventory_bids.bid as amount'.$watch)
 				 ->from('inventory')
 				 ->join('makes', 'makes.id = inventory.Make', 'left')
 				 ->join('('.$bid.') inventory_bids', 'inventory_bids.stock_number = inventory.Stock_ID', 'left')
@@ -30,6 +34,9 @@ class Listing_model extends MY_Model
 				 ->where('auctions.Date >=', date('Y-m-d'))
 				 ->order_by('inventory.id', 'DESC')
 				 ->limit($result, $offset);
+		if ($this->session->userdata('user_id')) {
+			$this->db->join('watchlist', 'inventory.id = watchlist.inventory_id and watchlist.user_id = '.$this->session->userdata('user_id'), 'left');
+		}
 		if ($type != null) {
 			if ($type == 'type') {
 				$this->db->where('vehicle_type.id', $id);

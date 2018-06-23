@@ -410,8 +410,8 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                   Price Range: <span id="amount"></span>
                 </p>
                 <div id="slider-range"></div>
-                <input type="hidden" name="min" id="amount1">
-                <input type="hidden" name="max" id="amount2">
+                <input type="hidden" name="min" id="amount1" value="10000">
+                <input type="hidden" name="max" id="amount2" value="50000">
               </div>
             </div>
             <div class="col-md-3 col-sm-12">

@@ -488,6 +488,51 @@
         n.length && !n.hasClass("expand") && (t.hasClass("expand") ? (t.removeClass("expand"), n.slideUp()) : (t.addClass("expand"), n.slideDown()))
     })
 
+    $('.add-watch').on('click', function() {
+        var id = $(this).attr('data-id')
+        var url = $(this).attr('data-url')
+        $.ajax({
+            url: url,
+            type: "post",
+            data: {id: id} ,
+            success: function (response) {
+               if (response == 'done') {
+                $('.add-watch').hide()
+                $('.add-unwatch').show()
+                //$('.add-watch').text('-Unwatch')
+                //$('.add-watch').addClass('add-unwatch')
+                //$('.add-watch').removeClass('add-watch')
+               }              
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+            }
+
+
+        });
+    })
+
+    $('.add-unwatch').on('click', function() {
+        var id = $(this).attr('data-id')
+        var url = $(this).attr('data-url')
+        $.ajax({
+            url: url,
+            type: "post",
+            data: {id: id} ,
+            success: function (response) {
+                $('.add-unwatch').hide()
+                $('.add-watch').show()        
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+            }
+
+
+        });
+    })
+
 
 
 

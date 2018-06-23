@@ -6,7 +6,7 @@ class My_account extends Front_Controller {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('home_model');
+        $this->load->model('account_model');
     }
 
 	public function index()
@@ -15,6 +15,13 @@ class My_account extends Front_Controller {
 	}
 	public function watchlist()
 	{
+		$order = array('sort' => 'auctions.Date', 'type' => 'ASC');
+		if ($this->input->get('sort')) {
+			$order = array('sort' => $this->input->get('sort'), 'type' => $this->input->get('type'));
+		}
+		$this->data['sort'] = $order['sort'];
+		$this->data['type'] = $order['type'];
+		$this->data['watchlist'] = $this->account_model->get_watchlist($this->session->userdata('user_id'),$order);
 		$this->load->front_template('my_account/watchlist',$this->data);
 	}
 	public function saved_search()

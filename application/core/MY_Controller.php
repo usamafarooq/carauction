@@ -340,6 +340,9 @@ class Front_Controller extends CI_Controller {
 		$this->data['language'] = $this->get_language();
 		$this->data['vehicle_type'] = $this->get_vichel_type();
 		$this->data['make'] = $this->get_make();
+		if ($this->session->userdata('user_id')) {
+			$this->data['user'] = $this->get_user_detail();
+		}
 	}
 
 	public function get_language()

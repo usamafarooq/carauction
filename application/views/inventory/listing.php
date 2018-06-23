@@ -105,7 +105,18 @@
                       <li>Time Left: <span><?php echo get_difrreance($l['Sale_Date']); ?></span></li>
                     </ul>
                     <button class="btn btn-deafult bid-btn">Bid Now</button><br><br>
-                    <button class="btn btn-deafult  open-model" data-model="watch-model">+Watch</button>
+                    <?php 
+                      // $url = base_url('listing/watch/');
+                      // $se_url = base_url('listing/unwatch/');
+                      // $class = 'add-watch';
+                      // $text = '+Watch';
+                      // if ($l['watch'] > 0) {
+                      //   $class = 'add-unwatch';
+                      //   $text = '-Unwatch';
+                      // }
+                    ?>
+                    <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
+                    <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
                     <?php if ($this->session->userdata('user_id')) { ?>
                     <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button>
                     <?php } ?>
