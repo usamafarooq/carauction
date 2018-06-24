@@ -533,6 +533,134 @@
         });
     })
 
+    // var o = $.extend({
+    //     minLimit: 100,
+    //     currentLimit: 0,
+    //     usedLimit: 0
+    // }, t),
+    // i = {
+    //     max: 1320,
+    //     min: Math.floor((o.currentLimit + o.usedLimit) / 100),
+    //     usedWidth: 0,
+    //     currentWidth: 0
+    // },
+    // r = {
+    //     max: 132e3,
+    //     min: o.usedLimit + o.currentLimit,
+    //     step: 100,
+    //     newLimit: 0,
+    //     lotCount: 0,
+    //     minLotCount: Math.floor((o.usedLimit + o.currentLimit) / 6600),
+    //     maxLotCount: 20,
+    //     maxDepositPerTime: 1e4,
+    //     lockDeposit: !1
+    // }
+
+
+
+    var o = $.extend({
+        minLimit: 100,
+        currentLimit: 0,
+        usedLimit: 0
+    }, t),
+    i = {
+        max: 1320,
+        min: Math.floor((o.currentLimit + o.usedLimit) / 100),
+        usedWidth: 0,
+        currentWidth: 0
+    },
+    r = {
+        max: 132e3,
+        min: o.usedLimit + o.currentLimit,
+        step: 100,
+        newLimit: 0,
+        lotCount: 0,
+        minLotCount: Math.floor((o.usedLimit + o.currentLimit) / 6600),
+        maxLotCount: 20,
+        maxDepositPerTime: 1e4,
+        lockDeposit: !1
+    },
+    l = 6.6,
+    s = .151515151515,
+    u = {};
+    $.each(["#bidding-slider", "#bl-new", "#bl-new-input", "#bl-required-deposit", "#bl-count", ".slider-main", ".slider-used", ".slider-current", ".ui-slider-range"], function(t, n) {
+        var o = n.replace(/#|\./g, "");
+        u[o] = $(n)
+    })
+    $('#bidding-slider').slider({
+        animate: !0,
+        range: "min",
+        value: 100,
+        max: i.max,
+        min: i.min,
+        step: 1,
+        change: function(e, t) {
+            d(t)
+        },
+        slide: function(e, t) {
+            d(t)
+        }
+        
+    }), 0 == o.usedLimit ? u["slider-used"].css("display", "none") : (i.usedWidth = c(o.usedLimit), u["slider-used"].css({
+        display: "table-cell",
+        width: i.usedWidth + "%"
+    }).children("div").css("border-radius", "3px 0 0 3px"), u["slider-current"].addClass("second"));
+    0 == o.currentLimit ? u["slider-current"].css("display", "none") : (i.currentWidth = c(o.currentLimit), u["slider-current"].css({
+        display: "table-cell",
+        width: i.currentWidth + "%"
+    }), o.usedLimit || u["slider-current"].children("div").css("border-radius", "3px 0 0 3px"));
+    u["slider-main"].css("width", Math.ceil(100 - i.currentWidth - i.usedWidth) + "%"), o.usedLimit || o.currentLimit || u["ui-slider-range"].css("border-radius", "3px 0 0 3px");
+
+
+    var n = function() {
+        function e() {
+            (0, o.default)(this, e);
+            var t = app.repo.get("lang");
+            switch (t = t || "") {
+                case "en":
+                    this.numberSeparator = ",";
+                    break;
+                case "ru":
+                    this.numberSeparator = " ";
+                    break;
+                default:
+                    this.numberSeparator = ","
+            }
+        }
+        return (e, [{
+            key: "separateNumber",
+            value: function(e, t) {
+                for (var n = t || this.numberSeparator;
+                    /(\d+)(\d{3})/.test(e.toString());) e = e.toString().replace(/(\d+)(\d{3})/, "$1" + n + "$2");
+                return e
+            }
+        }]), e
+    }();
+
+    
+
+    u["bl-required-deposit"].html("+$1000")
+    $("#deposit-input").val(100)
+    u["bl-count"].val(1)
+    u["bl-new"].html("$6600")
+    u["bl-new-input"].val("$6600");
+    function d(t) {
+        console.log(t)
+        var o;
+        r.newLimit = 100 * t.value, o = r.newLimit - r.min, (r.min + o < 6600 || !r.min && o < 6600) && (o = 6600 - r.min, r.newLimit = 6600), o < 0 && (o = 0, r.newLimit = r.min), o > 0 ? $("#bidding-limit-submit").removeClass("disabled") : $("#bidding-limit-submit").addClass("disabled");
+        //console.log(r.newLimit)
+        //var i = n.separateNumber(r.newLimit);
+        var i = r.newLimit
+        u["bl-new"].html("$" + i), u["bl-new-input"].val("$" + i);
+        var a = function(e) {
+            var t = e / l,
+                n = e % l;
+            n && (n *= s);
+            return Math.floor(t + n)
+        }(o);
+        r.lockDeposit = a > r.maxDepositPerTime, u["bl-required-deposit"].html("+$" + a), $("#deposit-input").val(a), r.lotCount = r.newLimit > r.max ? r.maxLotCount : Math.floor(r.newLimit / 6600), u["bl-count"].val(r.lotCount), $("#payment-form").length && (o > 0 ? $("#payment-form__submit").removeClass("disabled") : $("#payment-form__submit").addClass("disabled"), $("#payment-form__deposit").html(n.separateNumber(a)), $("#payment-form__total").html(n.separateNumber(a)), $("#PaymentForm_deposit").val(a), $("#payment-form__maximum-bid").html(n.separateNumber(r.newLimit)))
+    }
+
 
 
 

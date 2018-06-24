@@ -85,7 +85,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
     <link rel="icon" type="image/png" href="<?php echo base_url('front_assets/images/apple-favicon.png') ?>">
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url('front_assets/images/favicon.png') ?>">
 
-    <title>Car Hut - Car Dealer And Business HTML Template</title>
+    <title>Car Hut</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<?php echo base_url('front_assets/css/bootstrap.min-v3.3.7.css') ?>">

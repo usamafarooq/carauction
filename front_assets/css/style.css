@@ -4450,3 +4450,299 @@ table {
 .custom-selectInner {
     width: 100% !important;
 }
+
+.bidding-grid table.grid-caption .grid-numbers td {
+    width: 44px !important;
+}
+.bidding-grid table.grid-caption td {
+    padding: 0;
+}
+.grid-numbers td {
+    position: relative;
+}
+
+.grid-numbers td span {
+    display: inline-block;
+    margin-left: -1em;
+    font-size: 11px;
+    color: #888888;
+    font-weight: bold;
+}
+
+.bidding-grid table.grid-caption .grid {
+    font-size: 0;
+    line-height: 0;
+    vertical-align: bottom;
+    background:  none;
+}
+.bidding-grid table.grid-caption td {
+    padding: 0;
+}
+
+.bidding-grid .grid span {
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    border-left: 1px solid #b9b9b9;
+}
+.bidding-grid .grid td.big span {
+    height: 4px;
+}
+.bidding-grid .grid td.small span {
+    height: 2px;
+}
+.bidding-grid .grid td.med span {
+    height: 3px;
+}
+.slider-table td {
+    padding: 0;
+}
+.slider-table .slider-used > div, .slider-table .slider-current > div {
+    border-bottom: 1px solid #a20105;
+    border-top: 1px solid #a20105;
+    border-left: 1px solid #a20105;
+    border-right: none;
+}
+.slider-table .slider-used > div {
+    background-color: #ffb400;
+}
+.slider-table .slider-current > div {
+    background-color: #51cf20;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+}
+.ui-slider-horizontal {
+    height: 10px;
+}
+.ui-slider {
+    position: relative;
+    text-align: left;
+}
+.big-slider .ui-slider-range {
+    background-color: #a20105;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    font-size: 0.7em;
+    position: absolute;
+    top: -0.1em;
+    left: -0.2em;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.5);
+    height: 10px;
+}
+.big-slider .ui-slider-handle {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    background-image: url(https://sca.auction/img/slider-big.png);
+    background-repeat: no-repeat;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    top: -0.3em;
+    margin-left: -0.4em;
+}
+.bidding-numbers {
+    margin: 20px 0 10px;
+}
+.bidding-limit .bidding-numbers table {
+    width: 100%;
+    table-layout: fixed;
+}
+.bidding-numbers table td {
+    padding: 0 5px;
+}
+.bidding-proxy-top span, .bidding-numbers span {
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+.new-bidding-limit-yellow {
+    background: #ffb400;
+}
+.remaining-bidding-limit-green {
+    background: #51cf20;
+}
+.use-bidding-limit-red {
+    background: #a20105;
+}
+.bidding-limit-summary2.proxy {
+    background-color: #e3e3e3;
+}
+.bidding-limit-summary2 table {
+    width: 100%;
+}
+.bidding-limit-summary table td.bl-limit-account {
+    width: 33%;
+    padding: 0;
+    color: #666666;
+    text-align: center;
+    font-size: 14px;
+    background-size: auto 100%;
+    vertical-align: top;
+    font-weight: bold;
+}
+.bidding-limit-summary .bl-limit-account > div {
+    padding: 15px 15px 10px;
+}
+.bl-limit-account #nbli-wrapper.increase-input2, .bl-limit-account #nlc-wrapper.increase-input2 {
+    margin: 4px auto;
+}
+#nbli-wrapper.increase-input2, #nlc-wrapper.increase-input2 {
+    /* display: inline-block; */
+    position: relative;
+    height: 40px;
+    /* max-width: 160px; */
+    background: #ffffff;
+    margin-top: 7px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+.bidding-limit-summary2 table {
+    width: 100%;
+}
+#nbli-wrapper.increase-input2 td, #nlc-wrapper.increase-input2 td {
+    padding: 0;
+    color: #666666;
+    text-align: left;
+    color: #d8d8d8;
+    font-size: 16px;
+    background: url(https://sca.auction/img/bidding-limit-bkgr.png) 0 0 #555555;
+    background-size: auto 100%;
+    vertical-align: top;
+}
+#nbli-wrapper.increase-input2 td:first-child, #nlc-wrapper.increase-input2 td:first-child {
+    padding: 0 6px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+#nbli-wrapper.increase-input2 td, #nlc-wrapper.increase-input2 td {
+    background-color: #ffffff;
+    background-image: none;
+    vertical-align: middle;
+}
+
+#nbli-wrapper.increase-input2 span, #nlc-wrapper.increase-input2 span {
+    display: inline-block;
+    margin-top: 8px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    left: 0;
+    background: #e4e4e4;
+    color: #666666;
+    text-align: center;
+    border: none;
+    font-size: 0;
+    background: url(https://sca.auction/img/increase-sub-button.png) no-repeat 0 -1px;
+    /* background: linear-gradient(to top, #e4e4e4, #ffffff); */
+    cursor: pointer;
+}
+#nbli-wrapper.increase-input2 span.subtract, #nlc-wrapper.increase-input2 span.subtract {
+    top: 21px;
+    background-position: 0px -21px;
+}
+#nbli-wrapper.increase-input2 .add, #nbli-wrapper.increase-input2 .subtract {
+    border: none;
+}
+#nbli-wrapper.increase-input2 input[type=text], #nlc-wrapper.increase-input2 input[type=text] {
+    background-color: #fff;
+    color: #333333;
+    height: 26px;
+    font-weight: bold;
+    text-align: center;
+    /* padding: 0 5px; */
+    line-height: normal;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    padding: 2px;
+    margin: 0;
+    border-radius: 0;
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+#nbli-wrapper.increase-input2 td:last-child, #nlc-wrapper.increase-input2 td:last-child {
+    padding: 0 6px;
+}
+#nbli-wrapper.increase-input2 td, #nlc-wrapper.increase-input2 td {
+    background-color: #ffffff;
+    background-image: none;
+    vertical-align: middle;
+}
+.bidding-limit-summary .bl-required-deposit .title {
+    padding: 15px 0 1px;
+}
+.bidding-limit-summary .bl-required-deposit hr {
+    margin: 3px 15px 9px;
+    border-top: 1px solid #d0d0d0;
+}
+.bidding-limit-summary .bl-required-deposit .deposit {
+    padding: 0 15px;
+}
+.bidding-limit-summary .bl-required-deposit strong {
+    font-size: 22px;
+}
+.bidding-limit-summary2 table td strong {
+    color: #333;
+}
+.bidding-limit-summary .bl-required-btn {
+    text-align: center;
+    padding: 0 0 15px;
+}
+.button {
+    display: inline-block;
+    text-decoration: none !important;
+    color: #fff;
+    white-space: nowrap;
+}
+.yBtn, .yBtn_24, .gBtn_24, .yBtnBig, .rBtn_24, .rBtnBig, .bBtn, .gBtn {
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    padding: 0px;
+}
+.yBtn_24 {
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    background: #1E69B8;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 25%;
+}
+
+
+
+.bidding-limit-summary table td.bl-limit-account .title {
+    margin:  0;
+}
+
+.bidding-limit-summary2.proxy tr {
+    background:  none;
+}
+.grid-numbers td .grid_numbers--division {
+    position: absolute;
+    top: 43px;
+    left: -2px;
+    width: 6px;
+    height: 6px;
+    background-color: #dcdcdc;
+    border-radius: 6px;
+    z-index: 2;
+    opacity: 0.7;
+}
+.grid-numbers td {
+    position: relative;
+}

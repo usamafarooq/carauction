@@ -104,7 +104,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <p>Copyright © 2015-2018 SCA AUCTIONS, LLC. SCA™ trademark and SCA™ logo are registered to SCA AUCTIONS, LLC. All Rights Reserved. All other logos, brands and designated trademarks are the property of their respective holders.</p>
+            <p>Copyright © 2015-2018 Car Hut</p>
           </div>
         </div>
       </div>
@@ -146,6 +146,8 @@
     <!-- Main Custom JS -->
     
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
+
+
     
     <script type="text/javascript">
       $(document).ready(function() {
