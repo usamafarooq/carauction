@@ -37,4 +37,19 @@ class Account_model extends MY_Model
 		//echo '<pre>';print_r($this->db);echo '</pre>';die;
 		return $this->db->get()->result_array();
 	}
+
+	public function get_tickets($user_id,$status)
+	{
+		$this->db->select('max(t.id), ticket_id, u.first_name, u.last_name, t.created_at')
+				 ->from('ticket_thread t')
+				 ->join('users u', 'u.id = t.user_id')
+				 ->group_by('t.ticket_id');
+		$t = $this->db->get_compiled_select();
+		$this->db->select('Priority,Subject,t.id,, tt.ticket_id, tt.first_name, tt.last_name, tt.created_at')
+				 ->from('tickets t')
+				 ->join('('.$t.') tt', 'tt.ticket_id = t.id')
+				 ->where('t.user_id',$user_id)
+				 ->where('t.status',$status);
+		return $this->db->get()->result_array();
+	}
 }

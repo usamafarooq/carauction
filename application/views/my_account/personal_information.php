@@ -47,7 +47,7 @@
                                         <div class="warning" id="AccountContactForm_name_em_"></div>
                                     </div>
                                     <div class="account-info__block">
-                                        <input autocomplete="off" placeholder="Last Name" name="last_name" id="AccountContactForm_lastname" type="text" maxlength="30" value="<?php echo $user['first_name'] ?>">
+                                        <input autocomplete="off" placeholder="Last Name" name="last_name" id="AccountContactForm_lastname" type="text" maxlength="30" value="<?php echo $user['last_name'] ?>">
                                         <div class="warning" id="AccountContactForm_lastname_em_"></div>
                                     </div>
                                     <div class="account-info__block">

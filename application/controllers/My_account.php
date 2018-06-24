@@ -6,8 +6,16 @@ class My_account extends Front_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->is_login();
         $this->load->model('account_model');
     }
+
+    public function is_login()
+	{
+		if (!$this->session->userdata('user_id')) {
+			redirect("login");
+		}
+	}
 
 	public function index()
 	{
@@ -30,14 +38,47 @@ class My_account extends Front_Controller {
 	}
 	public function opentickets()
 	{
+		$this->data['tickets'] = $this->account_model->get_tickets($this->session->userdata('user_id'),1);
 		$this->load->front_template('my_account/opentickets',$this->data);
 	}
 	public function closetickets()
 	{
+		$this->data['tickets'] = $this->account_model->get_tickets($this->session->userdata('user_id'),2);
 		$this->load->front_template('my_account/closetickets',$this->data);
+	}
+
+	public function single_ticket($id)
+	{
+		$this->load->front_template('my_account/single_ticket',$this->data);
 	}
 	public function createtickets()
 	{
+		if ($this->input->post()) {
+			$data = $this->input->post();
+			$data['user_id'] = $this->session->userdata('user_id');
+			$config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'png|jpeg|jpg|gif|pdf|doc|docx|xlx|xlxs|txt|csv';
+            $config['max_size']             = 1000;
+            $config['max_width']            = 1024;
+            $config['max_height']           = 768;
+
+            $this->load->library('upload', $config);
+
+            if ( $this->upload->do_upload('FIle'))
+            {
+                $data['FIle'] = '/uploads/'.$this->upload->data('file_name');
+            }
+            $id = $this->account_model->insert('tickets',$data);
+			if ($id) {
+				$data = array(
+					'ticket_id' => $id,
+					'user_id' => $data['user_id'],
+					'message' => $data['Message']
+				);
+				$this->account_model->insert('ticket_thread',$data);
+				redirect('my_account/opentickets');
+			}
+		}
 		$this->load->front_template('my_account/createtickets',$this->data);
 	}
 	public function currentbid()

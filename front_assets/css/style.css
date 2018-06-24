@@ -4922,3 +4922,161 @@ table {
     background-color: #f0f0f0;
     cursor: no-drop;
 }
+
+.tickets .searchList.listView {
+    border-bottom: 1px solid #f5f5f5;
+}
+.searchList.listView {
+    color: #666666;
+}
+.searchList {
+    width: 100%;
+}
+.searchList.listView td:first-child {
+    padding-left: 15px;
+}
+.searchList td {
+    vertical-align: top;
+    padding: 10px;
+}
+.searchResult.tickets .searchList .h, .searchResult .savedSearchResTable .h {
+    display: none;
+}
+.searchList.listView td:first-child a {
+    font-weight: bold;
+    color: #666666;
+}
+.block-style {
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    border-bottom: 2px solid #ececec;
+    padding: 15px;
+}
+.ticketList {
+    margin-bottom: 15px;
+}
+.ticketList .ticket {
+    background-color: #ccc;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    display: table;
+    width: 100%;
+}
+.ticketList .left-part {
+    margin-right: 20px;
+    height: 100%;
+    width: 60%;
+}
+.ticketList .left-part, .ticketList .right-part {
+    background-color: #fff;
+    padding: 5px 0;
+    display: table-cell;
+    vertical-align: top;
+}
+.ticketList>div:first-child input.yBtn {
+    display: block;
+}
+.ticketList input.yBtn {
+    margin-right: 10px;
+}
+.go_back input {
+    float: left;
+    padding-left: 20px;
+    line-height: 23px;
+    background: url(https://sca.auction/img/arrow_left.png) no-repeat 10% 50% transparent;
+    border: 2px solid #CCCCCC;
+    font-size: 12px;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+.ticketList .ticket h3 {
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 1.9;
+}
+.ticketList .right-part {
+    overflow: hidden;
+    height: 100%;
+    width: 40%;
+    text-align: right;
+}
+.ticketList .left-part, .ticketList .right-part {
+    background-color: #fff;
+    padding: 5px 0;
+    display: table-cell;
+    vertical-align: top;
+}
+.ticketList .date, .ticketList .email, .ticketList .post {
+    color: #888888;
+    font-size: 13px;
+}
+.ticketList .date, .ticketList .email, .ticketList .post {
+    color: #888888;
+    font-size: 13px;
+}
+.ticketList .post {
+    color: #666666;
+    padding-bottom: 20px;
+    line-height: 1.7;
+    word-break: break-word;
+}
+.ticketList .ticket {
+    background-color: #ccc;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    display: table;
+    width: 100%;
+}
+.ticketList .left-part {
+    margin-right: 20px;
+    height: 100%;
+    width: 60%;
+}
+.ticketList .left-part, .ticketList .right-part {
+    background-color: #fff;
+    padding: 5px 0;
+    display: table-cell;
+    vertical-align: top;
+}
+.ticketList>div input.yBtn {
+    display: none;
+}
+.ticketList input.yBtn {
+    margin-right: 10px;
+}
+.ticketList-answer .group-title {
+    padding-bottom: 10px;
+}
+.group-title {
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ticketList .post {
+    color: #666666;
+    padding-bottom: 20px;
+    line-height: 1.7;
+    word-break: break-word;
+}
+.ticketList .post .file {
+    padding-top: 10px;
+}
+.ticketList-answer #repost-form {
+    text-align: center;
+}
+#repost-form textarea {
+    height: 170px !important;
+    width: 100%;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    resize: none;
+}
