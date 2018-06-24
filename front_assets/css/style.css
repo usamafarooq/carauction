@@ -4860,7 +4860,7 @@ table {
 .site-form input[type=checkbox] {
     margin: 0;
 }
-input[type="checkbox"] + span {
+.input-redcross input[type="checkbox"] + span {
     position: absolute;
     left: 0;
     top: 0;
@@ -4884,7 +4884,7 @@ input[type="checkbox"] + span {
     position: relative;
     box-sizing: border-box;
 }
-input[type="checkbox"] + span {
+.input-redcross input[type="checkbox"] + span {
     position: absolute;
     left: 0;
     top: 0;
@@ -4902,6 +4902,23 @@ input[type="checkbox"] + span {
     width: 49%;
     float: left;
 }
-input[type="checkbox"]:checked + span {
+.input-redcross input[type="checkbox"]:checked + span {
     background-position: -17px 0px;
+}
+.billing_information .empty {
+    margin: 40px 0 40px;
+    color: #900;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+#login-password-form .form-group {
+    padding: 0 25% 10px;
+    margin: 0;
+}
+.site-form input:disabled, .site-form select:disabled {
+    background-color: #f0f0f0;
+    cursor: no-drop;
 }

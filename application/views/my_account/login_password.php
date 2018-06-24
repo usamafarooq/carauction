@@ -121,34 +121,44 @@
                 </div>
             </div>
                <div class="col-sm-12 col-md-9">
-              <div id="ajax-content">
-                   
-                    <div class="form-p">
-                                              <form>
-                                            <center><h3 class="g-tittle">Change Your Password</h3>
-                                            <p style="margin-top: -15px;margin-bottom: 5px;">Youll receive notifications of current bid increases, sale date changes</p>
-                                            </center>    
+             <div id="ajax-content">
 
-                          <div class="form-group">
-                            <label for="inputAddress2">Email</label>
-                            <input class="form-control" type="text" placeholder="skpathan250@gmail.com" readonly>
-                          </div>
-                          <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="inputCity">New Password</label>
-                              <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="inputCity">Retype Password</label>
-                              <input type="text" class="form-control" id="inputCity">
-                            </div>
-                           
-                          <center><button type="submit" class="btn validate btn-primary">Save</button></center>
-                        </form>
 
+    <div class="block-style">
+        <form id="login-password-form" class="site-form c-ajax" action="/en/account/login_and_password" method="post">
+            <div class="group-title">
+                <span>Change Your Password</span>
+            </div>
+            <div class="text-center text">
+                <span>Youll receive notifications of current bid increases, sale date changes </span>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div>
+                        <input disabled="disabled" style="color: #b9b9b9;" autocomplete="off" name="AccountLoginPasswordForm[email]" id="AccountLoginPasswordForm_email" type="text" value="skpathan250@gmail.com"> </div>
+                    <div class="warning" id="AccountLoginPasswordForm_email_em_"></div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label class="text" style="font-size: 14px" for="AccountLoginPasswordForm_new_password">Enter your new password</label> <br>
+                        <input placeholder="New Password" autocomplete="off" name="AccountLoginPasswordForm[new_password]" id="AccountLoginPasswordForm_new_password" type="password">
+                        <div class="warning" id="AccountLoginPasswordForm_new_password_em_"></div>
                     </div>
-              </div>
+                </div>
+                <div class="form-row">
+                    <input placeholder="Retype New Password" autocomplete="off" name="AccountLoginPasswordForm[new_password2]" id="AccountLoginPasswordForm_new_password2" type="password">
+                    <div class="warning" id="AccountLoginPasswordForm_new_password2_em_"></div>
+
+                    <input type="submit" style="position: absolute; left: -10000px;top: -10000px;">
+                </div>
+                <div class="form-row text-center">
+                    <a class="button yBtn_24" id="update-button" href="javascript:void(0);">Save</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
                 
                   
            </div>
