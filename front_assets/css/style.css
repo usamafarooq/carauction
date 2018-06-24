@@ -4902,3 +4902,6 @@ input[type="checkbox"] + span {
     width: 49%;
     float: left;
 }
+input[type="checkbox"]:checked + span {
+    background-position: -17px 0px;
+}
