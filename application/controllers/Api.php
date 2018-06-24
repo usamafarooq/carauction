@@ -60,7 +60,8 @@ class Api extends Front_Controller {
 	
 	public function show(){
 		header('Content-Type: text/html; charset=utf-8'); 
-		$data = $this->db->get('data')->result_array();
+		$data = $this->db->select('*')->from('data')->limit(5000)->get()->result_array();
+		//$data = $this->db->get('data')->result_array();
 		$con = 0;
 		foreach ($data as $d) {
 			$xml=simplexml_load_file(base_url('xml/'.$d['id'].'.xml'));

@@ -11,7 +11,7 @@
                                 <a href="<?php echo base_url('my_account/watchlist') ?>"> Watchlist (<?php echo $user['watchlist'] ?>)</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('my_account/saved_search') ?>">Saved Searches (0)</a>
+                                <a href="<?php echo base_url('my_account/saved_search') ?>">Saved Searches (<?php echo $user['save_search'] ?>)</a>
                             </li>
                         </ul>
                         <div class="sublevel droparrow">Tickets </div>
