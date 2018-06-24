@@ -94,7 +94,7 @@
                                 <a href="<?php echo base_url('my_account/documents') ?>">Documents</a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url('my_account/memberships') ?>">Membership</a>
+                                <a href="<?php echo base_url('packages') ?>">Membership</a>
                             </li>
                         </ul>
                         <ul class="level1">
