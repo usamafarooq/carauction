@@ -726,6 +726,12 @@
         $("#AccountContactForm_mailing_same").prop("checked") ? ($("#mailinig-contents").hide(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").attr("disabled", "disabled")) : ($("#mailinig-contents").show(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").removeAttr("disabled"))
     })
 
+    $('select.hasCustomSelect').on('change', function() {
+        var val = $(this).val()
+        var text = $(this).find('option[value="'+val+'"]').text()
+        $(this).parent().find('.custom-selectInner').text(text)
+    })
+
 
 
 })(window.jQuery);

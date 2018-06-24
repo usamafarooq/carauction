@@ -95,6 +95,13 @@ class My_account extends Front_Controller {
 	}
 	public function personal_information()
 	{
+		if ($this->input->post()) {
+            $data = $this->input->post();
+            $id = $this->session->userdata('user_id');
+            $this->account_model->update('users',$data,array('id'=>$id));
+            redirect('my_account/personal_information');
+        }
+        $this->data['language'] = $this->account_model->all_rows('language');
 		$this->load->front_template('my_account/personal_information',$this->data);
 	}
 	public function billing_info()
