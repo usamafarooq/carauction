@@ -123,13 +123,21 @@
                <div class="col-sm-12 col-md-9">
                 <h2 class="account-header hidden-md hidden-lg">Transactions </h2>
                 
-                   <div id="ajax-content">
-                     <div>
-                         
-                   <center><h5 class="g-tittle">You don't have a saved credit card</h5></center>
-                
-                       <center><button type="submit" class="btn validate btn-primary">Add A New Card</button></center>
-                     </div>
+                  <div id="ajax-content">
+     
+<div class="billing_information">
+
+    
+    <div class="empty text-center">You don't have a saved credit card</div>        <div class="text-center button_cards">
+            <a class="button yBtn_24" href="/en/account/billing_information?add=1">
+                <span class="plus"></span>
+                Add a New Card            </a>
+        </div>
+
+        
+    <div class="clr"></div>
+
+</div>        </div>
 
     </div>
             </div>
