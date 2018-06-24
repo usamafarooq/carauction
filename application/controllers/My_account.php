@@ -110,6 +110,15 @@ class My_account extends Front_Controller {
 	}
 	public function login_and_password()
 	{
+		if ($this->input->post()) {
+			$data = $this->input->post();
+			if ($data['password'] == $data['confirm_password']) {
+				$us = array('password'=>md5($data['password']));
+				$id = $this->session->userdata('user_id');
+				$this->account_model->update('users',$data,array('id'=>$id));
+            	redirect('my_account/login_and_password');
+			}
+		}
 		$this->load->front_template('my_account/login_password',$this->data);
 	}
 	public function documents()
