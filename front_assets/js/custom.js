@@ -723,6 +723,8 @@
         r.lockDeposit = a > r.maxDepositPerTime, u["bl-required-deposit"].html("+$" + a.toCurrencyString()), $("#deposit-input").val(a), r.lotCount = r.newLimit > r.max ? r.maxLotCount : Math.floor(r.newLimit / 6600), u["bl-count"].val(r.lotCount), $("#payment-form").length && (o > 0 ? $("#payment-form__submit").removeClass("disabled") : $("#payment-form__submit").addClass("disabled"), $("#payment-form__deposit").html(a.toCurrencyString()), $("#payment-form__total").html(a.toCurrencyString()), $("#PaymentForm_deposit").val(a), $("#payment-form__maximum-bid").html(r.newLimit.toCurrencyString()))
     }
 
+    $("#AccountContactForm_mailing_same").prop("checked") ? ($("#mailinig-contents").hide(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").attr("disabled", "disabled")) : ($("#mailinig-contents").show(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").removeAttr("disabled"))
+
 
 
 
