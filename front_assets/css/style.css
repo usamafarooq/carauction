@@ -4893,3 +4893,15 @@ input[type="checkbox"] + span {
     background: url(https://sca.auction/img/input-redsquare.png) no-repeat;
     cursor: pointer;
 }
+.form__zip-state #zip-form-row {
+    margin-right: 2%;
+}
+
+.form__zip-state #state-form-row, .form__zip-state #zip-form-row {
+    display: inline-block;
+    width: 49%;
+    float: left;
+}
+input[type="checkbox"]:checked + span {
+    background-position: -17px 0px;
+}
