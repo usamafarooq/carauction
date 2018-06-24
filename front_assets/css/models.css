@@ -123,13 +123,12 @@ select.hasCustomSelect {
 .site-form .button {
     border: none;
     cursor: pointer;
-    color: #222;
+    color: white;
     font-weight: bold;
     display: inline-block;
     text-decoration: none !important;
-    color: #222;
     white-space: nowrap;
-    background: #ffb400;
+    background: #1E69B8;
     border-radius: 3px;
     text-align: center;
     min-width: 25%;
