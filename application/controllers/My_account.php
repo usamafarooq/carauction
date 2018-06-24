@@ -49,6 +49,17 @@ class My_account extends Front_Controller {
 
 	public function single_ticket($id)
 	{
+		if ($this->input->post()) {
+			$data = array(
+				'ticket_id' => $id,
+				'user_id' => $this->session->userdata('user_id'),
+				'message' => $this->input->post('message')
+			);
+			$this->account_model->insert('ticket_thread',$data);
+			redirect('my_account/single_ticket/'.$id);
+		}
+		$this->data['ticket'] = $this->account_model->get_row_single('tickets',array('id'=>$id));
+		$this->data['thread'] = $this->account_model->get_thraed($id);
 		$this->load->front_template('my_account/single_ticket',$this->data);
 	}
 	public function createtickets()
