@@ -590,7 +590,7 @@
     $('#bidding-slider').slider({
         animate: !0,
         range: "min",
-        value: 100,
+        value: 66,
         max: i.max,
         min: i.min,
         step: 1,
@@ -601,17 +601,8 @@
             d(t)
         }
         
-    }), 0 == o.usedLimit ? u["slider-used"].css("display", "none") : (i.usedWidth = c(o.usedLimit), u["slider-used"].css({
-        display: "table-cell",
-        width: i.usedWidth + "%"
-    }).children("div").css("border-radius", "3px 0 0 3px"), u["slider-current"].addClass("second"));
-    0 == o.currentLimit ? u["slider-current"].css("display", "none") : (i.currentWidth = c(o.currentLimit), u["slider-current"].css({
-        display: "table-cell",
-        width: i.currentWidth + "%"
-    }), o.usedLimit || u["slider-current"].children("div").css("border-radius", "3px 0 0 3px"));
-    u["slider-main"].css("width", Math.ceil(100 - i.currentWidth - i.usedWidth) + "%"), o.usedLimit || o.currentLimit || u["ui-slider-range"].css("border-radius", "3px 0 0 3px");
-
-
+    })
+    console.log(i.max)
     var n = function() {
         function e() {
             (0, o.default)(this, e);
@@ -637,20 +628,91 @@
         }]), e
     }();
 
+    Number.prototype.toCurrencyString=function(){
+        return this.toFixed().replace(/(\d)(?=(\d{3})+\b)/g,'$1,');
+    }
+
+    $("span.subtract").on("click", function(n) {
+        var bid = u["bl-count"].val()
+        bid = parseInt(bid)
+        if (bid > 1) {
+            var new_bid = bid - 1;
+            u["bl-count"].val(new_bid)
+            u["bl-count"].val(new_bid)
+            var diposit = $("#deposit-input").val()
+            diposit = diposit.replace("$", "");
+            diposit = diposit.replace(",", "");
+            diposit = parseInt(diposit)
+            diposit = diposit / bid
+            diposit = diposit * new_bid
+            u["bl-required-deposit"].html("+$"+ diposit.toCurrencyString())
+            $("#deposit-input").val(diposit.toCurrencyString())
+            var amount = $("#bl-new-input").val()
+            amount = amount.replace("$", "");
+            amount = amount.replace(",", "");
+            amount = parseInt(amount)
+            amount = amount / bid
+            amount = amount * new_bid
+            u["bl-new"].html("+$"+ amount.toCurrencyString())
+            $("#bl-new-input").val("$"+ amount.toCurrencyString())
+            $("#bidding-slider").slider('value',amount.slice(0, -2));
+        }
+    })
+    $("span.add").on("click", function(n) {
+        var bid = u["bl-count"].val()
+        bid = parseInt(bid)
+        if (bid < 20) {
+            var new_bid = bid + 1;
+            u["bl-count"].val(new_bid)
+            var diposit = $("#deposit-input").val()
+            diposit = diposit.replace("$", "");
+            diposit = diposit.replace(",", "");
+            diposit = parseInt(diposit)
+            diposit = diposit / bid
+            diposit = diposit * new_bid
+            u["bl-required-deposit"].html("+$"+ diposit.toCurrencyString())
+            $("#deposit-input").val("$"+ diposit.toCurrencyString())
+            var amount = $("#bl-new-input").val()
+            amount = amount.replace("$", "");
+            amount = amount.replace(",", "");
+            amount = parseInt(amount)
+            amount = amount / bid
+            amount = amount * new_bid
+            u["bl-new"].html("+$"+ amount.toCurrencyString())
+            $("#bl-new-input").val("$"+ amount.toCurrencyString())
+            //amount = amount.split()
+            //console.log(amount)
+            $("#bidding-slider").slider('value',amount.toString().slice(0, -2));
+        }
+    })
+
+
+    function g(e) {
+        for (var t in n)
+            if (n.hasOwnProperty(t)) {
+                if (!(e >= (t *= 1))) break;
+                p = 1 * n[t]
+            }
+    }
+
+    function b(e) {
+        return e = parseInt(e), isNaN(e) && (e = p), e < c ? c + p : e < d ? d : (e % p > 0 && (e -= e % p), e < c + p ? c + p : e > f ? f : e)
+    }
+
     
 
-    u["bl-required-deposit"].html("+$1000")
-    $("#deposit-input").val(100)
+    u["bl-required-deposit"].html("+$1,000")
+    $("#deposit-input").val('$1000')
     u["bl-count"].val(1)
-    u["bl-new"].html("$6600")
-    u["bl-new-input"].val("$6600");
+    u["bl-new"].html("$6,600")
+    u["bl-new-input"].val("$6,600");
     function d(t) {
         console.log(t)
         var o;
         r.newLimit = 100 * t.value, o = r.newLimit - r.min, (r.min + o < 6600 || !r.min && o < 6600) && (o = 6600 - r.min, r.newLimit = 6600), o < 0 && (o = 0, r.newLimit = r.min), o > 0 ? $("#bidding-limit-submit").removeClass("disabled") : $("#bidding-limit-submit").addClass("disabled");
         //console.log(r.newLimit)
         //var i = n.separateNumber(r.newLimit);
-        var i = r.newLimit
+        var i = r.newLimit.toCurrencyString()
         u["bl-new"].html("$" + i), u["bl-new-input"].val("$" + i);
         var a = function(e) {
             var t = e / l,
@@ -658,8 +720,10 @@
             n && (n *= s);
             return Math.floor(t + n)
         }(o);
-        r.lockDeposit = a > r.maxDepositPerTime, u["bl-required-deposit"].html("+$" + a), $("#deposit-input").val(a), r.lotCount = r.newLimit > r.max ? r.maxLotCount : Math.floor(r.newLimit / 6600), u["bl-count"].val(r.lotCount), $("#payment-form").length && (o > 0 ? $("#payment-form__submit").removeClass("disabled") : $("#payment-form__submit").addClass("disabled"), $("#payment-form__deposit").html(n.separateNumber(a)), $("#payment-form__total").html(n.separateNumber(a)), $("#PaymentForm_deposit").val(a), $("#payment-form__maximum-bid").html(n.separateNumber(r.newLimit)))
+        r.lockDeposit = a > r.maxDepositPerTime, u["bl-required-deposit"].html("+$" + a.toCurrencyString()), $("#deposit-input").val(a), r.lotCount = r.newLimit > r.max ? r.maxLotCount : Math.floor(r.newLimit / 6600), u["bl-count"].val(r.lotCount), $("#payment-form").length && (o > 0 ? $("#payment-form__submit").removeClass("disabled") : $("#payment-form__submit").addClass("disabled"), $("#payment-form__deposit").html(a.toCurrencyString()), $("#payment-form__total").html(a.toCurrencyString()), $("#PaymentForm_deposit").val(a), $("#payment-form__maximum-bid").html(r.newLimit.toCurrencyString()))
     }
+
+    $("#AccountContactForm_mailing_same").prop("checked") ? ($("#mailinig-contents").hide(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").attr("disabled", "disabled")) : ($("#mailinig-contents").show(), $("#AccountContactForm_mailing_address,#AccountContactForm_mailing_address2,#AccountContactForm_mailing_country,#AccountContactForm_mailing_zip,#AccountContactForm_mailing_state,#AccountContactForm_mailing_city").removeAttr("disabled"))
 
 
 

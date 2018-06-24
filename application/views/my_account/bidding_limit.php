@@ -30,7 +30,7 @@
                 <div id="ajax-content">
 
 
-                                <form action="/en/account/increase_bidding_limit" method="post" id="bidding-limit-form">
+                                <form action="" method="post" id="bidding-limit-form">
                                     <div class="bidding-limit">
                                         <div class="bidding-grid hidden-xs">
                                             <div class="title">Move slider to adjust Bidding Limit</div>
