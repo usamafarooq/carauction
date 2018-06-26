@@ -117,8 +117,10 @@
                       //   $text = '-Unwatch';
                       // }
                     ?>
-                    <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
-                    <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+                    <button <?php if(isset($l['watch']) && $l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch<?php echo $l['id'] ?>-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
+                    <?php if ($this->session->userdata('user_id')) { ?>
+                    <button <?php if(isset($l['watch']) && $l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+                    <?php } ?>
                     <?php if ($this->session->userdata('user_id')) { ?>
                     <a class="notification-link-simple open-model pull-right n-<?=($l['watch_status'] != '2' && $l['watch'] > 0) ?'on':'off'?>" href="javascrip:;" data-model="noti<?php echo $l['id'] ?>-model">
                       <span class="notify-icon"></span><?=($l['watch_status'] != '2' && $l['watch'] > 0) ?'On':'Off'?>
@@ -126,7 +128,7 @@
                     <!-- <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button> -->
                     <?php } ?>
                     <?php if (!$this->session->userdata('user_id')) { ?>
-                    <div class="glue-modal watch-model" id="fpc-bid-info-modal">
+                    <div class="glue-modal watch<?php echo $l['id'] ?>-model" id="fpc-bid-info-modal">
                       <div class="title">
                         Please Enter to the Site                            
                         <span class="modal-arrow-up"></span>

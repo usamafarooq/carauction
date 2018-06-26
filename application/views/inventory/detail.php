@@ -11,8 +11,10 @@
             </a>
             <!-- <button class="btn btn-deafult  open-model pull-right" style="margin-left: 10px" data-model="noti<?php echo $detail['id'] ?>-model">Notification</button> -->
             <?php } ?>
-            <button <?php if($detail['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist pull-right open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$detail['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
-            <button <?php if($detail['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist pull-right open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$detail['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+            <button <?php if(isset($detail['watch']) && $detail['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist pull-right open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$detail['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
+            <?php if ($this->session->userdata('user_id')) { ?>
+            <button <?php if(isset($detail['watch']) && $detail['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist pull-right open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$detail['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+            <?php } ?>
             <?php if (!$this->session->userdata('user_id')) { ?>
             <div class="glue-modal watch-model" id="fpc-bid-info-modal">
               <div class="title">
