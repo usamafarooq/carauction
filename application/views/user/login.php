@@ -33,8 +33,8 @@
                 <div class="right">
                 <div class="title-social">Login with Social</div>
                 <div class="ta-center social-block">
-                <a href="/en/account/socialLogin/Facebook" class="social-login facebook">Facebook</a>
-                <a href="/en/account/socialLogin/Google" class="social-login google">Google</a>
+                <a href="<?php echo $facebookURL ?>" class="social-login facebook">Facebook</a>
+                <a href="<?php echo $googleURL ?>" class="social-login google">Google</a>
                 </div>
                 </div>
                 </div>

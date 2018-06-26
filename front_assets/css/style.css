@@ -5080,3 +5080,425 @@ table {
     border-radius: 3px;
     resize: none;
 }
+
+.global-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 50000;
+    background: rgba(0,0,0,0.5);
+}
+
+#global-modal {
+    display: none;
+    position: fixed;
+    width: 520px;
+    /* height: 345px; */
+    min-height: 94px;
+    background-color: #ffffff;
+    /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7); */
+    top: 50%;
+    left: 50%;
+    margin: -170px 0 0 -260px;
+    z-index: 10000;
+    text-align: left;
+}
+#global-modal .title {
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 0;
+    position: relative;
+    border-bottom: 1px solid #ececec;
+}
+#global-modal .close-modal {
+    display: block;
+    position: absolute;
+    top: 11px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: url(https://sca.auction/img/closer-black.png) no-repeat center center transparent;
+    cursor: pointer;
+}
+#global-modal .content {
+    padding: 20px 30px;
+}
+.savesearch-modal .content table {
+    width: 100%;
+}
+.savesearch-modal .content table td:first-child {
+    padding: 0;
+}
+.savesearch-modal .content table td {
+    vertical-align: top;
+    text-align: left;
+}
+.table-savesearch .filter {
+    text-align: center;
+    color: #666666;
+}
+.table-savesearch .filter .filterbox {
+    font-size: 15px;
+    font-weight: 500;
+}
+.savesearch-modal .content .filterbox {
+}
+span.required {
+    color: #ff0000;
+}
+#saved-search-update-from input[type=text] {
+    width: 100%;
+    color: #666666;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    height: 40px;
+    line-height: 38px;
+    padding: 2px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+#saved-search-update-from label.radio {
+    display: inline-block;
+    padding-left: 0;
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#saved-search-update-from input[type="radio"]{
+    display: none;
+}
+
+#saved-search-update-from label.radio label {
+    padding: 0 8px 1px 22px;
+}
+#saved-search-update-from input[type=radio]:checked + label {
+    background: url(https://sca.auction/img/radio-button--active.png) no-repeat 0 center;
+}
+#saved-search-update-from label.radio label {
+    padding: 0 8px 1px 22px;
+}
+#saved-search-update-from input[type=radio] + label {
+    background: url(https://sca.auction/img/radio-button.png) no-repeat 0 center;
+}
+.select-label {
+    /* display: inline-block; */
+    height: 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+#saved-search-update-from label {
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0px;
+    width:  auto;
+}
+#saved-search-update-from select {
+    width: 100%;
+    color: #666;
+    background: transparent;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    line-height: 36px;
+}
+#saved-search-update-from td {
+    vertical-align: top;
+    padding-top: 10px;
+}
+.savesearch-modal .content table td+td {
+    padding-left: 20px;
+}
+.savesearch-modal .content table td {
+    text-align: left;
+}
+
+table.table-savesearch tr {
+    background:  none;
+}
+a.notification-link.n-on .notify-icon, a.notification-link-simple.n-on .notify-icon, a.search-notify-link.n-on .notify-icon {
+    background-position: 19px;
+}
+.increase-input {
+    display: inline-block;
+    margin-top: 7px;
+    width: 100%;
+    text-align:  center;
+}
+.bid_input {
+    width: 100%;
+    /* float: none; */
+    /* margin-left: 25%; */
+}
+.increase-input span.subtract {
+    top: 21px;
+    background-position: 0 -21px;
+}
+.increase-input span {
+    display: block;
+    /* position: absolute; */
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    left: 0;
+    background: #e4e4e4;
+    color: #666666;
+    text-align: center;
+    font-size: 0;
+    background: url(https://sca.auction/img/increase-sub-button.png) no-repeat 0 -1px;
+    /* background: linear-gradient(to top, #e4e4e4, #ffffff); */
+    cursor: pointer;
+}
+.bid_input td:first-child {
+    border-right: 1px solid #e2e2e2;
+}
+.bid_input td {
+    padding: 0 10px;
+}
+.lot-bid-now #bid-now-value {
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+.increase-input input[type=text] {
+    background-color: #fff;
+    color: #333333;
+    height: 26px;
+    padding: 0 5px;
+    line-height: 29px;
+    font-size: 1.25em;
+    width: 100px;
+    border: none;
+    margin: 0;
+}
+.increase-input span.add {
+    top: 0;
+}
+.increase-input>div:first-child {
+    padding: 7px 0;
+    background-color: #fff;
+    border-radius: 3px;
+    width: 60%;
+    float: none;
+    margin:  0 auto;
+}
+.bid_input td:last-child {
+    border-left: 1px solid #e2e2e2;
+}
+#bid-now-value {
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+div.hint {
+    width: 100%;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 18px;
+}
+div.hint>a {
+    color: #9cc0f4;
+    text-decoration: underline;
+}
+.glue-modal.gray>.title {
+    background: url(https://sca.auction/img/calc_icon_final.png) no-repeat;
+    background-color: #e0e0e0;
+    height: 37px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 37px;
+    padding-left: 54px;
+    color: #333;
+}
+.lot-calc .fees-calc {
+    background-color: #fff;
+}
+.fees-calc {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 14px 15px;
+    color: #fff;
+    background: #a10006;
+}
+.lot-calc .fees-calc__title {
+    color: #666;
+}
+.fees-calc__title {
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+}
+.fees-calc__bid__table {
+    width: 100%;
+}
+.fees-calc__bid__table td {
+    padding: 9px 0;
+}
+.fees-calc__ctd {
+    width: 40px;
+}
+.lot-calc .fees-calc__subtract-wrap {
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    border-left: 1px solid #e4e4e4;
+}
+.fees-calc__subtract-wrap {
+    border-radius: 3px 0 0 3px;
+}
+.fees-calc__subtract-wrap, .fees-calc__add-wrap {
+    display: inline-block;
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+.lot-calc .fees-calc__subtract {
+    /* border-right: 2px solid #e4e4e4; */
+}
+.fees-calc__subtract, .fees-calc__add {
+    margin-top: 5px;
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #666666 !important;
+    font-size: 24px;
+    text-decoration: none;
+}
+.lot-calc .fees-calc__add-wrap {
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+}
+.fees-calc__add-wrap {
+    border-radius: 0 3px 3px 0;
+}
+.fees-calc__add {
+    /* border-left: 1px solid #e2e2e2; */
+}
+.fees-calc__input {
+    padding-left: 10px;
+    border-radius: 0 !important;
+    border: none !important;
+    text-align: center;
+    font-weight: bold;
+    font-size: 19px !important;
+    width: 100%;
+    color: #000;
+}
+#fpc-modal.gray input {
+    width: 100%;
+    color: #666666;
+    height: 40px;
+    line-height: 38px;
+    padding: 2px;
+    padding-left: 10px;
+    margin-bottom:  0;
+    border-left: 1px solid #e4e4e4 !important;
+    border-right: 1px solid #e4e4e4 !important;
+}
+.lot-calc .fees-calc__input {
+    border-top: 1px solid #e4e4e4 !important;
+    border-bottom: 1px solid #e4e4e4 !important;
+}
+table.table {
+    margin: 0;
+}
+.fees-calc-data {
+    width: 100%;
+    color: #666;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-bottom: 2px solid #ececec;
+}
+.lot-calc .table th, .lot-calc .table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    color: #333;
+    font-size: 14px;
+}
+.lot-calc .table td:last-child {
+    text-align: right;
+}
+
+
+.lot-calc .table th, .lot-calc .table tr {
+    background:  none;
+}
+.fees-calc-data__total-price-wrap {
+    font-weight: bold;
+    font-size: 16px;
+}
+#watchlist-notifications-form {
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    border-bottom: 2px solid #ececec;
+    padding: 0 15px;
+}
+#get-auction-updates {
+    margin: 0;
+}
+#get-auction-updates table td {
+    text-align: center;
+}
+#when-to-notify {
+    padding: 0 25% 10px;
+}
+#when-to-notify > div {
+    padding: 15px 0 0;
+}
+div.clr {
+    clear: both;
+    float: none !important;
+}
+.to-notify table {
+    width: 100%;
+}
+.to-notify table td:first-child {
+    padding: 0 5px 0 0;
+}
+.to-notify table td {
+    width: 50%;
+}
+.to-notify table td:last-child {
+    padding: 0 0 0 5px;
+}
+.to-notify table td {
+    width: 50%;
+}
+#notify-phone-wrapper #notify-phone-input {
+    width: 100%;
+    height: 40px;
+    margin-right: 1%;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #e4e4e4;
+    padding: 5px 10px;
+}
+button.watchlist {
+    display: inline-block;
+    line-height: 28px;
+    height: 32px;
+    font-size: 14px;
+    color: #444;
+    text-align: center;
+    border: 2px solid #d5d5d5;
+    border-radius: 3px;
+    padding: 1px 10px;
+    font-weight: bold;
+    margin-right:  10px;
+    background:  none;
+}

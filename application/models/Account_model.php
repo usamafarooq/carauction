@@ -61,4 +61,16 @@ class Account_model extends MY_Model
 				 ->where('t.ticket_id', $id);
 		return $this->db->get()->result_array();
 	}
+
+	public function get_save_search($id)
+	{
+		$this->db->select('s.*, v.Name as vehicle_type, m.Name as make, mo.Name as model, (select count(inventory.id) as total from inventory join auctions on auctions.id = inventory.Auction where auctions.Date >= "'.date('Y-m-d').'" and (CASE s.vehicle_type WHEN NULL THEN type != 0 ELSE type = s.vehicle_type END) and (CASE WHEN s.make IS NULL THEN Make != 0 ELSE Make = s.make END) and (CASE WHEN s.model IS NULL THEN Model != 0 ELSE Model = s.model END)) as total')
+				 ->from('save_search s')
+				 ->join('vehicle_type v', 'v.id = s.vehicle_type', 'left')
+				 ->join('makes m', 'm.id = s.make', 'left')
+				 ->join('models mo', 'mo.id = s.model', 'left')
+				 ->where('s.user_id', $id)
+				 ->group_by('s.id');
+		return $this->db->get()->result_array();
+	}
 }

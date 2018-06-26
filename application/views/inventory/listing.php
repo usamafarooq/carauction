@@ -1,4 +1,3 @@
-
     <!-- Featured Car start -->
     <section class="featured-area">
       <div class="container">
@@ -9,7 +8,7 @@
                 $start = ($result * ($current_page - 1));
                 $on = $start + 1;
                 $end = $start + sizeof($listing);
-                if ($total_rows > 0) {
+                if ($total_rows >= 0) {
                   $num = $on .' - '.$end;
                 }
                 else{
@@ -66,6 +65,9 @@
             </div>
           </div>
         </div>
+        <?php if(isset($search) && $search && $this->session->userdata('user_id')){ ?>
+        <div class="row"><div class="col-lg-12"><button class="btn btn-info pull-right save-search">Save Search</button></div></div><br>
+        <?php } ?>
         <div class="row">
           <?php foreach ($listing as $l) {?>
           <div class="col-lg-4 col-md-6 col-sm-6">
@@ -115,10 +117,13 @@
                       //   $text = '-Unwatch';
                       // }
                     ?>
-                    <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
-                    <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+                    <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
+                    <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
                     <?php if ($this->session->userdata('user_id')) { ?>
-                    <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button>
+                    <a class="notification-link-simple open-model pull-right n-<?=($l['watch_status'] != '2' && $l['watch'] > 0) ?'on':'off'?>" href="javascrip:;" data-model="noti<?php echo $l['id'] ?>-model">
+                      <span class="notify-icon"></span><?=($l['watch_status'] != '2' && $l['watch'] > 0) ?'On':'Off'?>
+                    </a>
+                    <!-- <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button> -->
                     <?php } ?>
                     <?php if (!$this->session->userdata('user_id')) { ?>
                     <div class="glue-modal watch-model" id="fpc-bid-info-modal">
@@ -140,18 +145,18 @@
                         <div class="close-modal"></div>
                       </div>
                       <div class="content">
-                        <form class="site-form" action="#" method="post">
+                        <form class="site-form watchlist_notification" action="<?php echo base_url('listing/watchlist_notification/') ?>" method="post" id="watchlist_notification">
                           <label class="select-label select-label--first">
-                            <select class="wn-notify_status hasCustomSelect" name="notify_status" id="notify_status" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
-                              <option value="2">Always</option>
-                              <option value="1">Never</option>
+                            <select class="wn-notify_status hasCustomSelect" name="status" id="notify_status" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
+                              <option value="1">Always</option>
+                              <option value="2">Never</option>
                             </select>
                             <span class="custom-select wn-notify_status" style="display: inline-block;">
                               <span class="custom-selectInner" style="width: 100px; display: inline-block;">Always</span>
                             </span>                                
                           </label>
                           <label class="select-label">
-                            <select class="wn-notify_method hasCustomSelect" name="notify_method" id="notify_method" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
+                            <select class="wn-notify_method hasCustomSelect" name="type" id="notify_method" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 13px;">
                               <option value="1">Email</option>
                               <option value="2">SMS</option>
                               <option value="3">Email + SMS</option>
@@ -160,13 +165,14 @@
                               <span class="custom-selectInner" style="width: 100px; display: inline-block;">Email</span>
                             </span>                                
                           </label>
-                          <input type="hidden" name="auction" value="iaai">
-                          <input type="hidden" name="lot" value="21613741">
+                          <input type="hidden" name="user_id" value="<?php echo $user['id'] ?>">
+                          <input type="hidden" name="inventory_id" value="<?php echo $l['id'] ?>">
                           <div class="caption">
                             <span>Email:</span> 
-                            <strong>brien.dabson@gmail.com</strong>
+                            <strong><?php echo $user['email'] ?></strong>
                           </div>
-                          <a class="button yBtn_24" href="#" id="shc-submit" style="margin-top: 5px;">Save Settings</a>
+                          <!-- <a class="button yBtn_24" href="#" id="shc-submit" style="margin-top: 5px;">Save Settings</a> -->
+                          <button type="submit" class="button yBtn_24" href="#" id="shc-submit">Save Settings</button>
                           <img class="spinner" src="/img/ajax-loader.gif" style="display:none" alt="Please Wait">
                         </form>                    
                       </div>
@@ -269,3 +275,90 @@
         </div>
       </div>
     </section>
+
+
+<?php if(isset($search) && $search && $this->session->userdata('user_id')){ ?>
+
+<div class="global-overlay" style="display: none;">
+    <div id="global-modal" class="savesearch-modal" style="display: block;">
+        <div>
+            <div class="title">Save your Search <span class="close-modal"></span>
+            </div>
+            <div class="content">
+
+                <table class="table-savesearch">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="filter">
+
+                                    Filters:
+                                    <div class="filterbox"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div style="color:#c00;padding-bottom:10px;display:none" id="error_text">
+                                    Please fill the name of your search </div>
+
+                                <form class="form-vertical" id="saved-search-update-from" action="<?php echo base_url('listing/save_search') ?>" method="post">
+                                  <?php 
+                                    foreach ($search as $key => $value) {
+                                      echo '<input type="hidden" name="'.$key.'" value="'.$value.'">';
+                                    }
+                                  ?>
+                                  <input type="hidden" name="user_id" value="<?php echo $this->session->userdata('user_id') ?>">
+                                    <label for="SaveSearch_name" class="required">Search Name<span class="required">*</span></label>
+                                    <input name="title" id="SaveSearch_name" type="text" maxlength="255" placeholder="My Search">
+
+
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label for="SaveSearch_notify">Notify</label>
+                                                    <label class="radio">
+                                                      <input id="SaveSearch_notify_0" value="0" type="radio" checked="checked" name="type">
+                                                      <label for="SaveSearch_notify_0">None</label>
+                                                          </label>
+                                                          <label class="radio">
+                                                      <input id="SaveSearch_notify_1" value="1" type="radio" name="type">
+                                                      <label for="SaveSearch_notify_1">Email</label>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <label for="SaveSearch_notify_days" class="required">Notify Days <span class="required">*</span></label>
+                                                    <label class="select-label">
+                                                      <select name="days" id="SaveSearch_notify_days" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                                          <option value="30">30 Days</option>
+                                                          <option value="14">14 Days</option>
+                                                          <option value="7">7 Days</option>
+                                                          <option value="3">3 Days</option>
+                                                          <option value="1">Once</option>
+                                                          <option value="0">Never</option>
+                                                      </select>
+                                                      <span class="custom-select" style="display: inline-block;">
+                                                        <span class="custom-selectInner" style="width: 100px; display: inline-block;">30 Days</span>
+                                                      </span>
+                                                  </label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div style="text-align: center;margin-top: 10px"><button class="yBtn_24">Save</button></div>
+
+                                </form>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php } ?>

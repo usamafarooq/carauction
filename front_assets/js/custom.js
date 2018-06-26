@@ -732,6 +732,239 @@
         $(this).parent().find('.custom-selectInner').text(text)
     })
 
+    $('.save-search, #global-modal .close-modal').on('click', function() {
+        $('.global-overlay').toggle()
+    })
+
+    var frm = $('#saved-search-update-from');
+
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                $('.save-search').click()
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+
+    $('#watchlist_notification,.watchlist_notification').submit(function (e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function (data) {
+                $('#watchlist_notification').parent().parent().find('.close-modal').click()
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+
+    $('.search-save-link').on('click', function() {
+        var json = $(this).attr('data-json')
+        json = JSON.parse(json)
+        $('.global-overlay input[name="id"]').val(json.id)
+        $('.global-overlay input[name="title"]').val(json.title)
+        $('.global-overlay input[name="type"]').removeAttr('checked')
+        $('.global-overlay input[name="type"]').each(function() {
+            if ($(this).val() == json.type) {
+                $(this).click()
+            }
+        })
+        $('[name="days"]').val(json.days).change();
+        var filters = '';
+        if (json.vehicle_type != null){
+            filters += json.vehicle_type
+        }
+        if (json.vehicle_type != null && json.make) {
+            filters += ','
+        }
+        if (json.make != null){
+            filters += json.make
+        }
+        if (json.make != null && json.model) {
+            filters += ','
+        }
+        if (json.model != null){
+            filters += json.model
+        }
+        $('.filterbox strong').remove()
+        $('.filterbox').append('<strong>'+filters+'</strong>')
+        $('.global-overlay').toggle()
+    })
+
+    $('.searchbox-input').keyup(function(e) {
+        if (e.which == 13) {
+            $('.searchbox').submit();
+            return false;    //<---- Add this line
+        }
+    })
+
+    $('.increase-input span.add').click(function() {
+        var bid = parseInt($('#bid-now-value').val())
+        bid = bid + 25
+        $('#bid-now-value').val(bid)
+        
+    })
+    $('.increase-input span.subtract').click(function() {
+        var bid = parseInt($('#bid-now-value').val())
+        if (bid > 25) {
+            bid = bid - 25
+            $('#bid-now-value').val(bid)
+        }
+        
+    })
+
+    if ($('.fees-calc').length >= 1) {
+        
+
+        $('.lot-calc .fees-calc__subtract').click(function() {
+            var bid = parseInt($('#fees-calc__input').val())
+            if (bid > 25) {
+                bid = bid - 25
+                $('#fees-calc__input').val(bid)
+                var fee = get_bid(bid);
+                $('#fees-calc-data__auction-fee').html(fee)
+                total_amount(bid)
+            }
+        })
+        $('.fees-calc__add').click(function() {
+            var bid = parseInt($('#fees-calc__input').val())
+            bid = bid + 25
+            $('#fees-calc__input').val(bid)
+            var fee = get_bid(bid);
+            $('#fees-calc-data__auction-fee').html(fee)
+            total_amount(bid)
+        })
+
+        function total_amount(bid) {
+            var transaction = parseInt($('#fees-calc-data__transaction_fee').html())
+            var documentation = parseInt($('#fees-calc-data__documentation_fee').html())
+            var auction = parseInt($('#fees-calc-data__auction-fee').html())
+            var salesTax = parseInt($('#fees-calc-data__sales_tax').html())
+            $("#fees-calc-data__total-price").html(bid + transaction + documentation + auction)
+        }
+
+        function get_bid(bid) {
+            var e = function() {
+                var e = bid;
+                if (e < 100) return 0;
+                if (e < 500) return 29;
+                if (e < 1e3) return 39;
+                if (e < 1500) return 49;
+                if (e < 2e3) return 59;
+                if (e < 3e3) return 69;
+                if (e < 4e3) return 79;
+                return 89
+            }() + 59,
+            t = bid;
+            switch (t) {
+                case t < 100:
+                    e += 1;
+                    break;
+                case t < 200:
+                    e += 40;
+                    break;
+                case t < 300:
+                    e += 60;
+                    break;
+                case t < 350:
+                    e += 75;
+                    break;
+                case t < 400:
+                    e += 90;
+                    break;
+                case t < 500:
+                    e += 100;
+                    break;
+                case t < 600:
+                    e += 130;
+                    break;
+                case t < 700:
+                    e += 145;
+                    break;
+                case t < 800:
+                    e += 160;
+                    break;
+                case t < 900:
+                    e += 175;
+                    break;
+                case t < 1e3:
+                    e += 190;
+                    break;
+                case t < 1100:
+                    e += 205;
+                    break;
+                case t < 1200:
+                    e += 220;
+                    break;
+                case t < 1300:
+                    e += 230;
+                    break;
+                case t < 1400:
+                    e += 240;
+                    break;
+                case t < 1500:
+                    e += 255;
+                    break;
+                case t < 1600:
+                    e += 270;
+                    break;
+                case t < 1800:
+                    e += 290;
+                    break;
+                case t < 2e3:
+                    e += 310;
+                    break;
+                case t < 2200:
+                    e += 335;
+                    break;
+                case t < 2400:
+                    e += 350;
+                    break;
+                case t < 2600:
+                    e += 365;
+                    break;
+                case t < 2800:
+                    e += 385;
+                    break;
+                case t < 3e3:
+                    e += 400;
+                    break;
+                case t < 3500:
+                    e += 415;
+                    break;
+                case t < 4e3:
+                    e += 430;
+                    break;
+                case t < 5e3:
+                    e += 450;
+                    break;
+                default:
+                    e += 450 + Math.ceil(.01 * t)
+            }
+            return e
+        }
+    }
+
 
 
 })(window.jQuery);

@@ -1,15 +1,25 @@
 <div class="container">
+    <?php 
+        $set = 0;
+        foreach ($user as $key => $value) {
+            if (empty($value)) {
+                $set = 1;
+            }
+        }
+    ?>
+    <?php if($set == 1){ ?>
     <div class="row">
         <div class="col-md-12">
             <div class="top-notify top-notify-activate">
                 <div class="top-notify__item__desc">
                     <span class="top-notify__attention-icon"></span>
-                    <strong>Dear saim, in order to BID please activate your membership!</strong>
+                    <strong>Dear <?php echo $user['first_name'] ?>, in order to BID please activate your membership!</strong>
                     <a class="button yBtn_24 yBtn_h32" href="<?php echo base_url('account_activation') ?>">Activate</a>
                 </div>
             </div>
         </div>
     </div>
+    <?php } ?>
     <div id="content">
         <h2 class="account-header hidden-xs hidden-sm">My Account</h2>
         <div class="account-table row">
@@ -20,17 +30,17 @@
                     <div class="watchlist-notification-header">
                         <div class="wnh-not-link">
                             <span>Default Notification Mode: </span>
-                            <a class="notification-link-simple n-off" href="/en/account/watchlist_notifications">
-                                <span class="notify-icon"></span>Off         
+                            <a class="notification-link-simple n-<?=($user['status'] != '2') ?'on':'off'?>" href="<?php echo base_url('my_account/add_notification') ?>">
+                                <span class="notify-icon"></span><?=($user['status'] != '2') ?'On':'Off'?>         
                             </a>
                         </div>
                         <div>
                             <span>Email: </span>
-                            <strong>skpathan250@gmail.com</strong>
+                            <strong><?php echo $user['email'] ?></strong>
                         </div>
                         <div>
                             <span>Phone: </span>
-                            <a href="/en/account/watchlist_notifications">+ add your phone number</a>
+                            <a href="<?php echo base_url('my_account/add_notification') ?>"><?=($user['notify_phone'] != '' && $user['notify_phone'] != null) ? $user['notify_phone']:'+ add your phone number'?> </a>
                         </div>
                     </div>
                     <div class="searchResult watchlist">
@@ -132,10 +142,13 @@
                                               //   $text = '-Unwatch';
                                               // }
                                             ?>
-                                            <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
-                                            <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult  open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
+                                            <button <?php if($l['watch'] > 0) echo 'style="display: none"' ?> class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-watch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/watch/').'"' ?> >+Watch</button>
+                                            <button <?php if($l['watch'] == 0) echo 'style="display: none"' ?>  class="btn btn-deafult watchlist open-model <?php if ($this->session->userdata('user_id')) echo 'add-unwatch' ?>" data-model="watch-model" <?php if ($this->session->userdata('user_id')) echo 'data-id="'.$l['id'].'"' ?> <?php if ($this->session->userdata('user_id')) echo 'data-url="'.base_url('listing/unwatch/').'"' ?> >-Unwatch</button>
                                             <?php if ($this->session->userdata('user_id')) { ?>
-                                            <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button>
+                                            <a class="notification-link-simple open-model pull-right n-<?=($l['watch_status'] != '2') ?'on':'off'?>" href="javascrip:;" data-model="noti<?php echo $l['id'] ?>-model">
+                                              <span class="notify-icon"></span><?=($l['watch_status'] != '2') ?'On':'Off'?>         
+                                            </a>
+                                            <!-- <button class="btn btn-deafult  open-model pull-right" data-model="noti<?php echo $l['id'] ?>-model">Notification</button> -->
                                             <?php } ?>
                                             <?php if (!$this->session->userdata('user_id')) { ?>
                                             <div class="glue-modal watch-model" id="fpc-bid-info-modal">

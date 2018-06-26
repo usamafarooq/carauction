@@ -50,6 +50,7 @@ class Listing extends Front_Controller {
 				$this->data['sorting'] = $this->input->get();
 			}
 		}
+		$this->data['search'] = array('vehicle_type'=>$id);
 		//echo $result;die;
 		$this->data['result'] = $result;
 		$this->data['current_page'] = $page;
@@ -142,8 +143,11 @@ class Listing extends Front_Controller {
 				$this->data['sorting'] = $this->input->get();
 			}
 		}
+		$search = array();
 		if (isset($data['make']) && !empty($data['make'])) {
 			$query['makes.Name'] = $data['make'];
+			$search['make'] = $this->listing_model->get_row_single('makes',array('Name'=>$data['make'])); 
+			$search['make'] = $search['make']['id'];
 		}
 		if (isset($data['location']) && !empty($data['location'])) {
 			$query['locations.Location'] = $data['location'];
@@ -153,6 +157,8 @@ class Listing extends Front_Controller {
 		}
 		if (isset($data['type']) && !empty($data['type'])) {
 			$query['vehicle_type.Name'] = $data['type'];
+			$search['vehicle_type'] = $this->listing_model->get_row_single('vehicle_type',array('Name'=>$data['type'])); 
+			$search['vehicle_type'] = $search['vehicle_type']['id'];
 		}
 		if (isset($data['start_year']) && !empty($data['start_year'])) {
 			$query['inventory.Year >='] = $data['start_year'];
@@ -168,12 +174,66 @@ class Listing extends Front_Controller {
 		}
 		if (isset($data['model']) && !empty($data['model'])) {
 			$query['models.Name'] = $data['model'];
+			$search['model'] = $this->listing_model->get_row_single('models',array('Name'=>$data['model'])); 
+			$search['model'] = $search['model']['id'];
 		}
 
+		
 		$this->data['result'] = $result;
 		$this->data['current_page'] = $page;
 		$this->data['total_rows'] = $this->listing_model->get_inventory_count('search',$query);
 		$this->data['listing'] = $this->listing_model->get_inventory($order,$result,$page,'search',$query);
+		if ($search) {
+			$this->data['search'] = $search;
+		}
+		//print_r($this->db->last_query());die;
+		//print_r($this->db->last_query());die;
+		$this->load->front_template('inventory/listing',$this->data);
+	}
+
+	public function saved_search($id)
+	{
+		$page = 1;
+		if ($this->input->get()) {
+			if ($this->input->get('page')) {
+				$page = $this->input->get('page');
+			}
+		}
+		$query = array();
+		$this->data['current_page'] = $page;
+		$result = 10;
+		$order = array();
+		if ($this->input->get('pagination')) {
+			$result = $this->input->get('pagination');
+			if ($this->input->get('sort')) {
+				$order = array('sort' => $this->input->get('sort'), 'type' => $this->input->get('type'));
+				$this->data['sorting'] = $this->input->get();
+			}
+		}
+		$search = array();
+		$saved_search = $this->listing_model->get_save_search($id);
+		if (!empty($saved_search['make'])) {
+			$query['makes.Name'] = $saved_search['make'];
+			$search['make'] = $this->listing_model->get_row_single('makes',array('Name'=>$saved_search['make'])); 
+			$search['make'] = $search['make']['id'];
+		}
+		if (!empty($saved_search['vehicle_type'])) {
+			$query['vehicle_type.Name'] = $saved_search['vehicle_type'];
+			$search['vehicle_type'] = $this->listing_model->get_row_single('vehicle_type',array('Name'=>$saved_search['vehicle_type'])); 
+			$search['vehicle_type'] = $search['vehicle_type']['id'];
+		}
+		if (!empty($saved_search['model'])) {
+			$query['models.Name'] = $saved_search['model'];
+			$search['model'] = $this->listing_model->get_row_single('models',array('Name'=>$saved_search['model'])); 
+			$search['model'] = $search['model']['id'];
+		}
+		$this->data['result'] = $result;
+		$this->data['current_page'] = $page;
+		$this->data['total_rows'] = $this->listing_model->get_inventory_count('search',$query);
+		$this->data['listing'] = $this->listing_model->get_inventory($order,$result,$page,'search',$query);
+		if ($search) {
+			$this->data['search'] = $search;
+		}
 		//print_r($this->db->last_query());die;
 		//print_r($this->db->last_query());die;
 		$this->load->front_template('inventory/listing',$this->data);
@@ -211,6 +271,44 @@ class Listing extends Front_Controller {
 		}
 		else{
 			echo 'not';
+		}
+	}
+
+	public function save_search()
+	{
+		if ($this->input->post()) {
+			$data = $this->input->post();
+			$id = $this->listing_model->insert('save_search',$data);
+			echo $id;
+		}
+	}
+
+	public function update_save_search()
+	{
+		if ($this->input->post()) {
+			$data = $this->input->post();
+			$id = $data['id'];
+			unset($data['id']);
+			$this->listing_model->update('save_search',$data,array('id'=>$id));
+			redirect('my_account/saved_search');
+		}
+	}
+
+	public function delete_save_search($id)
+	{
+		$this->listing_model->delete('save_search',array('id'=>$id));
+		redirect('my_account/saved_search');
+	}
+
+	public function watchlist_notification()
+	{
+		$data = $this->input->post();
+		$watchlist = $this->listing_model->get_row_single('watchlist',array('user_id'=>$data['user_id'],'inventory_id'=>$data['inventory_id']));
+		if ($watchlist) {
+			$this->listing_model->update('watchlist',$data,array('id'=>$watchlist['id']));
+		}
+		else{
+			$this->listing_model->insert('watchlist',$data);
 		}
 	}
 

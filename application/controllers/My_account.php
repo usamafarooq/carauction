@@ -32,8 +32,20 @@ class My_account extends Front_Controller {
 		$this->data['watchlist'] = $this->account_model->get_watchlist($this->session->userdata('user_id'),$order);
 		$this->load->front_template('my_account/watchlist',$this->data);
 	}
+	public function add_notification()
+	{
+		if ($this->input->post()) {
+			$data = $this->input->post();
+			$id = $this->session->userdata('user_id');
+			$this->account_model->update('users',$data,array('id'=>$id));
+            redirect('my_account/watchlist');
+		}
+		$this->load->front_template('my_account/add_notification',$this->data);
+	}
 	public function saved_search()
 	{
+		$this->data['save_search'] = $this->account_model->get_save_search($this->session->userdata('user_id'));
+		//echo '<pre>';print_r($this->data['save_search']);echo '</pre>';die;
 		$this->load->front_template('my_account/saved_search',$this->data);
 	}
 	public function opentickets()

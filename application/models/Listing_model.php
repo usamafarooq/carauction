@@ -2,6 +2,19 @@
 
 class Listing_model extends MY_Model
 {
+
+	public function get_save_search($id)
+	{
+		$this->db->select('v.Name as vehicle_type, m.Name as make, mo.Name as model')
+				 ->from('save_search s')
+				 ->join('vehicle_type v', 'v.id = s.vehicle_type', 'left')
+				 ->join('makes m', 'm.id = s.make', 'left')
+				 ->join('models mo', 'mo.id = s.model', 'left')
+				 ->where('s.id', $id)
+				 ->group_by('s.id');
+		return $this->db->get()->row_array();
+	}
+
 	public function get_inventory($order,$result,$page,$type = null,$id = null)
 	{
 
@@ -45,6 +58,7 @@ class Listing_model extends MY_Model
 				foreach ($id as $key => $value) {
 					if ($key == 'title') {
 						$this->db->like('inventory.Name', $value);
+						$this->db->or_like('inventory.Stock_ID', $value);
 					}
 					else{
 						$this->db->where($key, $value);
@@ -96,6 +110,7 @@ class Listing_model extends MY_Model
 				foreach ($id as $key => $value) {
 					if ($key == 'title') {
 						$this->db->like('inventory.Name', $value);
+						$this->db->or_like('inventory.Stock_ID', $value);
 					}
 					else{
 						$this->db->where($key, $value);
@@ -122,7 +137,11 @@ class Listing_model extends MY_Model
 				 ->from('inventory_bids')
 				 ->group_by('stock_number');
 		$bid = $this->db->get_compiled_select();
-		$this->db->select('inventory.*,makes.Name as make,models.Name as model,group_concat(inventory_images.images separator ",") as images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location as Sale_Location,inventory_bids.bid as amount,locations.id as location_id')
+		$watch = '';
+		if ($this->session->userdata('user_id')) {
+			$watch = ', watchlist.type as watch_type, watchlist.status as watch_status, count(watchlist.id) as watch';
+		}
+		$this->db->select('inventory.*,makes.Name as make,models.Name as model,group_concat(inventory_images.images separator ",") as images,vehicle_type.Name as type,auctions.Date as Sale_Date,locations.Location as Sale_Location,inventory_bids.bid as amount,locations.id as location_id'.$watch)
 				 ->from('inventory')
 				 ->join('makes', 'makes.id = inventory.Make', 'left')
 				 ->join('('.$bid.') inventory_bids', 'inventory_bids.stock_number = inventory.Stock_ID', 'left')
@@ -133,6 +152,9 @@ class Listing_model extends MY_Model
 				 ->join('('.$images.') inventory_images', 'inventory.id = inventory_images.inventory_id', 'left')
 				 ->group_by('inventory.id')
 				 ->where('inventory.id', $id);
+		if ($this->session->userdata('user_id')) {
+			$this->db->join('watchlist', 'inventory.id = watchlist.inventory_id and watchlist.user_id = '.$this->session->userdata('user_id'), 'left');
+		}
 		return $this->db->get()->row_array();
 	}
 
