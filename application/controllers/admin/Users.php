@@ -98,6 +98,18 @@ class Users extends MY_Controller {
         }
     }
 
+    public function view($id)
+    {
+        if ( $this->permission['view'] == '0' && $this->permission['view_all'] == '0' ) 
+        {
+            redirect('admin/home');
+        }
+        $this->data['title'] = 'View User Detail';
+        $this->data['user'] = $this->User_model->get_user_detail($id);
+        //echo '<pre>';print_r($this->data['user']);die;
+        $this->load->template('admin/user/view',$this->data);
+    }
+
     public function delete($id)
     {
         if ( $this->permission['deleted'] == '0') 

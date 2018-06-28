@@ -63,6 +63,7 @@
 														if ($permission['edit'] == '1' || $permission['deleted'] == '1'){
 													?>
 													<td>
+														<a href="<?php echo base_url() ?>admin/users/view/<?php echo $user["id"] ?>"><button class="btn btn-info btn-circle material-ripple"><i class="material-icons">view_headline</i></button></a>
 														<?php 
 															if ($permission['edit'] == '1') {
 														?>
