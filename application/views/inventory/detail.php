@@ -89,9 +89,9 @@
                     ?>
                     <div class="item <?php echo ($active == 0 ) ? 'active' : NULL ?> ">
                       <img src="<?php echo base_url('front_assets/images/ajax-loader-gif.gif') ?>" class="ajax-img" data-src="<?php echo $image ?>" alt="">
-                       <div class="carousel-caption">
+                       <!-- <div class="carousel-caption">
                         <h3>Best Features</h3>
-                      </div>
+                      </div> -->
                     </div>
                     <?php 
                         if ($active == 0) {
@@ -341,7 +341,7 @@
   var longitude;
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({
-    'address': '<?php echo $detailocation['Zip_Code'] ?>'
+    'address': '<?php echo $location['Zip_Code'] ?>'
   }, function (results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       latitude = results[0].geometry.location.lat();
@@ -362,7 +362,7 @@
           // },
           map: map
       });
-      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $detailocation['Location'] ?></a></div><div class="address"> <?php echo $detailocation['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $detailocation['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $detailocation['Office_Hours'] ?></div><div><br>For more information <a href="<?php echo base_url('listing/location/'.$detailocation['id']) ?>">click here</a></div></div>';
+      var contentString = '<div class="map-info-window"><div class="info-window-title"><a href="#"><?php echo $location['Location'] ?></a></div><div class="address"> <?php echo $location['Address'] ?></div><div class="phone"><span class="block-title">Phone:</span> <?php echo $location['Phone'] ?></div><div class="hours"><span class="block-title">Office Hours:</span> <?php echo $location['Office_Hours'] ?></div><div><br>For more information <a href="<?php echo base_url('listing/location/'.$location['id']) ?>">click here</a></div></div>';
       var infowindow = new google.maps.InfoWindow({
           content: contentString
       });

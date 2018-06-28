@@ -144,6 +144,17 @@
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/lib/moment.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script type="text/javascript" src="https://www.mylivechat.com/chatinline.aspx?hccid=68268000"></script>
+
     
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
 

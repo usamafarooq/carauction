@@ -5502,3 +5502,29 @@ button.watchlist {
     margin-right:  10px;
     background:  none;
 }
+
+
+
+
+.topbar-info div#google_translate_element, .topbar-info div#google_translate_element div {
+    height:  36px !important;
+    background: none !important;
+    color:  #fff !important;
+    border-color:  #fff !important;
+}
+
+.goog-te-gadget img {
+    height: 20px !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value {
+    color:  #fff !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value img, .goog-te-gadget-simple .goog-te-menu-value span {
+    display:  none !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span:first-child {
+    display: inherit !important;
+}

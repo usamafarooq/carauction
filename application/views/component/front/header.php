@@ -125,21 +125,19 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                       <ul class="topbar-info">
                           <li>
-                            <select class="language-tab">
+                            <div id="google_translate_element"></div>
+                            <!-- <select class="language-tab">
                               <?php 
                                 foreach ($language as $l) {
                                   echo '<option value="'.$l['Short_Name'].'">'.$l['Name'].'</option>';
                                 }
                               ?>
-                                  <!-- <option value="eng">English</option>
-                                  <option value="saab">Franch</option>
-                                  <option value="opel">Japanies</option>
-                                  <option value="audi">Arabic</option> -->
-                            </select>
+                            </select> -->
                           </li>
                           <li><p><i class="fa fa-phone" aria-hidden="true"></i> +99 123 123 123</p></li>
                           <li><p><i class="fa fa-envelope"></i>   <a href="#">info@yourmail.com</a></p></li>
                       </ul>
+                      <div id="google_translate_element"></div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="topbar-right-content clearfix">

@@ -80,6 +80,10 @@
                 inputBox.focus();
                 isOpen = true;
             } else {
+                if ($('.searchbox-input').val() != null && $('.searchbox-input').val() != '') {
+                    searchBox.submit()
+                }
+                
                 searchBox.removeClass('searchbox-open');
                 inputBox.focusout();
                 isOpen = false;
@@ -491,14 +495,15 @@
     $('.add-watch').on('click', function() {
         var id = $(this).attr('data-id')
         var url = $(this).attr('data-url')
+        var pa = $(this).parent()
         $.ajax({
             url: url,
             type: "post",
             data: {id: id} ,
             success: function (response) {
                if (response == 'done') {
-                $('.add-watch').hide()
-                $('.add-unwatch').show()
+                pa.find('.add-watch').hide()
+                pa.find('.add-unwatch').show()
                 //$('.add-watch').text('-Unwatch')
                 //$('.add-watch').addClass('add-unwatch')
                 //$('.add-watch').removeClass('add-watch')
@@ -516,13 +521,14 @@
     $('.add-unwatch').on('click', function() {
         var id = $(this).attr('data-id')
         var url = $(this).attr('data-url')
+        var pa = $(this).parent()
         $.ajax({
             url: url,
             type: "post",
             data: {id: id} ,
             success: function (response) {
-                $('.add-unwatch').hide()
-                $('.add-watch').show()        
+                pa.find('.add-unwatch').hide()
+                pa.find('.add-watch').show()        
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -816,6 +822,9 @@
             $('.searchbox').submit();
             return false;    //<---- Add this line
         }
+    })
+    $('.searchbox-open input.searchbox-submit, .searchbox-open .searchbox-icon').click(function() {
+        $('.searchbox').submit();
     })
 
     $('.increase-input span.add').click(function() {
