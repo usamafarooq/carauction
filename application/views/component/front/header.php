@@ -94,6 +94,8 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.css') ?>">
 
+    <link rel="stylesheet" href="<?php echo base_url('front_assets/css/jquery-ui.min.css') ?>">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/style.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/models.css') ?>">
@@ -134,8 +136,8 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                               ?>
                             </select> -->
                           </li>
-                          <li><p><i class="fa fa-phone" aria-hidden="true"></i> +99 123 123 123</p></li>
-                          <li><p><i class="fa fa-envelope"></i>   <a href="#">info@yourmail.com</a></p></li>
+                          <li><p><i class="fa fa-phone" aria-hidden="true"></i> 6157077286</p></li>
+                          <li><p><i class="fa fa-envelope"></i>   <a href="#">info@auctionglauto.com</a></p></li>
                       </ul>
                       <div id="google_translate_element"></div>
                   </div>
@@ -235,10 +237,10 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                                             <li><a href="<?php echo base_url('pages/page/how-it-work') ?>">How It Work</a></li>
                                             <li><a href="<?php echo base_url('pages/page/faqs') ?>">FAQs</a></li>
                                             <li><a href="<?php echo base_url('pages/page/contact-us') ?>">Contact Us</a></li>
-                                            <li><a href="<?php echo base_url('pages/page/call-back') ?>">E-Contact Form</a></li>
-                                            <li><a href="#">Have Us To Call You</a></li>
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">Member Reviews</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/e-contact') ?>">E-Contact Form</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/call-back') ?>">Have Us To Call You</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/about-us') ?>">About Us</a></li>
+                                            <li><a href="<?php echo base_url('reviews') ?>">Member Reviews</a></li>
                                             <?php if (!$this->session->userdata('user_id')) { ?>
                                             <li><a href="<?php echo base_url('register') ?>">Registration</a></li>
                                             <?php } ?>

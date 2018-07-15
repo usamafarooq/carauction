@@ -45,7 +45,7 @@ class Listing_model extends MY_Model
 				 ->group_by('inventory.id')
 				 ->where('auctions.Live !=', 'Yes')
 				 ->where('auctions.Date >=', date('Y-m-d'))
-				 ->order_by('inventory.id', 'DESC')
+				 //->order_by('inventory.id', 'DESC')
 				 ->limit($result, $offset);
 		if ($this->session->userdata('user_id')) {
 			$this->db->join('watchlist', 'inventory.id = watchlist.inventory_id and watchlist.user_id = '.$this->session->userdata('user_id'), 'left');

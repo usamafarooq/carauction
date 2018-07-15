@@ -47,4 +47,12 @@ class Main_model extends MY_Model
 				 ->where('u.id',$id);
 		return $this->db->get()->row_array();		 
 	}
+
+	public function get_filter($table,$group)
+	{
+		$this->db->select($group)
+				 ->from($table)
+				 ->group_by($group);
+		return $this->db->get()->result_array();	
+	}
 }

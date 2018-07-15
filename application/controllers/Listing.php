@@ -7,6 +7,7 @@ class Listing extends Front_Controller {
     {
         parent::__construct();
         $this->load->model('listing_model');
+        $this->get_search_filters();
     }
 
 	public function index()
@@ -127,7 +128,7 @@ class Listing extends Front_Controller {
 		$this->data['current_page'] = $page;
 		$query = array();
 		if ($this->input->post() && !$this->input->post('pagination')) {
-			//print_r($this->input->post());die;
+			//echo '<pre>';print_r($this->input->post());echo '</pre>';die;
 			$data = $this->input->post();
 			$this->session->set_userdata('search', $data);
 		}
@@ -177,6 +178,51 @@ class Listing extends Front_Controller {
 			$search['model'] = $this->listing_model->get_row_single('models',array('Name'=>$data['model'])); 
 			$search['model'] = $search['model']['id'];
 		}
+		if (isset($data['sale_date']) && !empty($data['sale_date'])) {
+			$query['auctions.Date >='] = date('Y-m-d', strtotime($data['sale_date']));
+		}
+		if (isset($data['sale_date_to']) && !empty($data['sale_date_to'])) {
+			$query['auctions.Date <='] = date('y-m-d', strtotime($data['sale_date_to']));
+		}
+		if (isset($data['posType']) && !empty($data['posType'])) {
+			if (isset($data['location']) && !empty($data['location']) && $data['posType'] == 1) {
+				$query['locations.Location <='] = $data['location'];
+			}
+			if (isset($data['state']) && !empty($data['state']) && $data['posType'] == 2) {
+				$query['locations.State <='] = $data['state'];
+			}
+		}
+		if (isset($data['saleDocument']) && !empty($data['saleDocument'])) {
+			$query['inventory.Sale_Document'] = $data['saleDocument'];
+		}
+		if (isset($data['primary']) && !empty($data['primary'])) {
+			$query['inventory.Damage_Type'] = $data['primary'];
+		}
+		if (isset($data['odometerStatus']) && !empty($data['odometerStatus'])) {
+			$query['inventory.Odometer'] = $data['odometerStatus'];
+		}
+		if (isset($data['color']) && !empty($data['color'])) {
+			$query['inventory.Exterior_Color'] = $data['color'];
+		}
+		if (isset($data['fuel']) && !empty($data['fuel'])) {
+			$query['inventory.Fuel_Type'] = $data['fuel'];
+		}
+		if (isset($data['engineType']) && !empty($data['engineType'])) {
+			$query['inventory.Engine'] = $data['engineType'];
+		}
+		if (isset($data['cylinders']) && !empty($data['cylinders'])) {
+			$query['inventory.Cylinder'] = $data['cylinders'];
+		}
+		if (isset($data['transmission']) && !empty($data['transmission'])) {
+			$query['inventory.Transmission'] = $data['transmission'];
+		}
+		if (isset($data['driveType']) && !empty($data['driveType'])) {
+			$query['inventory.Driver_Type_'] = $data['driveType'];
+		}
+		if (isset($data['bodyStyle']) && !empty($data['bodyStyle'])) {
+			$query['inventory.Body_Style'] = $data['bodyStyle'];
+		}
+
 
 		
 		$this->data['result'] = $result;

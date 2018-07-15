@@ -1531,7 +1531,7 @@ textarea {
 }
 .post-item .post-img img{
     width: 100%;
-    height: auto;
+    height: 270px;
     transform: scale(1);
     transition: all 0.5s ease-in-out ;
 }
@@ -5527,4 +5527,284 @@ button.watchlist {
 
 .goog-te-gadget-simple .goog-te-menu-value span:first-child {
     display: inherit !important;
+}
+div#google_translate_element img {
+    display:  none;
+}
+.search-action select option {
+    color:  #000;
+}
+
+
+/* search box */
+.searchBox .block_box {
+    padding: 20px 15px;
+}
+#search-form > label, #search-form  label {
+    margin-bottom: 11px;
+    width:  auto;
+    display:  block;
+}
+.advanced-search-link-wr {
+    text-align: center;
+    line-height: 22px;
+}
+#search-form input.yBtn_24 {
+    width: 100%;
+    margin-top: 10px;
+}
+.searchBox.filter-bottom {
+    background-color: #e3e3e3;
+}
+.searchBox.filter .block_box, .searchBox.filter-bottom .block_box {
+    padding: 0px;
+    width: 100%;
+}
+.filterTop {
+    padding: 10px 15px;
+    overflow: hidden;
+}
+.filterTop .line {
+    width: 100%;
+    color: #d6d6d6;
+}
+.filterTop .line td.en {
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+}
+.filterTop .line a {
+    display: block;
+    width: 100%;
+    padding: 5px 5px;
+    color: #666666;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 3px;
+    border: none;
+}
+input.input-date {
+    width: 100%;
+    padding: 0 10px;
+    background: url(https://sca.auction/img/calendar-icon.png) no-repeat right 6px center #FFF;
+    text-align: left;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    height: 40px;
+}
+.search-label {
+    margin-top: 9px;
+}
+#advanced-search-block .pos-types--first {
+    margin-bottom: 10px;
+}
+#advanced-search-block input[type=radio]:checked + label {
+    background: url(https://sca.auction/img/radio-button--active.png) no-repeat 0 center;
+}
+#advanced-search-block input[type=radio] {
+    display: none;
+    margin: 1px 0 0;
+    line-height: normal;
+}
+.searchBox .pos-types label, .searchBox .sales-types label, .searchBox .auction-types label {
+    /* display: inline-block; */
+    padding: 3px 25px 1px;
+    margin: 0;
+}
+#advanced-search-block input[type=radio] + label {
+    background: url(https://sca.auction/img/radio-button.png) no-repeat 0 center;
+}
+.input-miles:first-child {
+    float: left;
+}
+#advanced-search-block input[type=text], #advanced-search-block input[type=password] {
+    color: #666666;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    height: 40px;
+    line-height: 38px;
+    padding: 2px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.input-miles {
+    width: 47.5%;
+    display: block;
+    float: right;
+}
+
+
+/* about us */
+.aboutUs__block {
+    padding-top: 20px;
+}
+.howBox {
+    width: 100%;
+    margin: 0 0px 25px;
+    padding: 0;
+}
+.aboutUs__block .howBox .top {
+    cursor: auto;
+}
+.howBox .top {
+    font-size: 14px;
+    text-align: center;
+}
+.aboutUs__block .howBox .top .num {
+    width: auto;
+    height: auto;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.aboutUs__block .howBox .top .num img {
+    width: auto;
+    height: auto;
+}
+.howBox .top .title {
+    margin: 10px 0 7px 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333333;
+    text-transform: uppercase;
+}
+.howBox .bottom_text {
+    text-align: center;
+}
+.howBox .bottom_text .inner {
+    color: #666666;
+    padding-top: 8px;
+    font-size: 13px;
+    line-height: 1.42857143;
+}
+/* reviews */
+.reviews-total-table {
+    margin: 0 auto 25px auto;
+    line-height: 0.8;
+}
+.reviews-total-table .total-value {
+    font-size: 40px;
+    margin-right: 10px;
+    float:  right;
+}
+.reviews-total-table img {
+    width:  auto;
+    height: auto;
+}
+.reviews-total-table td {
+    padding: 0;
+    text-align: left;
+}
+
+table.reviews-total-table tr {
+    background:  none;
+}
+.reviews-list-container {
+    background-color: #fff;
+    border: 1px solid #ececec;
+}
+.reviews-list-toolbar {
+    padding-top: 10px;
+    border-bottom: 1px solid #ececec;
+}
+.text-center {
+    text-align: center;
+}
+.select-sorter {
+    display: inline-block;
+}
+.select-sorter .select-label:first-child {
+    margin-right: 10px;
+}
+.select-sorter .select-label {
+    display: inline-block;
+    width: inherit;
+}
+.short-review {
+    padding: 30px 20px 30px 20px;
+    border-bottom: 1px solid #ececec;
+}
+.short-review .name {
+    font-weight: bold;
+    font-size: 14px;
+    color: #666666;
+}
+.short-review .location {
+    font-size: 14px;
+    color: #666666;
+}
+.short-review .rating {
+    letter-spacing: -2px;
+}
+.short-review .rating img {
+    width: auto;
+}
+.short-review .date {
+    font-size: 11px;
+    color: #888888;
+}
+.short-review .description {
+    color: #666666;
+    margin-top: 10px;
+}
+.reviews-list-container .pagination-wrapper {
+    text-align: center;
+    line-height: 1;
+}
+.reviews-list-container .pagination {
+    margin: 13px auto 11px auto;
+}
+.pagination ul>li {
+    display: block;
+    float: left;
+    border: 1px solid #e0e0e0;
+    margin-left: -1px;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.reviews-list-container .pagination-wrapper li.disabled {
+    display: none;
+}
+.pagination ul>li:first-child {
+    border-radius: 3px 0 0 3px;
+    margin-left: 1px;
+}
+.pagination ul>li>a, .pagination ul>li>span {
+    float: left;
+    padding: 6px 13px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #333333;
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    /* background-color: #FFF; */
+    /* border: 1px solid #DDD; */
+    /* border-left-width: 0; */
+}
+.pagination ul>li {
+    display: block;
+    float: left;
+    border: 1px solid #e0e0e0;
+    margin-left: -1px;
+}
+.pagination ul>.active>a, .pagination ul>.active>span {
+    background-color: #a20105;
+    color: #fff;
+}
+.reviews-list-container .pagination-wrapper li.next {
+    margin-left: 15px;
+}
+.pagination ul>.disabled>span, .pagination ul>.disabled>a, .pagination ul>.disabled>a:hover, .pagination ul>.disabled>a:focus {
+    color: #999;
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0);
+}
+.reviews-list-toolbar span {
+    font-size:  12px;
+    min-width: 130px;
+    text-align:  left;
 }

@@ -63,8 +63,8 @@
                 <div class="border-style-2"></div>
               </div>
               <ul class="address">
-                <li><i class="fa fa-phone" aria-hidden="true"></i> Phone: 001 (407) 901-6400</li> 
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:">Email: info@abc.com</a></li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i> Phone: 6157077286</li> 
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:">Email: info@auctionglauto.com</a></li>
               </ul>
             </div>
           </div>
@@ -218,6 +218,38 @@
               });
 
               $('#model_dropdown').html(row);
+          })
+          .fail(function() {
+              console.log("error");
+          })
+          .always(function() {
+              console.log("complete");
+          });
+          
+      }
+
+      $('#make_search').on('change', function() {
+          var make_id = $(this).val();
+          make_id = $('#make_search option[value="'+make_id+'"]').attr('data-id')
+          get_model_search(make_id);
+      });
+
+      function get_model_search(make_id) 
+      {
+          $.ajax({
+              url: '<?php echo base_url('home/get_by_make_id') ?>',
+              type: 'POST',
+              dataType: 'JSON',
+              data: {make_id: make_id},
+          })
+          .done(function(response) {
+              var res = response.data;
+              var row = '<option value="">All Model</option>';
+              $.each(res, function(index, el) {
+                  row += createRow(el);
+              });
+
+              $('#model_search').html(row);
           })
           .fail(function() {
               console.log("error");

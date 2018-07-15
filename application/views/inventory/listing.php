@@ -1,7 +1,332 @@
     <!-- Featured Car start -->
     <section class="featured-area">
       <div class="container">
-        <div class="row bg-opt-result">
+        <div class="col-md-3">
+          <div class="searchBox" id="fixed">
+
+                <div class="block_box responsive_box">
+
+                    <form method="post" action="<?php echo base_url('listing/search') ?>" id="search-form">
+                        <label class="select-label">
+                            <select name="type" id="type" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 232.5px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                <option value="0">All Vehicle Types</option>
+                                <?php 
+                                  foreach ($vehicle_type as $v) {
+                                ?>
+                                <option value="<?php echo $v['Name'] ?>"><?php echo $v['Name'] ?></option>
+                                <?php $con++; } ?>
+                              </select>
+                              <span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 205px; display: inline-block;">All Vehicle Types</span></span>
+                        </label>
+
+                        <label class="select-label">
+                            <select id="make_search" name="make" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 232.5px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                <option value="0">All Makes</option>
+                                <?php 
+                                  foreach ($make as $v) {
+                                ?>
+                                <option value="<?php echo $v['Name'] ?>" data-id="<?php echo $v['id'] ?>"><?php echo $v['Name'] ?></option>
+                                <?php } ?>
+                            </select>
+                            <span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 205px; display: inline-block;">All Makes</span></span> </label>
+
+
+                        <label class="select-label">
+                            <select name="model" id="model_search" style="margin-bottom: 0px; -webkit-appearance: menulist-button; width: 232.5px; position: absolute; opacity: 0; height: 40px; font-size: 14px;" class="hasCustomSelect">
+                                <option value="0">All Models</option>
+                            </select><span class="custom-select" style="margin-bottom: 0px; display: inline-block;"><span class="custom-selectInner" style="width: 205px; display: inline-block;">All Models</span></span>
+                        </label>
+
+                        <label>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td width="50%" style="padding:0">
+
+                                            <label class="select-label">
+                                                <select name="start_year" id="year-from" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 113px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                                    <?php 
+                                                      for($i=date('Y');$i<=date('Y');$i--)
+                                                      {
+                                                        $selected = '';
+                                                        if($i == 1900){
+
+                                                          $selected = 'selected';
+                                                        }
+                                                          echo '<option value='.$i.' '.$selected.'>'.$i.'</option>';
+                                                          if($i == 1900){break;}
+                                                      }
+                                                    ?>
+                                                  </select>
+                                                  <span class="custom-select custom-selectChanged" style="display: inline-block;"><span class="custom-selectInner" style="width: 86px; display: inline-block;">1900</span></span>
+                                            </label>
+
+                                        </td>
+                                        <td style="padding:0">&nbsp;&nbsp;</td>
+                                        <td width="50%" style="padding:0">
+
+                                            <label class="select-label">
+                                                <select name="end_year" id="year-to" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 113px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                                  <?php 
+                                                    for($i=date('Y');$i<=date('Y');$i--)
+                                                    {
+                                                      $selected = '';
+                                                      if($i == date('Y')){
+
+                                                        $selected = 'selected';
+                                                      }
+                                                        echo '<option value='.$i.' '.$selected.'>'.$i.'</option>';
+                                                        if($i == 1900){break;}
+                                                    }
+                                                  ?>
+                                                </select>
+                                                <span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 86px; display: inline-block;"><?php echo date('Y') ?></span></span>
+                                            </label>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </label>
+
+
+
+                        <div class="advanced-search-link-wr"><a href="#" class="advanced-search-link " id="advanced-search">Advanced Search</a></div>
+
+                        <div id="advanced-search-block" class="advanced-search-block responsive_box hide">
+
+
+                            <label class="search-label">
+                                <input name="sale_date" type="text" class="input-date " id="sale-date" value="" placeholder="Sale From">
+                            </label>
+
+                            <label class="search-label">
+                                <input name="sale_date_to" type="text" class="input-date " id="sale-date-to" value="" placeholder="Sale To">
+                            </label>
+
+
+
+                            <label for="posType" class="search-label">Auction Location</label>
+
+                            <div class="pos-types pos-types--first">
+                                <input id="pos-type-1" type="radio" class="pos-type" name="posType" value="1" checked="checked"> <label for="pos-type-1">Location</label>
+                                <input id="pos-type-2" type="radio" class="pos-type" name="posType" value="2"> <label for="pos-type-2">State</label>
+                            </div>
+
+
+                            <div id="pos-type-block-1" style="">
+                                <label class="select-label">
+                                    <select name="location" id="location" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                        <option value="0">Any Location</option>
+                                        <?php 
+                                          foreach ($locations as $l) {
+                                            echo '<option value="'.$l['Location'].'">'.$l['Location'].'</option>';
+                                          }
+                                        ?>
+                                      </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Location</span></span>
+                                </label>
+                            </div>
+
+                            <div id="pos-type-block-2" style="display:none">
+                                <label class="select-label">
+                                    <select name="state" id="state" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                        <option value="">Any State</option>
+                                        <?php 
+                                          foreach ($states as $s) {
+                                            echo '<option value="'.$s['State'].'">'.$s['State_Full'].'</option>';
+                                          }
+                                        ?>
+                                    </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any State</span></span>
+                                </label>
+                            </div>
+
+                            <!-- <div id="pos-type-block-3" style="display:none">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 0 10px 0 0; vertical-align: top;">
+                                                <input type="text" name="zip" maxlength="12" id="zip" style="width:100%;margin-top:0;" value="">
+                                            </td>
+                                            <td align="right" style="padding: 0">
+                                                <label class="arrow">
+                                                    <select name="zip_distance" id="zip-distance" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                                        <option value="50">50 miles</option>
+                                                        <option value="100">100 miles</option>
+                                                        <option value="200">200 miles</option>
+                                                        <option value="250">250 miles</option>
+                                                        <option value="500">500 miles</option>
+                                                        <option value="1000">1000 miles</option>
+                                                        <option value="2000">2000 miles</option> </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">50 miles</span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+
+
+
+                            <label for="auctionType" class="search-label">Auction Type</label>
+                            <div class="auction-types">
+                                <input id="auction-type-1" type="radio" class="auction-type" name="auctionType" value="" checked="checked"> <label for="auction-type-1">All</label>
+                                <input id="auction-type-2" type="radio" class="auction-type" name="auctionType" value="auction"> <label for="auction-type-2">Auction</label>
+                                <input id="auction-type-3" type="radio" class="auction-type" name="auctionType" value="buy_now"> <label for="auction-type-3">I-Buy Fast</label>
+                            </div>
+
+
+                            <label class="select-label">
+                                <select name="saleDocument" id="sale-document" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="0">Any Sale Document</option>
+                                    <?php 
+                                      foreach ($sales_document as $s) {
+                                        echo '<option value="'.$s['Sale_Document'].'">'.$s['Sale_Document'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Sale Document</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="primary" id="primary" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Primary Damage</option>
+                                    <?php 
+                                      foreach ($primary_damage as $s) {
+                                        echo '<option value="'.$s['Damage_Type'].'">'.$s['Damage_Type'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Primary Damage</span></span>
+                            </label>
+
+                            <!-- <label class="select-label">
+                                <input name="milesFrom" type="text" class="input-miles" id="miles-from" value="" placeholder="Miles From">
+                                <input name="milesTo" type="text" class="input-miles" id="miles-to" value="" placeholder="Miles To">
+                            </label> -->
+
+                            <label class="select-label">
+                                <select name="odometerStatus" id="odometer-status" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="0">Any Odometer Status</option>
+                                    <?php 
+                                      foreach ($odometer as $s) {
+                                        echo '<option value="'.$s['Odometer'].'">'.$s['Odometer'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Odometer Status</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="color" id="color" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Color</option>
+                                    <?php 
+                                      foreach ($color as $s) {
+                                        echo '<option value="'.$s['Exterior_Color'].'">'.$s['Exterior_Color'].'</option>';
+                                      }
+                                    ?>
+                                </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Color</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="fuel" id="fuel" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Fuel Type</option>
+                                    <?php 
+                                      foreach ($fuel_type as $s) {
+                                        echo '<option value="'.$s['Fuel_Type'].'">'.$s['Fuel_Type'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Fuel Type</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="engineType" id="engine-type" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Engine Type</option>
+                                    <?php 
+                                      foreach ($engine_type as $s) {
+                                        echo '<option value="'.$s['Engine'].'">'.$s['Engine'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Engine Type</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="cylinders" id="cylinders" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Cylinders</option>
+                                    <?php 
+                                      foreach ($cylinder as $s) {
+                                        echo '<option value="'.$s['Cylinder'].'">'.$s['Cylinder'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Cylinders</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="transmission" id="transmission" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Transmission</option>
+                                    <?php 
+                                      foreach ($transmission as $s) {
+                                        echo '<option value="'.$s['Transmission'].'">'.$s['Transmission'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Transmission</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="driveType" id="drive-type" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Drive Type</option>
+                                    <?php 
+                                      foreach ($drive_type as $s) {
+                                        echo '<option value="'.$s['Driver_Type_'].'">'.$s['Driver_Type_'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Drive Type</span></span>
+                            </label>
+
+
+                            <label class="select-label">
+                                <select name="bodyStyle" id="body-style" class="hasCustomSelect" style="-webkit-appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 40px; font-size: 14px;">
+                                    <option value="">Any Body Style</option>
+                                    <?php 
+                                      foreach ($body_style as $s) {
+                                        echo '<option value="'.$s['Body_Style'].'">'.$s['Body_Style'].'</option>';
+                                      }
+                                    ?>
+                                  </select><span class="custom-select" style="display: inline-block;"><span class="custom-selectInner" style="width: 100px; display: inline-block;">Any Body Style</span></span>
+                            </label>
+
+
+                        </div>
+                        <input type="submit" value="Find Vehicles" class="yBtn_24">
+
+                    </form>
+
+                </div>
+            </div>
+            <div class="searchBox filter-bottom hidden-xs hidden-sm" style="display: none;">
+                <div class="block_box responsive_box">
+                    <div class="filterTop">
+                        <div class="line">
+                            <table class="line">
+                                <tbody>
+                                    <tr>
+                                        <td class="en">
+                                            <a href="<?php echo base_url('listing/search') ?>">Clear All</a>
+                                        </td>
+                                        <td class="en">
+                                            <a href="javascript:;" id="save-search-link">Save Search</a> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row bg-opt-result">
           <div class="bg-opt">
             <div class="col-lg-6 col-md-6 col-sm-6">
               <?php 
@@ -70,7 +395,7 @@
         <?php } ?>
         <div class="row">
           <?php foreach ($listing as $l) {?>
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="featured-col">
               <div class="box">
                 <?php 
@@ -274,6 +599,7 @@
                 
               </ul>
             </nav>
+        </div>
         </div>
       </div>
     </section>

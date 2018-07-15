@@ -841,6 +841,20 @@
         }
         
     })
+    $("#advanced-search").on("click", function(t) {
+        t.preventDefault();
+        var n = $(this),
+            a = $("#advanced-search-block");
+        a.hasClass("hide") ? (a.removeClass("hide")) : (a.addClass("hide"))
+    })
+
+    $(".pos-type").on("change", function() {
+        var t = $(this),
+            n = $("#pos-type-block-" + t.val());
+        n.length && ($("#pos-type-block-1, #pos-type-block-2, #pos-type-block-3").hide(), n.show())
+    })
+
+    $(".input-date").datepicker();
 
     if ($('.fees-calc').length >= 1) {
         
