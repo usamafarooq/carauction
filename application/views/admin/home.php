@@ -7,7 +7,7 @@
                             <i class=pe-7s-tools></i>
                         </div>
                         <div class=header-title>
-                            <h1>Pharm Evo</h1>
+                            <h1>Car Hut</h1>
                             <small></small>
                             <ol class=breadcrumb>
                                 <li><a href=index.html><i class=pe-7s-home></i> Home</a></li>
@@ -16,38 +16,46 @@
                         </div>
                     </div>
                     <div class=row>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="statistic-box statistic-filled-3 border">
-                                <h2><span class="slight">View Orders</span></h2>
-                                <div class="small"></div>
-                                <i class="ti-world statistic_icon"></i>
+                        <a href="<?php echo base_url('admin/locations') ?>">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="statistic-box statistic-filled-3 border">
+                                    <h2><span class="slight">View Locations</span></h2>
+                                    <div class="small"></div>
+                                    <i class="ti-world statistic_icon"></i>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="statistic-box statistic-filled-1 border">
-                                <h2><span class="slight">View Responses</span></h2>
-                                <div class="small"></div>
-                                <i class="ti-server statistic_icon"></i>
+                        </a>
+                        <a href="<?php echo base_url('admin/subscriptions') ?>">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="statistic-box statistic-filled-1 border">
+                                    <h2><span class="slight">View Subscriptions</span></h2>
+                                    <div class="small"></div>
+                                    <i class="ti-server statistic_icon"></i>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="statistic-box statistic-filled-2 border">
-                                <h2><span class="slight">Create Response</span></h2>
-                                <div class="small"></div>
-                                <i class="ti-user statistic_icon"></i>
+                        </a>
+                        <a href="<?php echo base_url('admin/users') ?>">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="statistic-box statistic-filled-2 border">
+                                    <h2><span class="slight">View Users</span></h2>
+                                    <div class="small"></div>
+                                    <i class="ti-user statistic_icon"></i>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                            <div class="statistic-box statistic-filled-4 border">
-                               <h2><span class="slight">Delievered Responses</span></h2>
-                                <div class="small"></div>
-                                <i class="ti-bag statistic_icon"></i>
+                        </a>
+                        <a href="<?php echo base_url('admin/inventory') ?>">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="statistic-box statistic-filled-4 border">
+                                   <h2><span class="slight">View Inventory</span></h2>
+                                    <div class="small"></div>
+                                    <i class="ti-bag statistic_icon"></i>
 
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                      <div style="height: 290px;"></div>
                 </div>
