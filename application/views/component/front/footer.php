@@ -21,7 +21,7 @@
               <div class="footer-item footer-widget-one">
                 <img class="footer-logo" src="#" alt="">
                 <div>
-                  <p>Dolorum quae quis cumque officia labore at animi non nisi, dolores sapiente fugit fuga eos aliquid.</p>
+                  <!-- <p>Dolorum quae quis cumque officia labore at animi non nisi, dolores sapiente fugit fuga eos aliquid.</p> -->
                     <hr>
                     
                   <h5>Newsletter</h5>
