@@ -69,7 +69,7 @@
 
     // Topbar Searchbox
     $(document).ready(function(){
-        
+
         var submitIcon = $('.searchbox-icon');
         var inputBox = $('.searchbox-input');
         var searchBox = $('.searchbox');
@@ -83,12 +83,12 @@
                 if ($('.searchbox-input').val() != null && $('.searchbox-input').val() != '') {
                     searchBox.submit()
                 }
-                
+
                 searchBox.removeClass('searchbox-open');
                 inputBox.focusout();
                 isOpen = false;
             }
-        });  
+        });
          submitIcon.on('mouseup',function(){
                 return false;
             });
@@ -128,7 +128,7 @@
     });
 
 
-    // owl-carousel for main-slider 
+    // owl-carousel for main-slider
     $('.main-slider').owlCarousel({
         loop:true,
         nav:true,
@@ -156,7 +156,7 @@
     });
 
 
-    // owl-carousel for testimonial 
+    // owl-carousel for testimonial
     $('.testimonial-carousel').owlCarousel({
         loop:true,
         nav:false,
@@ -388,7 +388,7 @@
     });
 
 
-    // Parallax 
+    // Parallax
     $('.parallax').jarallax({
         // parallax effect speed. 0.0 - 1.0
         speed: 0.5
@@ -449,12 +449,12 @@
 
                 // Set the message text.
                 $(formMessages).text(response);
-
                 // Clear the form.
-                $('#name').val('');
-                $('#subject').val('');
-                $('#email').val('');
-                $('#message').val('');
+                $('form')[0].reset();
+                // $('#name').val('');
+                // $('#subject').val('');
+                // $('#email').val('');
+                // $('#message').val('');
             })
 
             .fail(function(data) {
@@ -507,7 +507,7 @@
                 //$('.add-watch').text('-Unwatch')
                 //$('.add-watch').addClass('add-unwatch')
                 //$('.add-watch').removeClass('add-watch')
-               }              
+               }
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -528,7 +528,7 @@
             data: {id: id} ,
             success: function (response) {
                 pa.find('.add-unwatch').hide()
-                pa.find('.add-watch').show()        
+                pa.find('.add-watch').show()
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -606,7 +606,7 @@
         slide: function(e, t) {
             d(t)
         }
-        
+
     })
     console.log(i.max)
     var n = function() {
@@ -705,7 +705,7 @@
         return e = parseInt(e), isNaN(e) && (e = p), e < c ? c + p : e < d ? d : (e % p > 0 && (e -= e % p), e < c + p ? c + p : e > f ? f : e)
     }
 
-    
+
 
     u["bl-required-deposit"].html("+$1,000")
     $("#deposit-input").val('$1000')
@@ -831,7 +831,7 @@
         var bid = parseInt($('#bid-now-value').val())
         bid = bid + 25
         $('#bid-now-value').val(bid)
-        
+
     })
     $('.increase-input span.subtract').click(function() {
         var bid = parseInt($('#bid-now-value').val())
@@ -839,7 +839,7 @@
             bid = bid - 25
             $('#bid-now-value').val(bid)
         }
-        
+
     })
     $("#advanced-search").on("click", function(t) {
         t.preventDefault();
@@ -857,7 +857,7 @@
     $(".input-date").datepicker();
 
     if ($('.fees-calc').length >= 1) {
-        
+
 
         $('.lot-calc .fees-calc__subtract').click(function() {
             var bid = parseInt($('#fees-calc__input').val())
@@ -991,4 +991,3 @@
 
 
 })(window.jQuery);
-

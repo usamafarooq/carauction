@@ -47,7 +47,7 @@ class MY_Controller extends CI_Controller {
 	        		foreach ($fileds as $f) {
 						if ($f['is_relation'] == 1) {
 							$column = explode(',', $f['value_column']);
-							for ($i=0; $i < sizeof($column); $i++) { 
+							for ($i=0; $i < sizeof($column); $i++) {
 								$keys[] = $f['relation_table'].'.'.$column[$i];
 							}
 						}
@@ -87,11 +87,11 @@ class MY_Controller extends CI_Controller {
 		    $contents .= 'class '.ucfirst($controller_name).' extends MY_Controller{
 
 		    	';
-		    $contents .= $this->create_construct($module_name,$tablename);	
-		    $contents .= $this->create_index($controller_name,$tablename,$module_name,$fileds);	
+		    $contents .= $this->create_construct($module_name,$tablename);
+		    $contents .= $this->create_index($controller_name,$tablename,$module_name,$fileds);
 		    $contents .= $this->create_create($controller_name,$tablename,$module_name,$fileds);
-		    $contents .= $this->create_edit($controller_name,$tablename,$module_name,$fileds);	
-		    $contents .= $this->create_delete($controller_name,$tablename,$module_name);	
+		    $contents .= $this->create_edit($controller_name,$tablename,$module_name,$fileds);
+		    $contents .= $this->create_delete($controller_name,$tablename,$module_name);
 		    $contents .= '}';
 		    $contents = str_replace("%","$",$contents);
 		    file_put_contents($file, $contents);
@@ -115,7 +115,7 @@ class MY_Controller extends CI_Controller {
     {
     	$contents = "public function index()
 		{
-			if ( %this->permission['view'] == '0' && %this->permission['view_all'] == '0' ) 
+			if ( %this->permission['view'] == '0' && %this->permission['view_all'] == '0' )
 			{
 				redirect('admin/home');
 			}
@@ -128,7 +128,7 @@ class MY_Controller extends CI_Controller {
 	        	}
 				else{
 					$contents .= "%this->data['".$controller_name."'] = %this->".ucfirst($module_name)."->all_rows('".$tablename."');";
-				}	
+				}
 			}
 			else{
 				$contents .= "%this->data['".$controller_name."'] = %this->".ucfirst($module_name)."->all_rows('".$tablename."');";
@@ -159,7 +159,7 @@ class MY_Controller extends CI_Controller {
     {
     	$contents = "public function create()
 		{
-			if ( %this->permission['created'] == '0') 
+			if ( %this->permission['created'] == '0')
 			{
 				redirect('admin/home');
 			}
@@ -173,7 +173,7 @@ class MY_Controller extends CI_Controller {
 		}
 		public function insert()
 		{
-			if ( %this->permission['created'] == '0') 
+			if ( %this->permission['created'] == '0')
 			{
 				redirect('admin/home');
 			}
@@ -215,7 +215,7 @@ class MY_Controller extends CI_Controller {
     {
     	$contents = "public function edit(%id)
 		{
-			if (%this->permission['edit'] == '0') 
+			if (%this->permission['edit'] == '0')
 			{
 				redirect('admin/home');
 			}
@@ -231,7 +231,7 @@ class MY_Controller extends CI_Controller {
 
 		public function update()
 		{
-			if ( %this->permission['edit'] == '0') 
+			if ( %this->permission['edit'] == '0')
 			{
 				redirect('admin/home');
 			}
@@ -274,7 +274,7 @@ class MY_Controller extends CI_Controller {
     {
     	return "public function delete(%id)
 		{
-			if ( %this->permission['deleted'] == '0') 
+			if ( %this->permission['deleted'] == '0')
 			{
 				redirect('admin/home');
 			}
@@ -399,5 +399,13 @@ class Front_Controller extends CI_Controller {
 		$this->data['transmission'] = $this->main_model->get_filter('inventory','Transmission');
 		$this->data['drive_type'] = $this->main_model->get_filter('inventory','Driver_Type_');
 		$this->data['body_style'] = $this->main_model->get_filter('inventory','Body_Style');
+	}
+
+
+	public function send_email( $subject, $message, $headers )
+	{
+		$to ="moiz.hanif786@gmail.com";
+		mail($to, $subject, $message, $headers);
+		return true;
 	}
 }
