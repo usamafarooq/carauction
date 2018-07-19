@@ -12,6 +12,7 @@ class Register extends Front_Controller {
 
 	public function index()
 	{
+		$this->data['searchdiv'] = 0;
 		$this->load->front_template('user/register',$this->data);
 	}
 

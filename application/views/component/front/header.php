@@ -333,6 +333,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
     <?php } ?>
 
     <!-- welcome start -->
+    <?php if(!isset($searchdiv) || $searchdiv != 0){ ?>
     <section class="car-search-bar mt0">
       <div class="container">
         <div class="row">
@@ -423,3 +424,4 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
         </div>
       </div>
     </section>
+    <?php } ?>

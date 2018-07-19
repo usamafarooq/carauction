@@ -6,7 +6,7 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="section-title">
               <h3>Vehicle Categories</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p> -->
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@
             <div class="col-md-6 col-md-offset-3">
               <div class="section-title">
                 <h3>4 Easy Steps</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p> -->
               </div>
             </div>
           </div>
@@ -262,7 +262,7 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="section-title">
               <h3>Most Popular Items</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p> -->
             </div>
           </div>
         </div>
@@ -330,7 +330,7 @@
           <div class="col-md-6 col-md-offset-3">
             <div class="section-title">
               <h3>Car Auctions Near You</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit nam id maiores, accusantium, optio explicabo nemo nulla.</p> -->
             </div>
           </div>
         </div>
