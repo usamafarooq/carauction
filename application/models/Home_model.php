@@ -9,12 +9,16 @@ class Home_model extends MY_Model
 				 ->group_by('inventory_id');
 				 //->where('inventory.id = inventory_images.inventory_id');
 		$images = $this->db->get_compiled_select();
+		$this->db->select('bid,stock_number')
+				 ->from('inventory_bids')
+				 ->group_by('stock_number');
+		$bid = $this->db->get_compiled_select();
 		$this->db->distinct();
 		$this->db->select('inventory.*,makes.Name as make,models.Name as model,inventory_images.images,vehicle_type.Name as type,auctions.Date as Sale_Date,inventory_bids.bid as amount')
 				 ->from('inventory')
 				 ->join('makes', 'makes.id = inventory.Make', 'left')
 				 ->join('models', 'models.id = inventory.Model')
-				 ->join('inventory_bids', 'inventory_bids.stock_number = inventory.Stock_ID', 'left')
+				 ->join('('.$bid.') inventory_bids', 'inventory_bids.stock_number = inventory.Stock_ID', 'left')
 				 ->join('vehicle_type', 'vehicle_type.id = inventory.type')
 				 ->join('auctions', 'auctions.id = inventory.Auction', 'left')
 				 ->join('locations', 'locations.id = auctions.Location')

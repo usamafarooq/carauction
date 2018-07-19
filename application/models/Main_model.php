@@ -29,11 +29,30 @@ class Main_model extends MY_Model
 
 	public function get_user($id)
 	{
-		$this->db->select('u.*,group_concat(ud.file separator ",") as document,group_concat(ud.id separator ",") as document_id')
+		$this->db->select('count(id) as watchlist, user_id')
+				 ->from('watchlist')
+				 ->group_by('user_id');
+		$watchlist = $this->db->get_compiled_select();
+		$this->db->select('count(id) as save_search, user_id')
+				 ->from('save_search')
+				 ->group_by('user_id');
+				 //->where('inventory.id = inventory_images.inventory_id');
+		$save_search = $this->db->get_compiled_select();
+		$this->db->select('u.*,group_concat(ud.file separator ",") as document,group_concat(ud.id separator ",") as document_id, w.watchlist, s.save_search')
 				 ->from('users u')
 				 ->join('user_document ud','ud.user_id = u.id', 'left')
+				 ->join('('.$watchlist.') w', 'w.user_id = u.id', 'left')
+				 ->join('('.$save_search.') s', 's.user_id = u.id', 'left')
 				 ->group_by('u.id')
 				 ->where('u.id',$id);
 		return $this->db->get()->row_array();		 
+	}
+
+	public function get_filter($table,$group)
+	{
+		$this->db->select($group)
+				 ->from($table)
+				 ->group_by($group);
+		return $this->db->get()->result_array();	
 	}
 }

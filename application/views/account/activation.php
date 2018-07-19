@@ -58,11 +58,14 @@
                         <h4>Upload a copy of your passport or national ID by pressing button below</h4>
                         <div class="document-list">
                           <?php 
-                            $document = explode(',', $user['document']);
-                            $document_id = explode(',', $user['document_id']);
-                            for ($i=0; $i < sizeof($document); $i++) { 
-                              echo '<li>'.str_replace('/uploads/', '', $document[$i]).' <i style="cursor: pointer;" class="remove-file" data-id="'.$document_id[$i].'">X</i></li>';
+                            if (!empty($user['document'])) {
+                                $document = explode(',', $user['document']);
+                                $document_id = explode(',', $user['document_id']);
+                                for ($i=0; $i < sizeof($document); $i++) { 
+                                  echo '<li>'.str_replace('/uploads/', '', $document[$i]).' <i style="cursor: pointer;" class="remove-file" data-id="'.$document_id[$i].'">X</i></li>';
+                                }
                             }
+                                
                           ?>
                         </div>
                         <center><button class="btn btn-default upload-btn upload-document" type="button">Upload Documents</button></center>

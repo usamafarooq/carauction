@@ -1,0 +1,145 @@
+.glue-modal {
+    display: none;
+    position: absolute;
+    width: 520px;
+    /* height: 345px; */
+    min-height: 94px;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7); */
+    /* top: 50%; */
+    left: 21.5%;
+    z-index: 10000;
+    text-align: left;
+}
+#fpc-bid-info-modal, #fpc-buynow-info-modal {
+    width: 310px;
+    min-height: 150px;
+    z-index: 1000;
+}
+#lgm-map-modal {
+    width: 450px;
+    height: 400px;
+}
+div#location-map {
+    width: auto;
+    height:  300px;
+}
+.glue-modal .title {
+    height: 35px;
+    background-color: #ffffff;
+    color: #333333;
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 30px 0 15px;
+    line-height: 35px;
+    position: relative;
+    margin-bottom:  0;
+}
+.glue-modal .close-modal {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url(https://sca.auction//img/closer-black.png) no-repeat center center transparent;
+    cursor: pointer;
+}
+.glue-modal .modal-arrow-up {
+    display: block;
+    width: 13px;
+    height: 6px;
+    background: url(https://sca.auction/img/modal-arrow-up.png) no-repeat 0 0 transparent;
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    margin-left: -6px;
+}
+.glue-modal .content {
+    padding: 10px 20px;
+}
+.glue-modal a {
+    /* color: #c80107; */
+    color: #e14045;
+    outline: none;
+}
+
+.bid-box {
+    position:  relative;
+}
+
+.select-label {
+    width: 49%;
+    display: inline-block;
+    position:  relative;
+}
+.site-form select, .site-form .textarea {
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0;
+    resize: none;
+    line-height: normal;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.custom-select {
+    width: 100% !important;
+    display: inline-block;
+    background: #fff url(https://sca.auction/img/select_arrow.png) right center no-repeat;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+    color: #666666;
+    height: 40px;
+    line-height: 38px;
+    border: 1px solid #e4e4e4;
+    box-sizing: border-box;
+    padding: 0 15px 0 10px;
+    border-radius: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+select.hasCustomSelect {
+    width: 100% !important;
+}
+.site-form .caption {
+    font-size: 12px;
+    padding-top: 10px;
+    word-wrap: break-word;
+    text-align: center;
+}
+.site-form .caption span {
+    color: #777777;
+}
+.site-form .button {
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none !important;
+    white-space: nowrap;
+    background: #1E69B8;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 25%;
+    vertical-align: middle;
+    margin-right: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 36px;
+    line-height: 36px;
+}
+
+form.site-form {
+    text-align:  center;
+}

@@ -337,9 +337,13 @@ class Front_Controller extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('main_model');
+		$this->load->model('locations_model');
 		$this->data['language'] = $this->get_language();
 		$this->data['vehicle_type'] = $this->get_vichel_type();
 		$this->data['make'] = $this->get_make();
+		if ($this->session->userdata('user_id')) {
+			$this->data['user'] = $this->get_user_detail();
+		}
 	}
 
 	public function get_language()
@@ -379,5 +383,21 @@ class Front_Controller extends CI_Controller {
 		$id = $this->session->userdata('user_id');
 		$user = $this->main_model->get_user($id);
 		return $user;
+	}
+
+	public function get_search_filters()
+	{
+		$this->data['locations'] = $this->main_model->all_rows('locations');
+		$this->data['states'] = $this->locations_model->get_state();
+		$this->data['sales_document'] = $this->main_model->get_filter('inventory','Sale_Document');
+		$this->data['primary_damage'] = $this->main_model->get_filter('inventory','Damage_Type');
+		$this->data['odometer'] = $this->main_model->get_filter('inventory','Odometer');
+		$this->data['color'] = $this->main_model->get_filter('inventory','Exterior_Color');
+		$this->data['fuel_type'] = $this->main_model->get_filter('inventory','Fuel_Type');
+		$this->data['engine_type'] = $this->main_model->get_filter('inventory','Engine');
+		$this->data['cylinder'] = $this->main_model->get_filter('inventory','Cylinder');
+		$this->data['transmission'] = $this->main_model->get_filter('inventory','Transmission');
+		$this->data['drive_type'] = $this->main_model->get_filter('inventory','Driver_Type_');
+		$this->data['body_style'] = $this->main_model->get_filter('inventory','Body_Style');
 	}
 }

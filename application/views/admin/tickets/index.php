@@ -39,7 +39,7 @@
 										<table id="dataTableExample2" class="table table-bordered table-striped table-hover">
 											<thead>
 												<tr>
-													<th>Id</th><th>Priority</th><th>Subject</th><th>Message</th><th>FIle</th><?php 
+													<th>Id</th><th>Priority</th><th>Subject</th><th>Message</th><th>FIle</th><th>Status</th><?php 
 														if ($permission["edit"] == "1" || $permission["deleted"] == "1"){
 													?>
 													<th>Action</th>
@@ -51,10 +51,14 @@
 										    		foreach ($tickets as $module) {
 										    	?>
 												<tr>
-													<td><?php echo $module["id"] ?></td><td><?php echo $module["Priority"] ?></td><td><?php echo $module["Subject"] ?></td><td><?php echo $module["Message"] ?></td><td><a href="<?php echo base_url() ?>/<?php echo $module["FIle"] ?>">View File</a></td><?php 
+													<td><?php echo $module["id"] ?></td><td><?php echo $module["Priority"] ?></td><td><?php echo $module["Subject"] ?></td><td><?php echo $module["Message"] ?></td><td><a href="<?php echo base_url() ?>/<?php echo $module["FIle"] ?>">View File</a></td><td><?=($module['status'] == 1) ?'Open':'Close'?></td><?php 
 														if ($permission["edit"] == "1" || $permission["deleted"] == "1"){
 													?>
 													<td>
+														<a href="<?php echo base_url() ?>admin/tickets/thread/<?php echo $module["id"] ?>"><button class="btn btn-info btn-circle material-ripple"><i class="material-icons">view_headline</i></button></a>
+														<?php if($module['status'] == 1){?>
+														<a href="<?php echo base_url() ?>admin/tickets/close/<?php echo $module["id"] ?>"><button class="btn btn-info btn-circle material-ripple"><i class="material-icons">done_all</i></button></a>
+														<?php } ?>
 														<?php 
 															if ($permission["edit"] == "1") {
 														?>

@@ -100,6 +100,7 @@ function locationInfo() {
                         if(cityval) {
                             if (cityval == val) {
                                 option.attr('selected', 'selected');
+                                $('#cityId').parent().find('.custom-selectInner').text(val)
                             }
                         }
                         jQuery('.cities').append(option);
@@ -162,6 +163,7 @@ function locationInfo() {
                             option.attr('selected', 'selected');
                             var loc = new locationInfo();
                             loc.getCities(key);
+                            $('#stateId').parent().find('.custom-selectInner').text(val)
                         }
                     }
                     jQuery('.states').append(option);

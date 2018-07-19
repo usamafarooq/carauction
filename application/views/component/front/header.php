@@ -85,7 +85,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
     <link rel="icon" type="image/png" href="<?php echo base_url('front_assets/images/apple-favicon.png') ?>">
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url('front_assets/images/favicon.png') ?>">
 
-    <title>Car Hut - Car Dealer And Business HTML Template</title>
+    <title>Car Hut</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<?php echo base_url('front_assets/css/bootstrap.min-v3.3.7.css') ?>">
@@ -94,8 +94,11 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.css') ?>">
 
+    <link rel="stylesheet" href="<?php echo base_url('front_assets/css/jquery-ui.min.css') ?>">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/style.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/models.css') ?>">
 
     <!-- Responsive stylesheet  -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('front_assets/css/responsive.css') ?>">
@@ -124,21 +127,19 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                       <ul class="topbar-info">
                           <li>
-                            <select class="language-tab">
+                            <div id="google_translate_element"></div>
+                            <!-- <select class="language-tab">
                               <?php 
                                 foreach ($language as $l) {
                                   echo '<option value="'.$l['Short_Name'].'">'.$l['Name'].'</option>';
                                 }
                               ?>
-                                  <!-- <option value="eng">English</option>
-                                  <option value="saab">Franch</option>
-                                  <option value="opel">Japanies</option>
-                                  <option value="audi">Arabic</option> -->
-                            </select>
+                            </select> -->
                           </li>
-                          <li><p><i class="fa fa-phone" aria-hidden="true"></i> +99 123 123 123</p></li>
-                          <li><p><i class="fa fa-envelope"></i>   <a href="#">info@yourmail.com</a></p></li>
+                          <li><p><i class="fa fa-phone" aria-hidden="true"></i> 6157077286</p></li>
+                          <li><p><i class="fa fa-envelope"></i>   <a href="#">info@auctionglauto.com</a></p></li>
                       </ul>
+                      <div id="google_translate_element"></div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="topbar-right-content clearfix">
@@ -236,15 +237,44 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                                             <li><a href="<?php echo base_url('pages/page/how-it-work') ?>">How It Work</a></li>
                                             <li><a href="<?php echo base_url('pages/page/faqs') ?>">FAQs</a></li>
                                             <li><a href="<?php echo base_url('pages/page/contact-us') ?>">Contact Us</a></li>
-                                            <li><a href="<?php echo base_url('pages/page/call-back') ?>">E-Contact Form</a></li>
-                                            <li><a href="#">Have Us To Call You</a></li>
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">Member Reviews</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/e-contact') ?>">E-Contact Form</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/call-back') ?>">Have Us To Call You</a></li>
+                                            <li><a href="<?php echo base_url('pages/page/about-us') ?>">About Us</a></li>
+                                            <li><a href="<?php echo base_url('reviews') ?>">Member Reviews</a></li>
                                             <?php if (!$this->session->userdata('user_id')) { ?>
                                             <li><a href="<?php echo base_url('register') ?>">Registration</a></li>
                                             <?php } ?>
                                         </ul>
                                     </li> 
+                                    <?php if ($this->session->userdata('user_id')) { ?>
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                      <ul class="dropdown-menu">
+                                        <li><a href="<?php echo base_url('my_account') ?>">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url('account_activation') ?>">Account Activation</a></li>
+                                        <li><a href="<?php echo base_url('save-search') ?>">Save Search</a></li>
+                                        <li><a href="<?php echo base_url('watchlist') ?>">Watchlist</a></li>
+                                        <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Document center</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url('document_center/waiting') ?>">Waiting for e-Signature</a></li>
+                                            <li><a href="<?php echo base_url('document_center/processing') ?>">Processing</a></li>
+                                            <li><a href="<?php echo base_url('document_center/completed') ?>">Completed</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a href="<?php echo base_url('bidding_limit') ?>">Bidding Limit</a></li>
+                                        <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="<?php echo base_url('profile/personal') ?>">Personal Information</a></li>
+                                            <li><a href="<?php echo base_url('profile/billing') ?>">Billing Information</a></li>
+                                            <li><a href="<?php echo base_url('profile/account') ?>">Login and Password</a></li>
+                                            <li><a href="<?php echo base_url('profile/membership') ?>">Membership</a></li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <?php } ?>
                                     <!--<li><a href="contact.html">Contact</a>
                                     </li>-->
                                     <li><div class="tobar-searchbox">
@@ -310,7 +340,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="type">
-                  <option value="0" selected>All Vehicle Types</option>
+                  <option selected>All Vehicle Types</option>
                   <?php 
                     foreach ($vehicle_type as $v) {
                   ?>
@@ -358,7 +388,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="make" class="make_id">
-                  <option value="0" selected>All Makes</option>
+                  <option value="" selected>All Makes</option>
                   <?php 
                     foreach ($make as $v) {
                   ?>
@@ -370,7 +400,7 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
             <div class="col-md-3 col-sm-6">
               <div class="search-col">
                 <select name="model" id="model_dropdown">
-                  <option value="0" selected>All Model</option>
+                  <option value="" selected>All Model</option>
                 </select>
               </div>
             </div>
@@ -380,8 +410,8 @@ function Pagination($data, $limit = null, $current = null, $adjacents = null)
                   Price Range: <span id="amount"></span>
                 </p>
                 <div id="slider-range"></div>
-                <input type="hidden" name="min" id="amount1">
-                <input type="hidden" name="max" id="amount2">
+                <input type="hidden" name="min" id="amount1" value="10000">
+                <input type="hidden" name="max" id="amount2" value="50000">
               </div>
             </div>
             <div class="col-md-3 col-sm-12">

@@ -63,8 +63,8 @@
                 <div class="border-style-2"></div>
               </div>
               <ul class="address">
-                <li><i class="fa fa-phone" aria-hidden="true"></i> Phone: 001 (407) 901-6400</li> 
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:">Email: info@abc.com</a></li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i> Phone: 6157077286</li> 
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:">Email: info@auctionglauto.com</a></li>
               </ul>
             </div>
           </div>
@@ -104,7 +104,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <p>Copyright © 2015-2018 SCA AUCTIONS, LLC. SCA™ trademark and SCA™ logo are registered to SCA AUCTIONS, LLC. All Rights Reserved. All other logos, brands and designated trademarks are the property of their respective holders.</p>
+            <p>Copyright © 2015-2018 Car Hut</p>
           </div>
         </div>
       </div>
@@ -144,8 +144,21 @@
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/lib/moment.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('admin_assets/assets/plugins/fullcalendar/fullcalendar.min.js') ?>"></script>
     <!-- Main Custom JS -->
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script type="text/javascript" src="https://www.mylivechat.com/chatinline.aspx?hccid=68268000"></script>
+
     
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/custom.js') ?>"></script>
+
+
     
     <script type="text/javascript">
       $(document).ready(function() {
@@ -215,6 +228,38 @@
           
       }
 
+      $('#make_search').on('change', function() {
+          var make_id = $(this).val();
+          make_id = $('#make_search option[value="'+make_id+'"]').attr('data-id')
+          get_model_search(make_id);
+      });
+
+      function get_model_search(make_id) 
+      {
+          $.ajax({
+              url: '<?php echo base_url('home/get_by_make_id') ?>',
+              type: 'POST',
+              dataType: 'JSON',
+              data: {make_id: make_id},
+          })
+          .done(function(response) {
+              var res = response.data;
+              var row = '<option value="">All Model</option>';
+              $.each(res, function(index, el) {
+                  row += createRow(el);
+              });
+
+              $('#model_search').html(row);
+          })
+          .fail(function() {
+              console.log("error");
+          })
+          .always(function() {
+              console.log("complete");
+          });
+          
+      }
+
 
       var createRow = function ( obj ) {
           var row =  '<option value="'+obj.Name+'">'+obj.Name+'</option>';
@@ -262,9 +307,14 @@
       })
     </script>  
     <script type="text/javascript" src="<?php echo base_url('front_assets/js/countrys.js') ?>"></script>
-    <?php if(!isset($locations)){ ?>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script>
-    <script type="text/javascript" src="<?php echo base_url('front_assets/js/map.js') ?>"></script>
-    <?php } ?> 
+    <?php //if(!$location) print_r($location) ?>
+    <?php 
+      if(isset($locations) || isset($location) || isset($detail)){
+        
+      } 
+      else{
+        echo '<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyLmOX8AkuEoneYCEG1TP-gYqb38aeMc&amp;callback=initMap" type="text/javascript"></script><script type="text/javascript" src="'.base_url('front_assets/js/map.js').'"></script>';
+      }
+    ?> 
 </body>
 </html>
